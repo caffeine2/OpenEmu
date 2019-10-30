@@ -210,16 +210,16 @@ static inline id OEKeyForState(OEThemeState state) {
     return nil;
 }
 
-+ (OEThemeState)themeStateWithWindowActive:(BOOL)windowActive buttonState:(NSCellStateValue)state selected:(BOOL)selected enabled:(BOOL)enabled focused:(BOOL)focused houseHover:(BOOL)hover modifierMask:(NSUInteger)modifierMask {
++ (OEThemeState)themeStateWithWindowActive:(BOOL)windowActive buttonState:(NSControlStateValue)state selected:(BOOL)selected enabled:(BOOL)enabled focused:(BOOL)focused houseHover:(BOOL)hover modifierMask:(NSUInteger)modifierMask {
     return ((windowActive ? OEThemeInputStateWindowActive : OEThemeInputStateWindowInactive) |
             (selected ? OEThemeInputStatePressed : OEThemeInputStateUnpressed) |
             (enabled ? OEThemeInputStateEnabled : OEThemeInputStateDisabled) |
             (focused ? OEThemeInputStateFocused : OEThemeInputStateUnfocused) |
             (hover ? OEThemeInputStateMouseOver : OEThemeInputStateMouseOff) |
 
-            ((modifierMask & NSAlternateKeyMask) != 0 ? OEThemeInputStateModifierAlternate : OEThemeInputStateModifierNone) |
+            ((modifierMask & NSEventModifierFlagOption) != 0 ? OEThemeInputStateModifierAlternate : OEThemeInputStateModifierNone) |
             
-            (state == NSOnState ? OEThemeInputStateToggleOn : (state == NSMixedState ? OEThemeInputStateToggleMixed : OEThemeInputStateToggleOff)));
+            (state == NSControlStateValueOn ? OEThemeInputStateToggleOn : (state == NSControlStateValueMixed ? OEThemeInputStateToggleMixed : OEThemeInputStateToggleOff)));
 }
 
 - (NSString *)description {

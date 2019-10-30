@@ -149,7 +149,7 @@
 - (void)OE_windowKeyChanged:(NSNotification *)notification
 {
     // The keyedness of the window has changed, we want to redisplay the button with the new state, this is only fired when NSWindowDidBecomeMainNotification and NSWindowDidResignMainNotification is registered.
-    [self setNeedsDisplay];
+    [self setNeedsDisplay:YES];
     [self setStringValue:[self stringValue]];
 
     if([self currentEditor])
@@ -172,7 +172,7 @@
     {
         _trackMouseActivity = shouldTrackMouseActivity;
         [self updateTrackingAreas];
-        [self setNeedsDisplay];
+        [self setNeedsDisplay:YES];
 
     }
 }
@@ -189,7 +189,7 @@
         else
         {
             __block id blockself = self;
-            _modifierEventMonitor = [NSEvent addLocalMonitorForEventsMatchingMask:NSEventMaskFromType(NSFlagsChanged) handler:^NSEvent*(NSEvent* e) {
+            _modifierEventMonitor = [NSEvent addLocalMonitorForEventsMatchingMask:NSEventMaskFromType(NSEventTypeFlagsChanged) handler:^NSEvent*(NSEvent* e) {
                 [blockself setNeedsDisplayInRect:[self bounds]];
                 return e;
             }];
@@ -236,6 +236,7 @@
     [cancelButtonCell setAction:[oldCancelButtonCell action]];
     [cancelButtonCell setTarget:[oldCancelButtonCell target]];
     [cancelButtonCell setThemeKey:[key stringByAppendingString:@"_cancel"]];
+    [cancelButtonCell setImagePosition:NSImageLeft];
     [[self cell] setCancelButtonCell:cancelButtonCell];
 
     // setup search button
@@ -278,7 +279,7 @@
     {
         [cell setBackgroundThemeImage:backgroundThemeImage];
         [self OE_updateNotifications];
-        [self setNeedsDisplay];
+        [self setNeedsDisplay:YES];
     }
 }
 
@@ -295,7 +296,7 @@
     {
         [cell setThemeImage:themeImage];
         [self OE_updateNotifications];
-        [self setNeedsDisplay];
+        [self setNeedsDisplay:YES];
     }
 }
 
@@ -312,7 +313,7 @@
     {
         [cell setThemeTextAttributes:themeTextAttributes];
         [self OE_updateNotifications];
-        [self setNeedsDisplay];
+        [self setNeedsDisplay:YES];
     }
 }
 
@@ -329,7 +330,7 @@
     {
         [cell setSelectedThemeTextAttributes:themeTextAttributes];
         [self OE_updateNotifications];
-        [self setNeedsDisplay];
+        [self setNeedsDisplay:YES];
     }
 }
 

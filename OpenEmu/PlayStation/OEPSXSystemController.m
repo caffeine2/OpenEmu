@@ -37,7 +37,7 @@
 
     // TODO: Add frontend method to receive NSError from -canHandleFile: in system plugins; this doesn't belong here.
     // Check for ECM magic header. Fix for https://github.com/OpenEmu/OpenEmu/issues/2588
-    uint8_t bytes[] = { 0x45, 0x43, 0x4D, 0x00 };
+    const uint8_t bytes[] = { 0x45, 0x43, 0x4D, 0x00 };
     NSData *dataCompare = [[NSData alloc] initWithBytes:bytes length:sizeof(bytes)];
     NSData *dataTrackBuffer = [file readDataInRange:NSMakeRange(0, 4)];
     BOOL isBinaryECM = [dataTrackBuffer isEqualToData:dataCompare];
@@ -49,7 +49,7 @@
 
             alert.messageText = NSLocalizedString(@"ECM compressed binary detected.", @"");
             alert.informativeText = NSLocalizedString(@"ECM compressed binaries cannot be imported. Please read the disc importing guide.", @"");
-            alert.alertStyle = NSCriticalAlertStyle;
+            alert.alertStyle = NSAlertStyleCritical;
             [alert addButtonWithTitle:NSLocalizedString(@"View Guide in Browser", @"")];
             [alert addButtonWithTitle:NSLocalizedString(@"Dismiss", @"")];
 

@@ -106,6 +106,8 @@
 
 "Collections" = "Коллекции";
 
+"Configure Shader…" = "Настроить Ше́йдер…";
+
 "Consoles" = "Консоли";
 
 "Consolidate Files…" = "Консолидировать файлы…";
@@ -422,7 +424,7 @@
 
 "Select Display Mode" = "Режим отображения";
 
-"Select Filter" = "Выбрать фильтр";
+"Select Shader" = "Выбрать Ше́йдер";
 
 "Select Scale" = "Выберите размер";
 
@@ -587,7 +589,7 @@
 
 "Take screenshots in native size" = "Делать снимки экрана в реальном размере";
 
-"Disable aspect ratio correction" = "Отключить коррекцию соотношения сторон";
+"Disable aspect ratio correction in screenshots" = "Отключить коррекцию соотношения сторон"; // TODO: specify "in screenshots"
 
 "Game View Background color" = "Цвет фона окна игры";
 
@@ -656,3 +658,9 @@
 "Threshold for analog controls bound to buttons" = "Threshold for analog controls bound to buttons";    // TODO
 
 "Range: %@ to %@" = "Range: %@ to %@";  // Range indicator tooltip for numeric text boxes in the Debug Preferences // TODO
+
+"Default Value: %@" = "Default Value: %@";  // Default value tooltip format in the Debug Preferences // TODO
+
+"Checked" = "Checked";  // Default value tooltip for checkboxes: checked default // TODO
+
+"Unchecked" = "Unchecked";  // Default value tooltip for checkboxes: unchecked default // TODO

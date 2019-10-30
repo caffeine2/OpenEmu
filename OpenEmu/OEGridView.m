@@ -48,12 +48,15 @@ NSString *const OEImageBrowserGroupSubtitleKey = @"OEImageBrowserGroupSubtitleKe
 //Removed the Category (ScaleFactorAdditions) in the IKCGRenderer implementation, for Compatibility with MacOS 10.14(beta 5)
 //With this temporary fix the App compiles in XCode 10b and Runs without crashing on startup on Mojave
 
+#pragma GCC diagnostic push
+#pragma clang diagnostic ignored "-Weverything"
 @implementation IKCGRenderer /*(ScaleFactorAdditions)*/
 - (unsigned long long)scaleFactor
 {
     return self->_currentScaleFactor ?: 1.0;
 }
 @end
+#pragma GCC diagnostic pop
 
 @interface NSView (ApplePrivate)
 - (void)setClipsToBounds:(BOOL)arg1;
@@ -122,7 +125,7 @@ static NSImage *lightingImage;
         [self setGroupThemeKey:@"grid_group"];
     }
 
-    [self registerForDraggedTypes:[NSArray arrayWithObjects:NSFilenamesPboardType, NSPasteboardTypePNG, NSPasteboardTypeTIFF, nil]];
+    [self registerForDraggedTypes:@[NSFilenamesPboardType, NSPasteboardTypePNG, NSPasteboardTypeTIFF]];
     [self setAllowsReordering:NO];
     [self setAllowsDroppingOnItems:YES];
     [self setAnimates:NO];
@@ -479,14 +482,6 @@ static NSImage *lightingImage;
         NSMenu *contextMenu = [(id <OEGridViewMenuSource>)[self dataSource] gridView:self menuForItemsAtIndexes:indexes];
         if(!contextMenu) return nil;
 
-        IKImageBrowserCell *itemCell   = [self cellForItemAtIndex:index];
-
-        NSRect          hitRect             = NSInsetRect([itemCell imageFrame], 5, 5);
-        //NSRect          hitRectOnView       = [itemCell convertRect:hitRect toLayer:self.layer];
-        NSRect          hitRectOnWindow     = [self convertRect:hitRect toView:nil];
-        NSRect          visibleRectOnWindow = [self convertRect:[self visibleRect] toView:nil];
-        NSRect          visibleItemRect     = NSIntersectionRect(hitRectOnWindow, visibleRectOnWindow);
-
         // Display the menu
         [[self window] makeFirstResponder:self];
         [NSMenu popUpContextMenu:contextMenu withEvent:theEvent forView:self];
@@ -707,31 +702,31 @@ static NSImage *lightingImage;
     if([self dropOperation] != IKImageBrowserDropBefore) return;
 
     NSUInteger scaleFactor = [renderer scaleFactor];
-    [renderer setColorRed:0.03 Green:0.41 Blue:0.85 Alpha:1.0];
+    NSColor *dragColor = [[NSColor controlAccentColor] colorUsingColorSpace:self.window.colorSpace];
+    [renderer setColorRed:dragColor.redComponent Green:dragColor.greenComponent Blue:dragColor.blueComponent Alpha:dragColor.alphaComponent];
     
-    NSRect dragRect = [[self enclosingScrollView] documentVisibleRect];
-    
-    NSEdgeInsets contentInsets = [[self enclosingScrollView] contentInsets];
-    dragRect.size.height -= contentInsets.top + contentInsets.bottom + 2;
-    
-    dragRect = NSInsetRect(dragRect, 1.0*scaleFactor, 1.0*scaleFactor);
-    dragRect = NSIntegralRect(dragRect);
+    NSRect dragRect = NSIntegralRect([[self enclosingScrollView] documentVisibleRect]);
+    NSEdgeInsets insets = [[self enclosingScrollView] contentInsets];
+    dragRect.origin.x += insets.left;
+    dragRect.origin.y += insets.bottom;
+    dragRect.size.width -= insets.left + insets.right;
+    dragRect.size.height -= insets.bottom + insets.top;
+    dragRect = NSInsetRect(NSIntegralRect(dragRect), 2.0+1.0, 2.0+1.0);
 
-    [renderer drawRoundedRect:dragRect radius:8.0*scaleFactor lineWidth:2.0*scaleFactor cacheIt:YES];
-}
-
-- (void)drawGroupsOverlays
-{
-    [super drawGroupsOverlays];
-
-    const id <IKRenderer> renderer = [self renderer];
-    const NSRect visibleRect = [[self enclosingScrollView] documentVisibleRect];
-    
-    [renderer setColorRed:0.0 Green:0.0 Blue:0.0 Alpha:1.0];
-    [renderer fillRect:NSMakeRect(0, NSMinY(visibleRect)-10, NSWidth(visibleRect), 10)];
+    [renderer drawRoundedRect:dragRect radius:8.0 lineWidth:2.0*scaleFactor cacheIt:YES];
 }
 
 #pragma mark - Groups
+
+- (CGRect)_rectOfGroupHeader:(IKImageBrowserGridGroup *)group
+{
+    CGRect rect = [super _rectOfGroupHeader:group];
+    NSImage *bgimg = [[self groupBackgroundImage] imageForState:OEThemeStateDefault];
+    rect.origin.y = rect.origin.y + rect.size.height - (bgimg.size.height - 3.0);
+    rect.size.height = bgimg.size.height - 3.0;
+    return rect;
+}
+
 - (id)gridGroupFromDictionary:(NSDictionary*)arg1
 {
     IKImageBrowserGridGroup *group = [super gridGroupFromDictionary:arg1];
@@ -744,16 +739,27 @@ static NSImage *lightingImage;
 
 - (void)drawGroupsBackground
 {
-    const NSRect visibleRect = [self visibleRect];
+}
+
+- (void)drawGroupsOverlays
+{
+    [super drawGroupsOverlays];
+
+    const id <IKRenderer> renderer = [self renderer];
+    const NSRect visibleRect = [[self enclosingScrollView] documentVisibleRect];
+    
+    [renderer setColorRed:0.0 Green:0.0 Blue:0.0 Alpha:1.0];
+    [renderer fillRect:NSMakeRect(0, NSMinY(visibleRect)-10, NSWidth(visibleRect), 10)];
+    
+    //const NSRect visibleRect = [self visibleRect];
     [[[self layoutManager] groups] enumerateObjectsUsingBlock:^(IKImageBrowserGridGroup *group, NSUInteger idx, BOOL *stop) {
-        const NSRect groupHeaderRect = [self _rectOfGroupHeader:group];
+        const NSRect groupHeaderRect = [self rectOfFloatingGroupHeader:group];
         // draw group header if it's visible
         if(!NSEqualRects(NSIntersectionRect(visibleRect, groupHeaderRect), NSZeroRect))
         {
             [self drawGroup:group withRect:groupHeaderRect];
         }
     }];
-
 }
 
 - (void)drawGroup:(IKImageBrowserGridGroup*)group withRect:(NSRect)headerRect
@@ -765,10 +771,11 @@ static NSImage *lightingImage;
 
     OEThemeState state = OEThemeStateDefault;
 
-    NSImage *nsbackgroundImage = [[self groupBackgroundImage] imageForState:state];
-    IKImageWrapper *backgroundImage = [IKImageWrapper imageWithNSImage:nsbackgroundImage];
+    NSImage *bgimg = [[self groupBackgroundImage] imageForState:state];
+    CGImageRef img = [bgimg CGImageForProposedRect:NULL context:[NSGraphicsContext currentContext] hints:nil];
+    IKImageWrapper *backgroundImage = [IKImageWrapper imageWithCGImage:img];
 
-    const NSSize backgroundImageSize = [backgroundImage size];
+    const NSSize backgroundImageSize = bgimg.size;
     headerRect.origin.y   += NSHeight(headerRect)-backgroundImageSize.height;
     headerRect.size.height = backgroundImageSize.height;
 

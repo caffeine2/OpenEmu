@@ -44,7 +44,7 @@
     
     
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-    [style setAlignment:NSRightTextAlignment];
+    [style setAlignment:NSTextAlignmentRight];
     [attributes setObject:style forKey:NSParagraphStyleAttributeName];
     
     self.textAttributes = attributes;
@@ -62,6 +62,13 @@
 
     [self setFont:font];
     _fontFamily = aFontFamily;
+}
+
+- (void)drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
+{
+    /* Overriding this method fixes shadow rendering in macOS Catalina.
+     * Don't ask how because I have no idea. */
+    [super drawWithFrame:cellFrame inView:controlView];
 }
 
 @end

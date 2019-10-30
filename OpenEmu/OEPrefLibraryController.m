@@ -130,7 +130,7 @@ NSString * const OELibraryLocationDidChangeNotificationName = @"OELibraryLocatio
     [openPanel beginSheetModalForWindow:[[self view] window] completionHandler:
      ^(NSInteger result)
      {
-         if(result == NSFileHandlingPanelOKButton)
+         if(result == NSModalResponseOK)
              // give the openpanel some time to fade out
              dispatch_async(dispatch_get_main_queue(), ^{
                  [self OE_moveGameLibraryToLocation:[openPanel URL]];
@@ -530,7 +530,7 @@ NSString * const OELibraryLocationDidChangeNotificationName = @"OELibraryLocatio
          NSString *systemIdentifier = system.systemIdentifier;
          OEButton *button = [[OEButton alloc] initWithFrame:rect];
          [button setThemeKey:@"dark_checkbox"];
-         button.buttonType = NSSwitchButton;
+         button.buttonType = NSButtonTypeSwitch;
          button.target = self;
          button.action = @selector(toggleSystem:);
          button.title = system.name;

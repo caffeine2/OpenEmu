@@ -41,8 +41,6 @@
 
 #import "OEThreadProxy.h"
 
-// we are going to be cheap and just use gameCore for now.
-
 @class OEGameAudio;
 @class OEGameCoreProxy;
 
@@ -57,9 +55,9 @@ enum _OEHelperAppErrorCodes
 
 @interface OpenEmuHelperApp : NSResponder <NSApplicationDelegate, OEGameCoreHelper, OERenderDelegate, OEAudioDelegate>
 
-@property id<OEGameCoreOwner> gameCoreOwner;
-@property(readonly) OEGameCore *gameCore;
-@property(readonly) Protocol *gameSystemResponderClientProtocol;
+@property(nonatomic) id<OEGameCoreOwner> gameCoreOwner;
+@property(nonatomic, readonly) OEGameCore *gameCore;
+@property(nonatomic, readonly) Protocol *gameSystemResponderClientProtocol;
 @property(nonatomic) BOOL handleEvents;
 @property(nonatomic) BOOL handleKeyboardEvents;
 

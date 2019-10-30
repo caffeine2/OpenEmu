@@ -163,7 +163,7 @@ class AppDelegate: NSDocumentController {
             OEDefaultDatabasePathKey: path,
             OEDatabasePathKey: path,
             OEAutomaticallyGetInfoKey: true,
-            OEGameDefaultVideoFilterKey: "Pixellate",
+            OEShadersModel.Preferences.global.key: "Pixellate",
             OEGameVolumeKey: 0.5,
             "defaultCore.openemu.system.nes": "org.openemu.Nestopia",
             "defaultCore.openemu.system.snes": "org.openemu.SNES9x",
@@ -188,6 +188,7 @@ class AppDelegate: NSDocumentController {
         // Trigger Objective-C +initialize methods in these classes.
         _ = OEControllerDescription.self
         _ = OEToolTipManager.self
+        _ = OEAudioDeviceManager.shared
         
         // Reset preferences for default cores when migrating to 2.0.3. This is an attempt at cleanup after 9d5d696d07fe651f44f16f8bf8b98c87d90fe53f and d36e9ad4b7097f21ffbbe32d9cea3b72a390bc0f and for getting as many users as possible onto mGBA.
         OEVersionMigrationController.default.addMigratorTarget(self, selector: #selector(AppDelegate.migrationRemoveCoreDefaults), forVersion: "2.0.3")
@@ -583,12 +584,6 @@ class AppDelegate: NSDocumentController {
         
         OEPlugin.registerPluginClass(OECorePlugin.self)
         OEPlugin.registerPluginClass(OESystemPlugin.self)
-        OEPlugin.registerPluginClass(OEGLSLShaderPlugin.self)
-        
-        #if CG_SUPPORT
-        OEPlugin.registerPluginClass(OECGShaderPlugin.self)
-        OEPlugin.registerPluginClass(OEMultipassShaderPlugin.self)
-        #endif
         
         // Register all system controllers with the bindings controller.
         for plugin in OESystemPlugin.allPlugins as! [OESystemPlugin] {
@@ -656,7 +651,34 @@ class AppDelegate: NSDocumentController {
     fileprivate func setUpHIDSupport() {
         // Set up OEBindingsController.
         _ = OEBindingsController.self
-        _ = OEDeviceManager.shared()
+        let dm = OEDeviceManager.shared()
+        if #available(macOS 10.15, *) {
+            switch dm.accessType {
+            case .unknown:
+                dm.requestAccess()
+                
+            case .denied:
+                DispatchQueue.main.async {
+                    self.showInputMonitoringPermissionsAlert()
+                }
+                
+            default:
+                break
+            }
+        }
+    }
+    
+    fileprivate func showInputMonitoringPermissionsAlert() {
+        let alert = OEHUDAlert()
+        alert.headlineText = NSLocalizedString("OpenEmu requires additional permissions", comment:"Headline for Input Monitoring permissions")
+        alert.messageText = NSLocalizedString("OpenEmu must be granted the Input Monitoring permission in order to use the keyboard as an input device.\n\nToggling the permission may also resolve keyboard input issues.", comment:"Message for Input Monitoring permissions")
+        alert.defaultButtonTitle = NSLocalizedString("Show", comment:"")
+        alert.alternateButtonTitle = NSLocalizedString("Ignore", comment: "")
+
+        let res = alert.runModal()
+        if res == .alertFirstButtonReturn {
+            NSWorkspace.shared.open(URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_ListenEvent")!)
+        }
     }
     
     // MARK: - Help Menu
@@ -1044,7 +1066,7 @@ extension AppDelegate: NSMenuDelegate {
         updateControlsMenu()
         
         // Preload shader plug-ins so HUD controls bar and gameplay preferences load faster.
-        _ = OEShaderPlugin.allPluginNames
+        _ = OEShadersModel.shared.shaders
         
         if !restoreWindow {
             mainWindowController.showWindow(nil)
@@ -1058,7 +1080,10 @@ extension AppDelegate: NSMenuDelegate {
         bind(NSBindingName(rawValue: "backgroundControllerPlay"), to: userDefaultsController, withKeyPath: "values.backgroundControllerPlay", options: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.windowDidBecomeKey), name: NSWindow.didBecomeKeyNotification, object: nil)
-        
+
+        NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.deviceManagerDidChangeGlobalEventMonitor(_:)), name: NSNotification.Name.OEDeviceManagerDidAddGlobalEventMonitorHandler, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.deviceManagerDidChangeGlobalEventMonitor(_:)), name: NSNotification.Name.OEDeviceManagerDidRemoveGlobalEventMonitorHandler, object: nil)
+
         for startupQueueItem in startupQueue {
             startupQueueItem()
         }
@@ -1121,6 +1146,10 @@ extension AppDelegate: NSMenuDelegate {
         } else {
             startupQueue.append(block)
         }
+    }
+
+    @objc func deviceManagerDidChangeGlobalEventMonitor(_ notification: Notification) {
+        updateEventHandlers()
     }
     
     func applicationDidResignActive(_ notification: Notification) {

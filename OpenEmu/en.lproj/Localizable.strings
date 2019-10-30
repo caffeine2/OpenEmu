@@ -106,6 +106,8 @@
 
 "Collections" = "Collections";
 
+"Configure Shader…" = "Configure Shader…";
+
 "Consoles" = "Consoles";
 
 "Consolidate Files…" = "Consolidate Files…";
@@ -422,7 +424,7 @@
 
 "Select Display Mode" = "Display Modes";
 
-"Select Filter" = "Filters";
+"Select Shader" = "Shaders";
 
 "Select Scale" = "Scale";
 
@@ -587,7 +589,7 @@
 
 "Take screenshots in native size" = "Take screenshots in native size";
 
-"Disable aspect ratio correction" = "Disable aspect ratio correction";
+"Disable aspect ratio correction in screenshots" = "Disable aspect ratio correction in screenshots";
 
 "Game View Background color" = "Game View Background color";
 
@@ -656,3 +658,9 @@
 "Threshold for analog controls bound to buttons" = "Threshold for analog controls bound to buttons";
 
 "Range: %@ to %@" = "Range: %@ to %@";  // Range indicator tooltip for numeric text boxes in the Debug Preferences
+
+"Default Value: %@" = "Default Value: %@";  // Default value tooltip format in the Debug Preferences
+
+"Checked" = "Checked";  // Default value tooltip for checkboxes: checked default
+
+"Unchecked" = "Unchecked";  // Default value tooltip for checkboxes: unchecked default

@@ -25,6 +25,9 @@
  */
 
 @import Cocoa;
+#import "OEGameViewController.h"
+
+extern NSString * const OEScreenshotAspectRatioCorrectionDisabled;
 
 extern NSString *const OEGameCoreManagerModePreferenceKey;
 extern NSString *const OEGameDocumentErrorDomain;
@@ -48,7 +51,7 @@ enum _OEGameDocumentErrorCodes
 @class OESystemPlugin;
 @class OEEvent;
 
-@interface OEGameDocument : NSDocument
+@interface OEGameDocument : NSDocument <OEGameViewControllerDelegate>
 
 - (id)initWithRom:(OEDBRom *)rom core:(OECorePlugin *)core error:(NSError **)outError;
 - (id)initWithGame:(OEDBGame *)game core:(OECorePlugin *)core error:(NSError **)outError;
@@ -91,6 +94,10 @@ enum _OEGameDocumentErrorCodes
 - (void)toggleEmulationPaused:(id)sender;
 - (void)resetEmulation:(id)sender;
 - (IBAction)stopEmulation:(id)sender;
+- (IBAction)takeScreenshot:(id)sender;
+
+/*! Return a filtered screenshot of the currently running core */
+- (NSImage *)screenshot;
 
 #pragma mark - Cheats
 - (IBAction)addCheat:(id)sender;
@@ -125,7 +132,11 @@ enum _OEGameDocumentErrorCodes
 - (void)toggleFullScreen:(id)sender;
 
 #pragma mark - OEGameViewController Methods
-
+- (void)setOutputBounds:(NSRect)bounds;
 - (void)gameViewController:(OEGameViewController *)sender didReceiveMouseEvent:(OEEvent *)event;
+- (void)gameViewController:(OEGameViewController *)sender updateBounds:(CGRect)newBounds;
+- (void)gameViewController:(OEGameViewController *)sender setShaderURL:(NSURL *)url completionHandler:(void (^)(BOOL success, NSError *error))block;
+- (void)gameViewController:(OEGameViewController *)sender shaderParamGroupsWithCompletionHandler:(void (^)(NSArray<OEShaderParamGroupValue *> *))handler;
+- (void)gameViewController:(OEGameViewController *)sender setShaderParameterValue:(CGFloat)value atIndex:(NSUInteger)index atGroupIndex:(NSUInteger)group;
 
 @end

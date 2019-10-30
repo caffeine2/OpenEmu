@@ -77,7 +77,7 @@ static CFHashCode _OEHIDEventHashSetCallback(OEHIDEvent *value)
 
 + (NSSet *)keyPathsForValuesAffectingCurrentPlayerBindings
 {
-    return [NSSet setWithObjects:@"currentSystemBindings", @"currentSystemBindings.devicePlayerBindings", @"selectedPlayer", nil];
+    return [NSSet setWithArray:@[@"currentSystemBindings", @"currentSystemBindings.devicePlayerBindings", @"selectedPlayer"]];
 }
 
 #pragma mark - ViewController Overrides
@@ -220,12 +220,12 @@ static CFHashCode _OEHIDEventHashSetCallback(OEHIDEvent *value)
 
 - (void)animationDidStart:(CAAnimation *)theAnimation
 {
-    [[[self controllerView] layer] setValue:[NSNumber numberWithFloat:1.0] forKeyPath:@"filters.pixellate.inputScale"];
+    [[[self controllerView] layer] setValue:@1.0 forKeyPath:@"filters.pixellate.inputScale"];
 }
 
 - (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag
 {
-    if(flag) [[[self controllerView] layer] setValue:[NSNumber numberWithInt:10.0] forKeyPath:@"filters.pixellate.inputScale"];
+    if(flag) [[[self controllerView] layer] setValue:@10.0 forKeyPath:@"filters.pixellate.inputScale"];
 }
 
 - (NSString *)nibName
@@ -343,9 +343,9 @@ static CFHashCode _OEHIDEventHashSetCallback(OEHIDEvent *value)
 
     for(NSMenuItem *item in [inputButton itemArray])
     {
-        if([item state] == NSOnState) continue;
+        if([item state] == NSControlStateValueOn) continue;
         if([item representedObject])
-            [item setState:[item representedObject] == currentDeviceHandler ? NSMixedState : NSOffState];
+            [item setState:[item representedObject] == currentDeviceHandler ? NSControlStateValueMixed : NSControlStateValueOff];
     }
 
     [inputButton selectItemAtIndex:MAX(0, [inputButton indexOfItemWithRepresentedObject:representedObject])];

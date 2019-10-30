@@ -45,7 +45,7 @@ const static CGFloat buttonTitleGap = 5.0;
     if (self) {
         OEButtonCell *buttonCell = [[OEButtonCell alloc] initTextCell:@""];
         [buttonCell setThemeKey:@"controls_triangle"];
-        [buttonCell setState:NSOnState];
+        [buttonCell setState:NSControlStateValueOn];
         [buttonCell setControlView:self];
         
         [self setButtonCell:buttonCell];
@@ -77,7 +77,7 @@ const static CGFloat buttonTitleGap = 5.0;
     [woodBackground drawRect:portion];
     [image unlockFocus];
 
-    [image drawInRect:bounds fromRect:portion operation:NSCompositeCopy fraction:1.0];
+    [image drawInRect:bounds fromRect:portion operation:NSCompositingOperationCopy fraction:1.0];
     [[NSGraphicsContext currentContext] restoreGraphicsState];
     
     // draw spearator style lines at the top and the bottom 
@@ -96,14 +96,14 @@ const static CGFloat buttonTitleGap = 5.0;
 
         [bottomColor setFill];
         lineRect.origin.y = 1;
-        NSRectFillUsingOperation(lineRect, NSCompositeSourceOver);
+        NSRectFillUsingOperation(lineRect, NSCompositingOperationSourceOver);
     }
 
     // draw button
     if([self isCollapsible])
     {
         NSRect buttonRect = [self buttonRect];
-        [[self buttonCell] setBezelStyle:NSDisclosureBezelStyle];
+        [[self buttonCell] setBezelStyle:NSBezelStyleDisclosure];
         [[self buttonCell] drawWithFrame:buttonRect inView:self];
     }
 
@@ -120,7 +120,7 @@ const static CGFloat buttonTitleGap = 5.0;
 
         [bottomColor setFill];
         lineRect.origin.y = [self bounds].size.height-2;
-        NSRectFillUsingOperation(lineRect, NSCompositeSourceOver);
+        NSRectFillUsingOperation(lineRect, NSCompositingOperationSourceOver);
     }
 
 }

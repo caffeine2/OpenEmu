@@ -119,6 +119,36 @@
 /* Begin PBXBuildFile section */
 		010EDCA31CE628490020417C /* OELibraryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 010EDCA21CE628490020417C /* OELibraryController.xib */; };
 		012FE6591CE51D4100716960 /* LibraryToolbarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012FE6581CE51D4100716960 /* LibraryToolbarDelegate.swift */; };
+		051F76C722A8817300E1C0C4 /* OEAudioUnit.mm in Sources */ = {isa = PBXBuildFile; fileRef = 051F76C422A8808100E1C0C4 /* OEAudioUnit.mm */; };
+		051F76C822A8817400E1C0C4 /* OEAudioUnit.mm in Sources */ = {isa = PBXBuildFile; fileRef = 051F76C422A8808100E1C0C4 /* OEAudioUnit.mm */; };
+		051F76DA22A887E700E1C0C4 /* OEGameAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F76D522A887E600E1C0C4 /* OEGameAudio.m */; };
+		051F76DB22A887E700E1C0C4 /* OEGameAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F76D522A887E600E1C0C4 /* OEGameAudio.m */; };
+		052B9295226ED63200701431 /* OEMTLGameRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 052B9294226ED63200701431 /* OEMTLGameRenderer.m */; };
+		052B9296226ED63200701431 /* OEMTLGameRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 052B9294226ED63200701431 /* OEMTLGameRenderer.m */; };
+		052B92D3226EE5FA00701431 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 052B92D2226EE5FA00701431 /* libc++.tbd */; };
+		052B92D4226EE66C00701431 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 052B92D2226EE5FA00701431 /* libc++.tbd */; };
+		052EA5BC2357941100DEC2A3 /* NSBitmapImageRep+OEAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052EA5BB2357941100DEC2A3 /* NSBitmapImageRep+OEAdditions.swift */; };
+		05410EE122F68ED900303424 /* ShaderParameters.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05410EE022F68ED900303424 /* ShaderParameters.xib */; };
+		05410EE722F690E200303424 /* OEShaderParametersWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05410EE622F690E200303424 /* OEShaderParametersWindowController.m */; };
+		05410EF122F7538B00303424 /* SliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05410EF022F7538B00303424 /* SliderCell.xib */; };
+		05410EF322F756BD00303424 /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05410EF222F756BD00303424 /* GroupCell.xib */; };
+		05410EF522F7573D00303424 /* CheckboxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05410EF422F7573D00303424 /* CheckboxCell.xib */; };
+		0557CB1822A7504B0037175F /* OEShadersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0557CB1722A7504B0037175F /* OEShadersModel.swift */; };
+		0557CB1922A77D7C0037175F /* OEShadersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0557CB1722A7504B0037175F /* OEShadersModel.swift */; };
+		0557CB1B22A781B60037175F /* OEShadersModel+OpenEmu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0557CB1A22A781B60037175F /* OEShadersModel+OpenEmu.swift */; };
+		0586AB22231A1E9A00BCDA6B /* OEGameLayerNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586AB21231A1E9A00BCDA6B /* OEGameLayerNotificationView.swift */; };
+		05B2E05E23693A7600644C58 /* OELogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B2E05D23693A7500644C58 /* OELogging.m */; };
+		05B2E05F23693A7600644C58 /* OELogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B2E05D23693A7500644C58 /* OELogging.m */; };
+		05E4400B22991527009E6D27 /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = 05E4400A22991527009E6D27 /* Shaders */; };
+		05F5BAE9228662C5004D713C /* OpenEmuShaders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05F5BAE8228662C5004D713C /* OpenEmuShaders.framework */; };
+		05F5BAED228662D3004D713C /* OpenEmuShaders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05F5BAE8228662C5004D713C /* OpenEmuShaders.framework */; };
+		05F5BAEE22866317004D713C /* OpenEmuShaders.framework in Copy Frameworks to App Frameworks */ = {isa = PBXBuildFile; fileRef = 05F5BAE8228662C5004D713C /* OpenEmuShaders.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		05F6381422E3C08100FC49FF /* OEShaderParamValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F6381322E3C08100FC49FF /* OEShaderParamValue.m */; };
+		05F6381522E3C08100FC49FF /* OEShaderParamValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F6381322E3C08100FC49FF /* OEShaderParamValue.m */; };
+		05FB7D8122A0A3D60070633C /* OEOpenGL2GameRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FB7D8022A0A3D60070633C /* OEOpenGL2GameRenderer.m */; };
+		05FB7D8222A0A3D60070633C /* OEOpenGL2GameRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FB7D8022A0A3D60070633C /* OEOpenGL2GameRenderer.m */; };
+		05FB7D8522A0A4A40070633C /* OECoreVideoTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FB7D8422A0A4A40070633C /* OECoreVideoTexture.m */; };
+		05FB7D8622A0A4A40070633C /* OECoreVideoTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FB7D8422A0A4A40070633C /* OECoreVideoTexture.m */; };
 		081A462F1B9574CE00565444 /* Pokemon mini.oesystemplugin in CopyFiles */ = {isa = PBXBuildFile; fileRef = 081A46261B95744A00565444 /* Pokemon mini.oesystemplugin */; };
 		0867695A1B96E8B2006545DA /* OEPMSystemResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 086769591B96E8B2006545DA /* OEPMSystemResponder.m */; };
 		0867695D1B96E8D4006545DA /* pokemonmini_library.png in Resources */ = {isa = PBXBuildFile; fileRef = 0867695C1B96E8D4006545DA /* pokemonmini_library.png */; };
@@ -145,29 +175,14 @@
 		14F8750D1649377E002AE3B8 /* OEFiniteStateMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F8750C1649377E002AE3B8 /* OEFiniteStateMachine.m */; };
 		1B32151514DDD49E00C5B50A /* OpenEmu.dae in Resources */ = {isa = PBXBuildFile; fileRef = 1B32151214DDD06500C5B50A /* OpenEmu.dae */; };
 		1B32151614DDD49E00C5B50A /* OpenEmuText.dae in Resources */ = {isa = PBXBuildFile; fileRef = 1B32151314DDD06500C5B50A /* OpenEmuText.dae */; };
-		1B42C66D1429510A004691D7 /* Syphon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B42C66C1429510A004691D7 /* Syphon.framework */; };
-		1B42C66F14295130004691D7 /* Syphon.framework in Copy Frameworks to App Frameworks */ = {isa = PBXBuildFile; fileRef = 1B42C66C1429510A004691D7 /* Syphon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		1B47F105142F01E700EBC55B /* OESetupAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B47F104142F01E700EBC55B /* OESetupAssistant.m */; };
 		1B6DA4A914DDE6A40067F7F6 /* OESetupAssistantQCOpenGLLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6DA4A814DDE6A40067F7F6 /* OESetupAssistantQCOpenGLLayer.m */; };
 		1BEF2A9C11682A5E0090F72B /* OpenEmuHelperApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BEF2A7411682A330090F72B /* OpenEmuHelperApp.m */; };
-		1BEF2CA011684E7E0090F72B /* OEGameAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 829779330E743F2A00631240 /* OEGameAudio.m */; };
 		1BEF2D15116855690090F72B /* OETaskWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BEF2D14116855690090F72B /* OETaskWrapper.m */; };
 		1BFC26D0116C1CA300B95689 /* OpenEmuHelperApp in Resources */ = {isa = PBXBuildFile; fileRef = 1BEF2A9411682A530090F72B /* OpenEmuHelperApp */; };
 		1BFC2725116C1F6700B95689 /* OETaskWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BEF2D14116855690090F72B /* OETaskWrapper.m */; };
 		1E2F3DBB10DEAB4C0019AA84 /* OEVersionMigrationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E2F3DBA10DEAB4C0019AA84 /* OEVersionMigrationController.m */; };
 		1EA4404911973E9C001D71CA /* OEGameQuickLookDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA4404811973E9C001D71CA /* OEGameQuickLookDocument.m */; };
-		2205C36B196205260013C675 /* _hq2x.cg in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 2205C355196204A60013C675 /* _hq2x.cg */; };
-		2205C36C196205270013C675 /* _hq2x.png in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 2205C356196204A60013C675 /* _hq2x.png */; };
-		2205C36D196205270013C675 /* _hq3x.cg in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 2205C357196204A60013C675 /* _hq3x.cg */; };
-		2205C36E196205270013C675 /* _hq3x.png in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 2205C358196204A60013C675 /* _hq3x.png */; };
-		2205C36F196205270013C675 /* _hq4x.cg in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 2205C359196204A60013C675 /* _hq4x.cg */; };
-		2205C370196205270013C675 /* _hq4x.png in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 2205C35A196204A60013C675 /* _hq4x.png */; };
-		2205C371196205270013C675 /* _pass1.cg in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 2205C35B196204A60013C675 /* _pass1.cg */; };
-		2205C372196205270013C675 /* _pass2.inc in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 2205C35C196204A60013C675 /* _pass2.inc */; };
-		2205C373196205270013C675 /* HQ2x.cgp in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 2205C35D196204A60013C675 /* HQ2x.cgp */; };
-		2205C374196205270013C675 /* HQ3x.cgp in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 2205C35E196204A60013C675 /* HQ3x.cgp */; };
-		2205C375196205270013C675 /* HQ4x.cgp in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 2205C35F196204A60013C675 /* HQ4x.cgp */; };
-		2205C378196402B50013C675 /* OELUTTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 2205C377196402B50013C675 /* OELUTTexture.m */; };
 		277CBA3719DE54200059A2C1 /* OpenEmuSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D120C417112E1300E868A8 /* OpenEmuSystem.framework */; };
 		277CBA4A19DE54A80059A2C1 /* OEIntellivisionSystemResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 277CBA4819DE54A80059A2C1 /* OEIntellivisionSystemResponder.m */; };
 		277CBA4D19DE55030059A2C1 /* intellivision_library.png in Resources */ = {isa = PBXBuildFile; fileRef = 277CBA4B19DE55030059A2C1 /* intellivision_library.png */; };
@@ -182,8 +197,7 @@
 		3887A8051024D2BC000FC4CF /* GenerateThumbnailForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 3887A8021024D2BC000FC4CF /* GenerateThumbnailForURL.m */; };
 		3887A8061024D2BC000FC4CF /* GeneratePreviewForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 3887A8031024D2BC000FC4CF /* GeneratePreviewForURL.m */; };
 		3887A8071024D2BC000FC4CF /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 3887A8041024D2BC000FC4CF /* main.c */; };
-		3D41E8EB1BD4959300A76EFD /* OEOpenGL2GameRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D41E8EA1BD4959300A76EFD /* OEOpenGL2GameRenderer.m */; };
-		3D41E8EC1BD4959300A76EFD /* OEOpenGL2GameRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D41E8EA1BD4959300A76EFD /* OEOpenGL2GameRenderer.m */; };
+		3D0D6FD31CC6366B00E3F284 /* OEGameLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D6FD21CC6366B00E3F284 /* OEGameLayerView.m */; };
 		3DA6EDCC1BD790B900560326 /* OEOpenGL3GameRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA6EDCB1BD790B900560326 /* OEOpenGL3GameRenderer.m */; };
 		3DA6EDCD1BD790B900560326 /* OEOpenGL3GameRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA6EDCB1BD790B900560326 /* OEOpenGL3GameRenderer.m */; };
 		3DB744AB1BD8BA9E00C23E74 /* OpenEmuSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D120C417112E1300E868A8 /* OpenEmuSystem.framework */; };
@@ -199,7 +213,7 @@
 		3DB744C91BD8BACD00C23E74 /* psx_library.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DB744871BD8B9DE00C23E74 /* psx_library.png */; };
 		3DB744CA1BD8BACD00C23E74 /* psx_library@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DB744881BD8B9DE00C23E74 /* psx_library@2x.png */; };
 		3DB744CE1BD8BB0B00C23E74 /* PlayStation 2.oesystemplugin in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3DB744BA1BD8BA9E00C23E74 /* PlayStation 2.oesystemplugin */; };
-		3DFAB00D144644D4005EF0C3 /* OEGameShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA788FE0FF9C95A007CE5DB /* OEGameShader.m */; };
+		3DD7A23C1D193DA40003D426 /* NSColor+OEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBD5D7714EFE19A00FBD1E0 /* NSColor+OEAdditions.m */; };
 		4FC6C54519AD7C4D00231545 /* controller_colecovision@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC6C54019AD7BBB00231545 /* controller_colecovision@2x.png */; };
 		4FC6C54619AD7C5B00231545 /* controller_colecovision_mask@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FC6C53F19AD7BBB00231545 /* controller_colecovision_mask@2x.png */; };
 		53439A8C13B92C4A005C0CC8 /* OELibraryDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 53439A8B13B92C4A005C0CC8 /* OELibraryDatabase.m */; };
@@ -271,7 +285,6 @@
 		8227756B1489471A00B19E27 /* OEGGSystemResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8227755C1489471A00B19E27 /* OEGGSystemResponder.m */; };
 		828BF57E1669F97B00759F10 /* XADMaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82DE4AEF1026533E007184EB /* XADMaster.framework */; };
 		828BF57F1669F99600759F10 /* OEUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F738FB1617FF2B00BB2519 /* OEUtilities.m */; };
-		829779340E743F2A00631240 /* OEGameAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 829779330E743F2A00631240 /* OEGameAudio.m */; };
 		82C2909014840024007C0214 /* OENGPSystemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 820EB7551483F9D3008EC398 /* OENGPSystemController.m */; };
 		82C2909114840024007C0214 /* OENGPSystemResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 820EB7571483F9D3008EC398 /* OENGPSystemResponder.m */; };
 		82C290931484002F007C0214 /* controller_ngp.png in Resources */ = {isa = PBXBuildFile; fileRef = 820EB74E1483F9D3008EC398 /* controller_ngp.png */; };
@@ -295,7 +308,6 @@
 		8306CD3E1BD3DB180025BC6C /* OEGameCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8306CD3C1BD3DB180025BC6C /* OEGameCollectionViewController.m */; };
 		83096F0314E98FC000F7EBC2 /* NSFileManager+OEHashingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 83096F0214E98FC000F7EBC2 /* NSFileManager+OEHashingAdditions.m */; };
 		8309A77F166CE52D0013AD4A /* OESaveStateQLPlugin.qlgenerator in Copy SaveState QL Generator */ = {isa = PBXBuildFile; fileRef = 3887A7F61024D1F9000FC4CF /* OESaveStateQLPlugin.qlgenerator */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		830BBECB1B7BE979000B13CB /* OEGameViewNotificationRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 830BBECA1B7BE979000B13CB /* OEGameViewNotificationRenderer.m */; };
 		830BC86914D5E35A000826E2 /* controller_snes_mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 830BC86714D5E1E6000826E2 /* controller_snes_mask.png */; };
 		830BC86C14D5F1DD000826E2 /* controller_gba_mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 830BC86A14D5F1A5000826E2 /* controller_gba_mask.png */; };
 		830CB918186878D6006EAE5A /* OEArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 830CB917186878D6006EAE5A /* OEArrayController.m */; };
@@ -409,10 +421,6 @@
 		83F4DE2314E00FF100A82E36 /* controller_ngp_mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F4DE2114E00F8800A82E36 /* controller_ngp_mask.png */; };
 		83F4DE2614E0131800A82E36 /* controller_gb_mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F4DE2414E0130E00A82E36 /* controller_gb_mask.png */; };
 		83F4DE2914E0169900A82E36 /* controller_genesis_mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F4DE2714E0167C00A82E36 /* controller_genesis_mask.png */; };
-		83F607731BD3E4C9001236FC /* hud_quicksave_notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F6076F1BD3E4C9001236FC /* hud_quicksave_notification.png */; };
-		83F607741BD3E4C9001236FC /* hud_quicksave_notification@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F607701BD3E4C9001236FC /* hud_quicksave_notification@2x.png */; };
-		83F607751BD3E4C9001236FC /* hud_screenshot_notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F607711BD3E4C9001236FC /* hud_screenshot_notification.png */; };
-		83F607761BD3E4C9001236FC /* hud_screenshot_notification@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F607721BD3E4C9001236FC /* hud_screenshot_notification@2x.png */; };
 		83F7DBAF18C0E2470029199C /* OEFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F7DBAE18C0E2470029199C /* OEFileManager.m */; };
 		83F7EADA171D911400D32E26 /* OESearchField.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F7EAD9171D911400D32E26 /* OESearchField.m */; };
 		83FA054E13B9DF940055A520 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FA054D13B9DF940055A520 /* Sparkle.framework */; };
@@ -464,10 +472,6 @@
 		875CC3251E221D9800E3BEB9 /* controller_tg16_mask@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 875CC3231E221D9800E3BEB9 /* controller_tg16_mask@2x.png */; };
 		875CC3261E221D9800E3BEB9 /* controller_tg16@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 875CC3241E221D9800E3BEB9 /* controller_tg16@2x.png */; };
 		8763A38F1D5694E90089C30B /* OEArcadeSystemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8763A38E1D5694E90089C30B /* OEArcadeSystemController.m */; };
-		876FF0D6207B0A3D002F935A /* hud_stepforward_notification@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 876FF0D2207B0A3C002F935A /* hud_stepforward_notification@2x.png */; };
-		876FF0D8207B1269002F935A /* hud_stepbackward_notification@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 876FF0D7207B1268002F935A /* hud_stepbackward_notification@2x.png */; };
-		876FF0DA207B2B96002F935A /* hud_stepbackward_notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 876FF0D9207B2B95002F935A /* hud_stepbackward_notification.png */; };
-		876FF0DC207B2BA6002F935A /* hud_stepforward_notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 876FF0DB207B2BA5002F935A /* hud_stepforward_notification.png */; };
 		877EDD151E24BC63004D68E7 /* controller_pce_mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 877EDD101E24BC63004D68E7 /* controller_pce_mask.png */; };
 		877EDD161E24BC63004D68E7 /* controller_pce_mask@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 877EDD111E24BC63004D68E7 /* controller_pce_mask@2x.png */; };
 		877EDD171E24BC63004D68E7 /* controller_pce.png in Resources */ = {isa = PBXBuildFile; fileRef = 877EDD121E24BC63004D68E7 /* controller_pce.png */; };
@@ -480,10 +484,6 @@
 		877EDD231E24BEE0004D68E7 /* Controller-Preferences-JAP.plist in Resources */ = {isa = PBXBuildFile; fileRef = 877EDD1E1E24BEE0004D68E7 /* Controller-Preferences-JAP.plist */; };
 		879243B41C0DA5910064C515 /* controller_5200_mask@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 879243B21C0DA5910064C515 /* controller_5200_mask@2x.png */; };
 		879243B51C0DA5910064C515 /* controller_5200@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 879243B31C0DA5910064C515 /* controller_5200@2x.png */; };
-		87AA7D082071870F00E5DB80 /* hud_fastforward_notification@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 87AA7D032071870D00E5DB80 /* hud_fastforward_notification@2x.png */; };
-		87AA7D092071870F00E5DB80 /* hud_fastforward_notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 87AA7D072071870E00E5DB80 /* hud_fastforward_notification.png */; };
-		87AA7D0C2071871E00E5DB80 /* hud_rewind_notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 87AA7D0A2071871E00E5DB80 /* hud_rewind_notification.png */; };
-		87AA7D0D2071871E00E5DB80 /* hud_rewind_notification@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 87AA7D0B2071871E00E5DB80 /* hud_rewind_notification@2x.png */; };
 		87B3DC0A1C644BCC003C65E4 /* controller_3do_mask@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 87B3DC081C644BCC003C65E4 /* controller_3do_mask@2x.png */; };
 		87B3DC0B1C644BCC003C65E4 /* controller_3do@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 87B3DC091C644BCC003C65E4 /* controller_3do@2x.png */; };
 		87BC4DA21BA3A88600BF1F86 /* controller_7800_mask@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 87BC4DA01BA3A88600BF1F86 /* controller_7800_mask@2x.png */; };
@@ -555,23 +555,7 @@
 		87FBC0A41C0798C000AECF5A /* Controller-Preferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87FBC0A31C0798C000AECF5A /* Controller-Preferences.plist */; };
 		87FBC0A61C07996B00AECF5A /* Controller-Mappings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87FBC0A51C07996B00AECF5A /* Controller-Mappings.plist */; };
 		87FBC0A81C07A22700AECF5A /* Atari 8bit.oesystemplugin in CopyFiles */ = {isa = PBXBuildFile; fileRef = 87FBC08E1C0790B400AECF5A /* Atari 8bit.oesystemplugin */; };
-		8C09E4D81867984B0095DB4E /* Beam4.cgp in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 8C09E4BE1867975E0095DB4E /* Beam4.cgp */; };
-		8C09E4D91867984B0095DB4E /* NTSC (Blargg).cgp in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 8C09E4BF1867975E0095DB4E /* NTSC (Blargg).cgp */; };
-		8C09E4DA1867984B0095DB4E /* _beam4_1.cg in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 8C09E4C01867975E0095DB4E /* _beam4_1.cg */; };
-		8C09E4DB1867984B0095DB4E /* _beam4_2.cg in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 8C09E4C11867975E0095DB4E /* _beam4_2.cg */; };
-		8C09E4DC1867984B0095DB4E /* _beam4_3.cg in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 8C09E4C21867975E0095DB4E /* _beam4_3.cg */; };
-		8C09E4DD1867984B0095DB4E /* _stock.cg in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 8C09E4C31867975E0095DB4E /* _stock.cg */; };
-		8C09E4E01867984B0095DB4E /* Blinky.cg in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 8C09E4C61867975E0095DB4E /* Blinky.cg */; };
-		8C09E4E11867984B0095DB4E /* CRT.cg in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 8C09E4C71867975E0095DB4E /* CRT.cg */; };
-		8C09E4E21867984B0095DB4E /* LCD3x.cg in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 8C09E4C81867975E0095DB4E /* LCD3x.cg */; };
-		8C09E4E31867984B0095DB4E /* SABR.cg in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 8C09E4C91867975E0095DB4E /* SABR.cg */; };
-		8C09E4E41867984B0095DB4E /* Scanline.cg in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 8C09E4CA1867975E0095DB4E /* Scanline.cg */; };
-		8C415ECD16B0682B00980DB9 /* OEMultipassShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C415ECC16B0682B00980DB9 /* OEMultipassShader.m */; };
-		8C4C808916986697009B8A28 /* OEGLSLShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4C808816986697009B8A28 /* OEGLSLShader.m */; };
-		8C4C808E16986C87009B8A28 /* OECGShader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4C808D16986C87009B8A28 /* OECGShader.m */; };
-		8CAD37CF16A18C3000AE25F5 /* Cg.framework in Copy Frameworks to App Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCBC0C8169B323100141631 /* Cg.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		8CBD3AA217D23AA80022399B /* OEGridGameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD3AA117D23AA80022399B /* OEGridGameCell.m */; };
-		8CCBC0C9169B323100141631 /* Cg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CCBC0C8169B323100141631 /* Cg.framework */; };
 		8D15AC310486D014006FF6A4 /* OEGameDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* OEGameDocument.m */; settings = {ATTRIBUTES = (); }; };
 		8F071F391C25534E007B76DA /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F071F381C25534E007B76DA /* Preferences.xib */; };
 		8F071F3B1C255362007B76DA /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8F071F3A1C255362007B76DA /* Credits.rtf */; };
@@ -607,13 +591,6 @@
 		941F5A1D17A786870005D7EA /* Controller-Preferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = 941F5A1717A786870005D7EA /* Controller-Preferences.plist */; };
 		941F5A1E17A786870005D7EA /* Keyboard-Mappings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 941F5A1817A786870005D7EA /* Keyboard-Mappings.plist */; };
 		941F5A1F17A786C00005D7EA /* OpenEmuSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D120C417112E1300E868A8 /* OpenEmuSystem.framework */; };
-		94380786184E6BB600E2274B /* _ntsc-decode-filter-3phase.inc in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 94380774184E6AE100E2274B /* _ntsc-decode-filter-3phase.inc */; };
-		94380787184E6BB600E2274B /* _ntsc-gauss-pass.cg in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 94380775184E6AE100E2274B /* _ntsc-gauss-pass.cg */; };
-		94380788184E6BB600E2274B /* _ntsc-param.inc in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 94380776184E6AE100E2274B /* _ntsc-param.inc */; };
-		9438078C184E6BB600E2274B /* _ntsc-pass2-3phase.cg in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 9438077A184E6AE100E2274B /* _ntsc-pass2-3phase.cg */; };
-		94380793184E6BB600E2274B /* _ntsc-rgbyuv.inc in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 94380781184E6AE100E2274B /* _ntsc-rgbyuv.inc */; };
-		94380794184E6BB600E2274B /* _ntsc-stock.cg in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 94380782184E6AE100E2274B /* _ntsc-stock.cg */; };
-		94380795184E6BB600E2274B /* NTSC.cgp in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 94380783184E6AE100E2274B /* NTSC.cgp */; };
 		943815B8165771EB00D55731 /* OEGenesisSystemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 943815B7165771EB00D55731 /* OEGenesisSystemController.m */; };
 		943819C41658DAE800D55731 /* Controller-Mappings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 943819C31658DAE800D55731 /* Controller-Mappings.plist */; };
 		943C80211708A7E400D8D93E /* OEJaguarSystemResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 943C801F1708A7E400D8D93E /* OEJaguarSystemResponder.m */; };
@@ -665,7 +642,6 @@
 		94454ED517861123006C057B /* OpenEmuSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D120C417112E1300E868A8 /* OpenEmuSystem.framework */; };
 		94454F31178B4ABA006C057B /* Virtual Boy.oesystemplugin in Copy System Plugins to App Plugins */ = {isa = PBXBuildFile; fileRef = 94A224831707541E00098DA0 /* Virtual Boy.oesystemplugin */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		94525EE217A9A778003CB1A2 /* OESega32XSystemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94525EE117A9A778003CB1A2 /* OESega32XSystemController.m */; };
-		94539B00187D09B100CD1BA9 /* Pixellate.cg in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 94539AFD187D096C00CD1BA9 /* Pixellate.cg */; };
 		945E430E1517F59900057D08 /* OEArcadeSystemResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 945E430B1517F59900057D08 /* OEArcadeSystemResponder.m */; };
 		945E43141517F5BC00057D08 /* arcade_library.png in Resources */ = {isa = PBXBuildFile; fileRef = 945E430F1517F5BC00057D08 /* arcade_library.png */; };
 		945E43161517F5BC00057D08 /* controller_arcade_mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 945E43111517F5BC00057D08 /* controller_arcade_mask.png */; };
@@ -679,7 +655,6 @@
 		946B947F17828A4000A212AC /* Keyboard-Mappings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 946B947917828A4000A212AC /* Keyboard-Mappings.plist */; };
 		946B948417828B3D00A212AC /* OpenEmuSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D120C417112E1300E868A8 /* OpenEmuSystem.framework */; };
 		946C7ABB19EE4AF4000F9466 /* Atari 2600.oesystemplugin in Copy System Plugins to App Plugins */ = {isa = PBXBuildFile; fileRef = 94A224A31707543600098DA0 /* Atari 2600.oesystemplugin */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		94791E9516AE8A18007DB8BE /* OEShaderPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 94791E9416AE8A18007DB8BE /* OEShaderPlugin.m */; };
 		948E540E1571D78D002D26E0 /* SegaMasterSystem.oesystemplugin in Copy System Plugins to App Plugins */ = {isa = PBXBuildFile; fileRef = C671180F136368330034379A /* SegaMasterSystem.oesystemplugin */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		948E540F1571D78D002D26E0 /* NES.oesystemplugin in Copy System Plugins to App Plugins */ = {isa = PBXBuildFile; fileRef = C64BB08D136478E600C1AB23 /* NES.oesystemplugin */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		948E54101571D78D002D26E0 /* SuperNES.oesystemplugin in Copy System Plugins to App Plugins */ = {isa = PBXBuildFile; fileRef = C6480FC113648F670094FA33 /* SuperNES.oesystemplugin */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -834,11 +809,8 @@
 		94EBBD31183F4DB000743756 /* Arcade.oesystemplugin in CopyFiles */ = {isa = PBXBuildFile; fileRef = 945E42FB1517F2B500057D08 /* Arcade.oesystemplugin */; };
 		94FC53881688FF60003C6AFE /* controller_gamegear_mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 94FC53861688FF60003C6AFE /* controller_gamegear_mask.png */; };
 		94FC53891688FF60003C6AFE /* controller_gamegear.png in Resources */ = {isa = PBXBuildFile; fileRef = 94FC53871688FF60003C6AFE /* controller_gamegear.png */; };
-		94FEFA5218A80EF30033A762 /* _ntsc-pass1-composite-3phase.cg in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 94FEFA4B18A80ECC0033A762 /* _ntsc-pass1-composite-3phase.cg */; };
-		94FEFA5318A80EF30033A762 /* _ntsc-pass1-encode-demodulate.inc in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 94FEFA4C18A80ECC0033A762 /* _ntsc-pass1-encode-demodulate.inc */; };
-		94FEFA5418A80EF30033A762 /* _ntsc-pass1-vertex.inc in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 94FEFA4D18A80ECC0033A762 /* _ntsc-pass1-vertex.inc */; };
-		94FEFA5518A80EF30033A762 /* _ntsc-pass2-decode.inc in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 94FEFA4E18A80ECD0033A762 /* _ntsc-pass2-decode.inc */; };
-		94FEFA5618A80EF30033A762 /* _ntsc-pass2-vertex.inc in Copy Filters Folder To App Resources */ = {isa = PBXBuildFile; fileRef = 94FEFA4F18A80ECD0033A762 /* _ntsc-pass2-vertex.inc */; };
+		A90208FC9B5D10B9F8150E57 /* OEGameHelperMetalLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A902019312DE5D81DCEEDF26 /* OEGameHelperMetalLayer.m */; };
+		A9020A6B0B5DCC3081F0DB19 /* OEGameHelperMetalLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A902019312DE5D81DCEEDF26 /* OEGameHelperMetalLayer.m */; };
 		C6096192179B461C00239067 /* OEXPCGameCoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C6096191179B461C00239067 /* OEXPCGameCoreManager.m */; };
 		C609619A179B6E3F00239067 /* OpenEmuXPCHelperApp.m in Sources */ = {isa = PBXBuildFile; fileRef = C6096199179B6E3F00239067 /* OpenEmuXPCHelperApp.m */; };
 		C609619B179B74DE00239067 /* OESystemPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C6289C31135B215B00EEE97C /* OESystemPlugin.m */; };
@@ -869,12 +841,10 @@
 		C64BB0A113647B3500C1AB23 /* OENESSystemResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = C64BB0A013647B3500C1AB23 /* OENESSystemResponder.m */; };
 		C64CBD551363E40B00BEE4F3 /* OESMSSystemResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = C6711826136369DE0034379A /* OESMSSystemResponder.m */; };
 		C6527BC1164E22AA0030FB25 /* Keyboard-Mappings.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6527BC0164E22AA0030FB25 /* Keyboard-Mappings.plist */; };
-		C6772A7F1710C0C900ED580A /* snes_ntsc.c in Sources */ = {isa = PBXBuildFile; fileRef = 8C8AD73516B5DBE20004D97C /* snes_ntsc.c */; };
 		C6772A841710C9C400ED580A /* OEPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C62F54700FE6ADC500DF15BA /* OEPlugin.m */; };
 		C6772A851710C9C400ED580A /* OECorePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C62F549A0FE6CC1500DF15BA /* OECorePlugin.m */; };
 		C67DBF4317DBE859006AF087 /* NSDocument+OEAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C67DBF4217DBE859006AF087 /* NSDocument+OEAdditions.m */; };
 		C68A54E61516AD3C001053F2 /* OEDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C68A54E41516AD3C001053F2 /* OEDatabase.xcdatamodeld */; };
-		C6953CA1117293760091276F /* OEGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6953CA0117293760091276F /* OEGameView.m */; };
 		C69DCD010FE994A5009AE5A6 /* OEPluginDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = C69DCD000FE994A5009AE5A6 /* OEPluginDocument.m */; };
 		C6AC9D391190C6490083DDFD /* OpenEmuHelperAppMain.m in Sources */ = {isa = PBXBuildFile; fileRef = C6AC9D371190C5E60083DDFD /* OpenEmuHelperAppMain.m */; };
 		C6AC9D4D1190C9AE0083DDFD /* OEGameCoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C6AC9D4C1190C9AE0083DDFD /* OEGameCoreManager.m */; };
@@ -890,7 +860,6 @@
 		C6AF285A164E473C00681A06 /* Keyboard-Mappings.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6AF2859164E473C00681A06 /* Keyboard-Mappings.plist */; };
 		C6B947C01364EE6C00A425F0 /* OEGBSystemResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = C6B947BB1364EE6C00A425F0 /* OEGBSystemResponder.m */; };
 		C6B948101365096800A425F0 /* OEGenesisSystemResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = C6B9480B1365096800A425F0 /* OEGenesisSystemResponder.m */; };
-		C6C3734216BE7065003E57AE /* OEBuiltInShader.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C3734116BE7065003E57AE /* OEBuiltInShader.m */; };
 		C6C3734316BE7BAF003E57AE /* OE Startup.qtz in Resources */ = {isa = PBXBuildFile; fileRef = 1B32151114DDD06500C5B50A /* OE Startup.qtz */; };
 		C6D120C517112E1300E868A8 /* OpenEmuBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D120C317112E1300E868A8 /* OpenEmuBase.framework */; };
 		C6D120C617112E1300E868A8 /* OpenEmuSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D120C417112E1300E868A8 /* OpenEmuSystem.framework */; };
@@ -1357,63 +1326,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		1B22406D100BD6C600F42067 /* Copy Filters Folder To App Resources */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = Filters;
-			dstSubfolderSpec = 13;
-			files = (
-				2205C36B196205260013C675 /* _hq2x.cg in Copy Filters Folder To App Resources */,
-				2205C36C196205270013C675 /* _hq2x.png in Copy Filters Folder To App Resources */,
-				2205C36D196205270013C675 /* _hq3x.cg in Copy Filters Folder To App Resources */,
-				2205C36E196205270013C675 /* _hq3x.png in Copy Filters Folder To App Resources */,
-				2205C36F196205270013C675 /* _hq4x.cg in Copy Filters Folder To App Resources */,
-				2205C370196205270013C675 /* _hq4x.png in Copy Filters Folder To App Resources */,
-				2205C371196205270013C675 /* _pass1.cg in Copy Filters Folder To App Resources */,
-				2205C372196205270013C675 /* _pass2.inc in Copy Filters Folder To App Resources */,
-				2205C373196205270013C675 /* HQ2x.cgp in Copy Filters Folder To App Resources */,
-				2205C374196205270013C675 /* HQ3x.cgp in Copy Filters Folder To App Resources */,
-				2205C375196205270013C675 /* HQ4x.cgp in Copy Filters Folder To App Resources */,
-				94FEFA5218A80EF30033A762 /* _ntsc-pass1-composite-3phase.cg in Copy Filters Folder To App Resources */,
-				94FEFA5318A80EF30033A762 /* _ntsc-pass1-encode-demodulate.inc in Copy Filters Folder To App Resources */,
-				94FEFA5418A80EF30033A762 /* _ntsc-pass1-vertex.inc in Copy Filters Folder To App Resources */,
-				94FEFA5518A80EF30033A762 /* _ntsc-pass2-decode.inc in Copy Filters Folder To App Resources */,
-				94FEFA5618A80EF30033A762 /* _ntsc-pass2-vertex.inc in Copy Filters Folder To App Resources */,
-				94539B00187D09B100CD1BA9 /* Pixellate.cg in Copy Filters Folder To App Resources */,
-				8C09E4D81867984B0095DB4E /* Beam4.cgp in Copy Filters Folder To App Resources */,
-				8C09E4D91867984B0095DB4E /* NTSC (Blargg).cgp in Copy Filters Folder To App Resources */,
-				8C09E4DA1867984B0095DB4E /* _beam4_1.cg in Copy Filters Folder To App Resources */,
-				8C09E4DB1867984B0095DB4E /* _beam4_2.cg in Copy Filters Folder To App Resources */,
-				8C09E4DC1867984B0095DB4E /* _beam4_3.cg in Copy Filters Folder To App Resources */,
-				8C09E4DD1867984B0095DB4E /* _stock.cg in Copy Filters Folder To App Resources */,
-				8C09E4E01867984B0095DB4E /* Blinky.cg in Copy Filters Folder To App Resources */,
-				8C09E4E11867984B0095DB4E /* CRT.cg in Copy Filters Folder To App Resources */,
-				8C09E4E21867984B0095DB4E /* LCD3x.cg in Copy Filters Folder To App Resources */,
-				8C09E4E31867984B0095DB4E /* SABR.cg in Copy Filters Folder To App Resources */,
-				8C09E4E41867984B0095DB4E /* Scanline.cg in Copy Filters Folder To App Resources */,
-				94380786184E6BB600E2274B /* _ntsc-decode-filter-3phase.inc in Copy Filters Folder To App Resources */,
-				94380787184E6BB600E2274B /* _ntsc-gauss-pass.cg in Copy Filters Folder To App Resources */,
-				94380788184E6BB600E2274B /* _ntsc-param.inc in Copy Filters Folder To App Resources */,
-				9438078C184E6BB600E2274B /* _ntsc-pass2-3phase.cg in Copy Filters Folder To App Resources */,
-				94380793184E6BB600E2274B /* _ntsc-rgbyuv.inc in Copy Filters Folder To App Resources */,
-				94380794184E6BB600E2274B /* _ntsc-stock.cg in Copy Filters Folder To App Resources */,
-				94380795184E6BB600E2274B /* NTSC.cgp in Copy Filters Folder To App Resources */,
-			);
-			name = "Copy Filters Folder To App Resources";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		828ED4F00E7D98F60059F397 /* Copy Frameworks to App Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				05F5BAEE22866317004D713C /* OpenEmuShaders.framework in Copy Frameworks to App Frameworks */,
 				934355091F0C13350076E859 /* OpenEmuXPCCommunicator.framework in Copy Frameworks to App Frameworks */,
 				83FA055013B9E01B0055A520 /* Sparkle.framework in Copy Frameworks to App Frameworks */,
 				82DE4B8010265600007184EB /* UniversalDetector.framework in Copy Frameworks to App Frameworks */,
 				82DE4B7F102655FC007184EB /* XADMaster.framework in Copy Frameworks to App Frameworks */,
-				8CAD37CF16A18C3000AE25F5 /* Cg.framework in Copy Frameworks to App Frameworks */,
-				1B42C66F14295130004691D7 /* Syphon.framework in Copy Frameworks to App Frameworks */,
 				C6D120C717112E3800E868A8 /* OpenEmuBase.framework in Copy Frameworks to App Frameworks */,
 				C6D120C817112E3800E868A8 /* OpenEmuSystem.framework in Copy Frameworks to App Frameworks */,
 			);
@@ -1517,6 +1440,32 @@
 		01B035531C090E9900BA80E2 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		01B035541C090E9900BA80E2 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		01B035551C090E9A00BA80E2 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ControlLabels.strings; sourceTree = "<group>"; };
+		051F76C322A8808000E1C0C4 /* OEAudioUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEAudioUnit.h; sourceTree = "<group>"; };
+		051F76C422A8808100E1C0C4 /* OEAudioUnit.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OEAudioUnit.mm; sourceTree = "<group>"; };
+		051F76D522A887E600E1C0C4 /* OEGameAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEGameAudio.m; sourceTree = "<group>"; };
+		052B9293226ED63200701431 /* OEMTLGameRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OEMTLGameRenderer.h; sourceTree = "<group>"; };
+		052B9294226ED63200701431 /* OEMTLGameRenderer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OEMTLGameRenderer.m; sourceTree = "<group>"; };
+		052B92D2226EE5FA00701431 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		052EA5BB2357941100DEC2A3 /* NSBitmapImageRep+OEAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSBitmapImageRep+OEAdditions.swift"; sourceTree = "<group>"; };
+		05410EE022F68ED900303424 /* ShaderParameters.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShaderParameters.xib; sourceTree = "<group>"; };
+		05410EE522F690DB00303424 /* OEShaderParametersWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEShaderParametersWindowController.h; sourceTree = "<group>"; };
+		05410EE622F690E200303424 /* OEShaderParametersWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEShaderParametersWindowController.m; sourceTree = "<group>"; };
+		05410EF022F7538B00303424 /* SliderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderCell.xib; sourceTree = "<group>"; };
+		05410EF222F756BD00303424 /* GroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupCell.xib; sourceTree = "<group>"; };
+		05410EF422F7573D00303424 /* CheckboxCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckboxCell.xib; sourceTree = "<group>"; };
+		0557CB1722A7504B0037175F /* OEShadersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEShadersModel.swift; sourceTree = "<group>"; };
+		0557CB1A22A781B60037175F /* OEShadersModel+OpenEmu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OEShadersModel+OpenEmu.swift"; sourceTree = "<group>"; };
+		0586AB21231A1E9A00BCDA6B /* OEGameLayerNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEGameLayerNotificationView.swift; sourceTree = "<group>"; };
+		05B2E05923693A7500644C58 /* OELogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OELogging.h; sourceTree = "<group>"; };
+		05B2E05D23693A7500644C58 /* OELogging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OELogging.m; sourceTree = "<group>"; };
+		05E4400A22991527009E6D27 /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Shaders; sourceTree = "<group>"; };
+		05F5BAE8228662C5004D713C /* OpenEmuShaders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OpenEmuShaders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		05F6381222E3C08100FC49FF /* OEShaderParamValue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OEShaderParamValue.h; sourceTree = "<group>"; };
+		05F6381322E3C08100FC49FF /* OEShaderParamValue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OEShaderParamValue.m; sourceTree = "<group>"; };
+		05FB7D7F22A0A3CD0070633C /* OEOpenGL2GameRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEOpenGL2GameRenderer.h; sourceTree = "<group>"; };
+		05FB7D8022A0A3D60070633C /* OEOpenGL2GameRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEOpenGL2GameRenderer.m; sourceTree = "<group>"; };
+		05FB7D8322A0A4A40070633C /* OECoreVideoTexture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OECoreVideoTexture.h; sourceTree = "<group>"; };
+		05FB7D8422A0A4A40070633C /* OECoreVideoTexture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OECoreVideoTexture.m; sourceTree = "<group>"; };
 		081A46261B95744A00565444 /* Pokemon mini.oesystemplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pokemon mini.oesystemplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
 		086769581B96E8A2006545DA /* OEPMSystemResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OEPMSystemResponder.h; path = "Pokemon mini/OEPMSystemResponder.h"; sourceTree = SOURCE_ROOT; };
 		086769591B96E8B2006545DA /* OEPMSystemResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OEPMSystemResponder.m; path = "Pokemon mini/OEPMSystemResponder.m"; sourceTree = SOURCE_ROOT; };
@@ -1552,23 +1501,15 @@
 		14F6A925168180CF0071386D /* OEPopoutGameWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEPopoutGameWindowController.m; sourceTree = "<group>"; };
 		14F8750B1649377E002AE3B8 /* OEFiniteStateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEFiniteStateMachine.h; sourceTree = "<group>"; };
 		14F8750C1649377E002AE3B8 /* OEFiniteStateMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEFiniteStateMachine.m; sourceTree = "<group>"; };
-		1B224229100CF18E00F42067 /* CRTMaskStraight.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = CRTMaskStraight.tiff; sourceTree = "<group>"; };
-		1B224267100D170F00F42067 /* CRTMaskStraightScanlineOnly.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = CRTMaskStraightScanlineOnly.tiff; sourceTree = "<group>"; };
-		1B224268100D170F00F42067 /* CRTMaskStaggeredScanlineOnly.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = CRTMaskStaggeredScanlineOnly.tiff; sourceTree = "<group>"; };
-		1B2243AE100E92E700F42067 /* CRTMaskShadow.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = CRTMaskShadow.tiff; sourceTree = "<group>"; };
 		1B32151114DDD06500C5B50A /* OE Startup.qtz */ = {isa = PBXFileReference; lastKnownFileType = "video.quartz-composer"; name = "OE Startup.qtz"; path = "Setup Assistant Resources/OE Startup.qtz"; sourceTree = "<group>"; };
 		1B32151214DDD06500C5B50A /* OpenEmu.dae */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = OpenEmu.dae; path = "Setup Assistant Resources/OpenEmu.dae"; sourceTree = "<group>"; };
 		1B32151314DDD06500C5B50A /* OpenEmuText.dae */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = OpenEmuText.dae; path = "Setup Assistant Resources/OpenEmuText.dae"; sourceTree = "<group>"; };
-		1B42C66C1429510A004691D7 /* Syphon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Syphon.framework; sourceTree = "<group>"; };
 		1B47F103142F01E700EBC55B /* OESetupAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OESetupAssistant.h; sourceTree = "<group>"; };
 		1B47F104142F01E700EBC55B /* OESetupAssistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OESetupAssistant.m; sourceTree = "<group>"; };
 		1B48F21716671473004E8ABA /* FeedbackReporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FeedbackReporter.framework; sourceTree = "<group>"; };
-		1B5B5FF7100986400043536B /* CRTMaskStaggered.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = CRTMaskStaggered.tiff; sourceTree = "<group>"; };
 		1B6DA4A714DDE6A40067F7F6 /* OESetupAssistantQCOpenGLLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OESetupAssistantQCOpenGLLayer.h; sourceTree = "<group>"; };
 		1B6DA4A814DDE6A40067F7F6 /* OESetupAssistantQCOpenGLLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OESetupAssistantQCOpenGLLayer.m; sourceTree = "<group>"; };
 		1B96BA55166BDD52005064C8 /* FRFeedbackReporter.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = FRFeedbackReporter.sh; sourceTree = "<group>"; };
-		1BA788FD0FF9C95A007CE5DB /* OEGameShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEGameShader.h; sourceTree = "<group>"; };
-		1BA788FE0FF9C95A007CE5DB /* OEGameShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEGameShader.m; sourceTree = "<group>"; };
 		1BEF2A7311682A330090F72B /* OpenEmuHelperApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenEmuHelperApp.h; sourceTree = "<group>"; };
 		1BEF2A7411682A330090F72B /* OpenEmuHelperApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = OpenEmuHelperApp.m; sourceTree = "<group>"; };
 		1BEF2A9411682A530090F72B /* OpenEmuHelperApp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OpenEmuHelperApp; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1580,19 +1521,6 @@
 		1E4B6B4C10DEBB4500B2CD45 /* SUVersionComparisonProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SUVersionComparisonProtocol.h; path = Sparkle.framework/Headers/SUVersionComparisonProtocol.h; sourceTree = "<group>"; };
 		1EA4404711973E9C001D71CA /* OEGameQuickLookDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEGameQuickLookDocument.h; sourceTree = "<group>"; };
 		1EA4404811973E9C001D71CA /* OEGameQuickLookDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEGameQuickLookDocument.m; sourceTree = "<group>"; };
-		2205C355196204A60013C675 /* _hq2x.cg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _hq2x.cg; sourceTree = "<group>"; };
-		2205C356196204A60013C675 /* _hq2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = _hq2x.png; sourceTree = "<group>"; };
-		2205C357196204A60013C675 /* _hq3x.cg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _hq3x.cg; sourceTree = "<group>"; };
-		2205C358196204A60013C675 /* _hq3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = _hq3x.png; sourceTree = "<group>"; };
-		2205C359196204A60013C675 /* _hq4x.cg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _hq4x.cg; sourceTree = "<group>"; };
-		2205C35A196204A60013C675 /* _hq4x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = _hq4x.png; sourceTree = "<group>"; };
-		2205C35B196204A60013C675 /* _pass1.cg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _pass1.cg; sourceTree = "<group>"; };
-		2205C35C196204A60013C675 /* _pass2.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = _pass2.inc; sourceTree = "<group>"; };
-		2205C35D196204A60013C675 /* HQ2x.cgp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HQ2x.cgp; sourceTree = "<group>"; };
-		2205C35E196204A60013C675 /* HQ3x.cgp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HQ3x.cgp; sourceTree = "<group>"; };
-		2205C35F196204A60013C675 /* HQ4x.cgp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HQ4x.cgp; sourceTree = "<group>"; };
-		2205C376196402B50013C675 /* OELUTTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OELUTTexture.h; sourceTree = "<group>"; };
-		2205C377196402B50013C675 /* OELUTTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OELUTTexture.m; sourceTree = "<group>"; };
 		277CBA4519DE54200059A2C1 /* Intellivision.oesystemplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Intellivision.oesystemplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		277CBA4719DE54A80059A2C1 /* OEIntellivisionSystemResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEIntellivisionSystemResponder.h; sourceTree = "<group>"; };
 		277CBA4819DE54A80059A2C1 /* OEIntellivisionSystemResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEIntellivisionSystemResponder.m; sourceTree = "<group>"; };
@@ -1630,9 +1558,9 @@
 		3C335CBF1C70E49F00E33B79 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		3C335CC01C70E4A000E33B79 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		3C335CC11C70E4A000E33B79 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ControlLabels.strings"; sourceTree = "<group>"; };
+		3D0D6FD11CC6366B00E3F284 /* OEGameLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEGameLayerView.h; sourceTree = "<group>"; };
+		3D0D6FD21CC6366B00E3F284 /* OEGameLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEGameLayerView.m; sourceTree = "<group>"; };
 		3D41E8E51BD47DEF00A76EFD /* OEGameRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEGameRenderer.h; sourceTree = "<group>"; };
-		3D41E8E91BD4959300A76EFD /* OEOpenGL2GameRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEOpenGL2GameRenderer.h; sourceTree = "<group>"; };
-		3D41E8EA1BD4959300A76EFD /* OEOpenGL2GameRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEOpenGL2GameRenderer.m; sourceTree = "<group>"; };
 		3DA6EDCA1BD790B900560326 /* OEOpenGL3GameRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEOpenGL3GameRenderer.h; sourceTree = "<group>"; };
 		3DA6EDCB1BD790B900560326 /* OEOpenGL3GameRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEOpenGL3GameRenderer.m; sourceTree = "<group>"; };
 		3DB744771BD8B95300C23E74 /* OEPS2SystemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OEPS2SystemController.h; path = "PlayStation 2/OEPS2SystemController.h"; sourceTree = "<group>"; };
@@ -1801,7 +1729,6 @@
 		82444BA20F51256C007C171B /* OpenEmuBase-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OpenEmuBase-Info.plist"; sourceTree = "<group>"; };
 		825CC280148C13750063A9B5 /* OpenEmu-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OpenEmu-Info.plist"; sourceTree = "<group>"; };
 		829779320E743F2A00631240 /* OEGameAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEGameAudio.h; sourceTree = "<group>"; };
-		829779330E743F2A00631240 /* OEGameAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEGameAudio.m; sourceTree = "<group>"; };
 		82BBE7B121D961A0006CD402 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/OEMigrationWindowController.strings"; sourceTree = "<group>"; };
 		82BBE7B221D961A1006CD402 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/OELibraryGamesViewController.strings"; sourceTree = "<group>"; };
 		82BBE7B321D961A1006CD402 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/OEPrefControlsController.strings"; sourceTree = "<group>"; };
@@ -1847,8 +1774,6 @@
 		8306CD3D1BD3DB180025BC6C /* OEGameCollectionViewItemProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEGameCollectionViewItemProtocol.h; sourceTree = "<group>"; };
 		83096F0114E98FC000F7EBC2 /* NSFileManager+OEHashingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+OEHashingAdditions.h"; sourceTree = "<group>"; };
 		83096F0214E98FC000F7EBC2 /* NSFileManager+OEHashingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+OEHashingAdditions.m"; sourceTree = "<group>"; };
-		830BBEC91B7BE979000B13CB /* OEGameViewNotificationRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEGameViewNotificationRenderer.h; sourceTree = "<group>"; };
-		830BBECA1B7BE979000B13CB /* OEGameViewNotificationRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEGameViewNotificationRenderer.m; sourceTree = "<group>"; };
 		830BC86714D5E1E6000826E2 /* controller_snes_mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = controller_snes_mask.png; sourceTree = "<group>"; };
 		830BC86A14D5F1A5000826E2 /* controller_gba_mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = controller_gba_mask.png; sourceTree = "<group>"; };
 		830CB916186878D6006EAE5A /* OEArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEArrayController.h; sourceTree = "<group>"; };
@@ -2213,34 +2138,8 @@
 		87FBC0A11C07985900AECF5A /* Keyboard-Mappings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Keyboard-Mappings.plist"; sourceTree = "<group>"; };
 		87FBC0A31C0798C000AECF5A /* Controller-Preferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Controller-Preferences.plist"; sourceTree = "<group>"; };
 		87FBC0A51C07996B00AECF5A /* Controller-Mappings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Controller-Mappings.plist"; sourceTree = "<group>"; };
-		8C09E4BE1867975E0095DB4E /* Beam4.cgp */ = {isa = PBXFileReference; lastKnownFileType = text; path = Beam4.cgp; sourceTree = "<group>"; };
-		8C09E4BF1867975E0095DB4E /* NTSC (Blargg).cgp */ = {isa = PBXFileReference; lastKnownFileType = text; path = "NTSC (Blargg).cgp"; sourceTree = "<group>"; };
-		8C09E4C01867975E0095DB4E /* _beam4_1.cg */ = {isa = PBXFileReference; lastKnownFileType = text; path = _beam4_1.cg; sourceTree = "<group>"; };
-		8C09E4C11867975E0095DB4E /* _beam4_2.cg */ = {isa = PBXFileReference; lastKnownFileType = text; path = _beam4_2.cg; sourceTree = "<group>"; };
-		8C09E4C21867975E0095DB4E /* _beam4_3.cg */ = {isa = PBXFileReference; lastKnownFileType = text; path = _beam4_3.cg; sourceTree = "<group>"; };
-		8C09E4C31867975E0095DB4E /* _stock.cg */ = {isa = PBXFileReference; lastKnownFileType = text; path = _stock.cg; sourceTree = "<group>"; };
-		8C09E4C61867975E0095DB4E /* Blinky.cg */ = {isa = PBXFileReference; lastKnownFileType = text; path = Blinky.cg; sourceTree = "<group>"; };
-		8C09E4C71867975E0095DB4E /* CRT.cg */ = {isa = PBXFileReference; lastKnownFileType = text; path = CRT.cg; sourceTree = "<group>"; };
-		8C09E4C81867975E0095DB4E /* LCD3x.cg */ = {isa = PBXFileReference; lastKnownFileType = text; path = LCD3x.cg; sourceTree = "<group>"; };
-		8C09E4C91867975E0095DB4E /* SABR.cg */ = {isa = PBXFileReference; lastKnownFileType = text; path = SABR.cg; sourceTree = "<group>"; };
-		8C09E4CA1867975E0095DB4E /* Scanline.cg */ = {isa = PBXFileReference; lastKnownFileType = text; path = Scanline.cg; sourceTree = "<group>"; };
-		8C415ECB16B0682B00980DB9 /* OEMultipassShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEMultipassShader.h; sourceTree = "<group>"; };
-		8C415ECC16B0682B00980DB9 /* OEMultipassShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEMultipassShader.m; sourceTree = "<group>"; };
-		8C4C808716986697009B8A28 /* OEGLSLShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEGLSLShader.h; sourceTree = "<group>"; };
-		8C4C808816986697009B8A28 /* OEGLSLShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEGLSLShader.m; sourceTree = "<group>"; };
-		8C4C808C16986C87009B8A28 /* OECGShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OECGShader.h; sourceTree = "<group>"; };
-		8C4C808D16986C87009B8A28 /* OECGShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OECGShader.m; sourceTree = "<group>"; };
-		8C8AD73016B5DBE20004D97C /* changes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = changes.txt; sourceTree = "<group>"; };
-		8C8AD73116B5DBE20004D97C /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
-		8C8AD73216B5DBE20004D97C /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
-		8C8AD73316B5DBE20004D97C /* snes_ntsc_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snes_ntsc_config.h; sourceTree = "<group>"; };
-		8C8AD73416B5DBE20004D97C /* snes_ntsc_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snes_ntsc_impl.h; sourceTree = "<group>"; };
-		8C8AD73516B5DBE20004D97C /* snes_ntsc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = snes_ntsc.c; sourceTree = "<group>"; };
-		8C8AD73616B5DBE20004D97C /* snes_ntsc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snes_ntsc.h; sourceTree = "<group>"; };
-		8C8AD73716B5DBE20004D97C /* snes_ntsc.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = snes_ntsc.txt; sourceTree = "<group>"; };
 		8CBD3AA017D23AA80022399B /* OEGridGameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEGridGameCell.h; sourceTree = "<group>"; };
 		8CBD3AA117D23AA80022399B /* OEGridGameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEGridGameCell.m; sourceTree = "<group>"; };
-		8CCBC0C8169B323100141631 /* Cg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Cg.framework; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* OpenEmu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenEmu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F071F381C25534E007B76DA /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		8F071F3A1C255362007B76DA /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
@@ -2340,13 +2239,6 @@
 		941F5A1717A786870005D7EA /* Controller-Preferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Controller-Preferences.plist"; sourceTree = "<group>"; };
 		941F5A1817A786870005D7EA /* Keyboard-Mappings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Keyboard-Mappings.plist"; sourceTree = "<group>"; };
 		942388B218922E2E0030A325 /* OEDatabase 1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OEDatabase 1.1.xcdatamodel"; sourceTree = "<group>"; };
-		94380774184E6AE100E2274B /* _ntsc-decode-filter-3phase.inc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.pascal; path = "_ntsc-decode-filter-3phase.inc"; sourceTree = "<group>"; };
-		94380775184E6AE100E2274B /* _ntsc-gauss-pass.cg */ = {isa = PBXFileReference; lastKnownFileType = text; path = "_ntsc-gauss-pass.cg"; sourceTree = "<group>"; };
-		94380776184E6AE100E2274B /* _ntsc-param.inc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.pascal; path = "_ntsc-param.inc"; sourceTree = "<group>"; };
-		9438077A184E6AE100E2274B /* _ntsc-pass2-3phase.cg */ = {isa = PBXFileReference; lastKnownFileType = text; path = "_ntsc-pass2-3phase.cg"; sourceTree = "<group>"; };
-		94380781184E6AE100E2274B /* _ntsc-rgbyuv.inc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.pascal; path = "_ntsc-rgbyuv.inc"; sourceTree = "<group>"; };
-		94380782184E6AE100E2274B /* _ntsc-stock.cg */ = {isa = PBXFileReference; lastKnownFileType = text; path = "_ntsc-stock.cg"; sourceTree = "<group>"; };
-		94380783184E6AE100E2274B /* NTSC.cgp */ = {isa = PBXFileReference; lastKnownFileType = text; path = NTSC.cgp; sourceTree = "<group>"; };
 		943815B6165771EB00D55731 /* OEGenesisSystemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEGenesisSystemController.h; sourceTree = "<group>"; };
 		943815B7165771EB00D55731 /* OEGenesisSystemController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEGenesisSystemController.m; sourceTree = "<group>"; };
 		943819C31658DAE800D55731 /* Controller-Mappings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Controller-Mappings.plist"; sourceTree = "<group>"; };
@@ -2426,7 +2318,6 @@
 		94454ECE17861098006C057B /* psp_library.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = psp_library.png; sourceTree = "<group>"; };
 		94525EE017A9A778003CB1A2 /* OESega32XSystemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OESega32XSystemController.h; sourceTree = "<group>"; };
 		94525EE117A9A778003CB1A2 /* OESega32XSystemController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OESega32XSystemController.m; sourceTree = "<group>"; };
-		94539AFD187D096C00CD1BA9 /* Pixellate.cg */ = {isa = PBXFileReference; lastKnownFileType = text; path = Pixellate.cg; sourceTree = "<group>"; };
 		945E42FB1517F2B500057D08 /* Arcade.oesystemplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Arcade.oesystemplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		945E42FF1517F2B500057D08 /* Arcade-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Arcade-Info.plist"; sourceTree = "<group>"; };
 		945E430A1517F59900057D08 /* OEArcadeSystemResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEArcadeSystemResponder.h; sourceTree = "<group>"; };
@@ -2446,8 +2337,6 @@
 		946B947717828A4000A212AC /* Controller-Mappings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Controller-Mappings.plist"; sourceTree = "<group>"; };
 		946B947817828A4000A212AC /* Controller-Preferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Controller-Preferences.plist"; sourceTree = "<group>"; };
 		946B947917828A4000A212AC /* Keyboard-Mappings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Keyboard-Mappings.plist"; sourceTree = "<group>"; };
-		94791E9316AE8A18007DB8BE /* OEShaderPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEShaderPlugin.h; sourceTree = "<group>"; };
-		94791E9416AE8A18007DB8BE /* OEShaderPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEShaderPlugin.m; sourceTree = "<group>"; };
 		949623E6164E0CD600952A86 /* Controller-Mappings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Controller-Mappings.plist"; sourceTree = "<group>"; };
 		949628CB164F677400952A86 /* Controller-Mappings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Controller-Mappings.plist"; sourceTree = "<group>"; };
 		949628CD164F6A3C00952A86 /* Controller-Mappings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Controller-Mappings.plist"; sourceTree = "<group>"; };
@@ -2662,11 +2551,8 @@
 		94E6C303166DB15900082F27 /* Controller-Mappings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Controller-Mappings.plist"; sourceTree = "<group>"; };
 		94FC53861688FF60003C6AFE /* controller_gamegear_mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = controller_gamegear_mask.png; sourceTree = "<group>"; };
 		94FC53871688FF60003C6AFE /* controller_gamegear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = controller_gamegear.png; sourceTree = "<group>"; };
-		94FEFA4B18A80ECC0033A762 /* _ntsc-pass1-composite-3phase.cg */ = {isa = PBXFileReference; lastKnownFileType = text; path = "_ntsc-pass1-composite-3phase.cg"; sourceTree = "<group>"; };
-		94FEFA4C18A80ECC0033A762 /* _ntsc-pass1-encode-demodulate.inc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.pascal; path = "_ntsc-pass1-encode-demodulate.inc"; sourceTree = "<group>"; };
-		94FEFA4D18A80ECC0033A762 /* _ntsc-pass1-vertex.inc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.pascal; path = "_ntsc-pass1-vertex.inc"; sourceTree = "<group>"; };
-		94FEFA4E18A80ECD0033A762 /* _ntsc-pass2-decode.inc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.pascal; path = "_ntsc-pass2-decode.inc"; sourceTree = "<group>"; };
-		94FEFA4F18A80ECD0033A762 /* _ntsc-pass2-vertex.inc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.pascal; path = "_ntsc-pass2-vertex.inc"; sourceTree = "<group>"; };
+		A902019312DE5D81DCEEDF26 /* OEGameHelperMetalLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEGameHelperMetalLayer.m; sourceTree = "<group>"; };
+		A902075D9FB462EB5568DCCB /* OEGameHelperMetalLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEGameHelperMetalLayer.h; sourceTree = "<group>"; };
 		C60238E8179510C600F4AF6C /* OEGameCoreHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OEGameCoreHelper.h; sourceTree = "<group>"; };
 		C609618F179B278C00239067 /* OEXPCGameCoreHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OEXPCGameCoreHelper.h; sourceTree = "<group>"; };
 		C6096190179B461C00239067 /* OEXPCGameCoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEXPCGameCoreManager.h; sourceTree = "<group>"; };
@@ -2731,8 +2617,6 @@
 		C68B9F371C2ADD970049CF77 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/OEPrefLibraryController.strings; sourceTree = "<group>"; };
 		C68B9F381C2ADDA20049CF77 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/OEPrefLibraryController.strings; sourceTree = "<group>"; };
 		C68B9F391C2ADDA60049CF77 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/OEPrefLibraryController.strings; sourceTree = "<group>"; };
-		C6953C9F117293760091276F /* OEGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEGameView.h; sourceTree = "<group>"; };
-		C6953CA0117293760091276F /* OEGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEGameView.m; sourceTree = "<group>"; };
 		C69DCCFF0FE994A5009AE5A6 /* OEPluginDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEPluginDocument.h; sourceTree = "<group>"; };
 		C69DCD000FE994A5009AE5A6 /* OEPluginDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEPluginDocument.m; sourceTree = "<group>"; };
 		C6AC9D371190C5E60083DDFD /* OpenEmuHelperAppMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenEmuHelperAppMain.m; sourceTree = "<group>"; };
@@ -2761,9 +2645,6 @@
 		C6B9480B1365096800A425F0 /* OEGenesisSystemResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEGenesisSystemResponder.m; sourceTree = "<group>"; };
 		C6B9480C1365096800A425F0 /* OEGenesisSystemResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEGenesisSystemResponder.h; sourceTree = "<group>"; };
 		C6BF6BC717CAF09F004A8841 /* OEGameCoreManager_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OEGameCoreManager_Internal.h; sourceTree = "<group>"; };
-		C6C3728016BDB22F003E57AE /* OEGameShader_ForSubclassEyesOnly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OEGameShader_ForSubclassEyesOnly.h; sourceTree = "<group>"; };
-		C6C3734016BE7065003E57AE /* OEBuiltInShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OEBuiltInShader.h; sourceTree = "<group>"; };
-		C6C3734116BE7065003E57AE /* OEBuiltInShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OEBuiltInShader.m; sourceTree = "<group>"; };
 		C6D120C317112E1300E868A8 /* OpenEmuBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEmuBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6D120C417112E1300E868A8 /* OpenEmuSystem.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEmuSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6F6480415F4BA7000BA9D9B /* OEUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OEUtilities.h; sourceTree = "<group>"; };
@@ -2858,6 +2739,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05F5BAE9228662C5004D713C /* OpenEmuShaders.framework in Frameworks */,
+				052B92D3226EE5FA00701431 /* libc++.tbd in Frameworks */,
 				9343550C1F0C136E0076E859 /* OpenEmuXPCCommunicator.framework in Frameworks */,
 				828BF57E1669F97B00759F10 /* XADMaster.framework in Frameworks */,
 				C6D120C917112E9E00E868A8 /* OpenEmuBase.framework in Frameworks */,
@@ -2940,13 +2823,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05F5BAED228662D3004D713C /* OpenEmuShaders.framework in Frameworks */,
+				052B92D4226EE66C00701431 /* libc++.tbd in Frameworks */,
 				8F4BDF7D1CE4AB34007DCB86 /* libsqlite3.tbd in Frameworks */,
 				C6D120C517112E1300E868A8 /* OpenEmuBase.framework in Frameworks */,
 				C6D120C617112E1300E868A8 /* OpenEmuSystem.framework in Frameworks */,
-				8CCBC0C9169B323100141631 /* Cg.framework in Frameworks */,
 				8F4BDF7B1CE4AB25007DCB86 /* libz.tbd in Frameworks */,
 				83FA054E13B9DF940055A520 /* Sparkle.framework in Frameworks */,
-				1B42C66D1429510A004691D7 /* Syphon.framework in Frameworks */,
 				82DE4B63102655DA007184EB /* UniversalDetector.framework in Frameworks */,
 				82DE4B62102655D5007184EB /* XADMaster.framework in Frameworks */,
 			);
@@ -3220,6 +3103,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05410EEF22F7535A00303424 /* Cell Views */ = {
+			isa = PBXGroup;
+			children = (
+				05410EF422F7573D00303424 /* CheckboxCell.xib */,
+				05410EF022F7538B00303424 /* SliderCell.xib */,
+				05410EF222F756BD00303424 /* GroupCell.xib */,
+			);
+			name = "Cell Views";
+			sourceTree = "<group>";
+		};
+		0557CB1322A750260037175F /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				05F6381222E3C08100FC49FF /* OEShaderParamValue.h */,
+				05F6381322E3C08100FC49FF /* OEShaderParamValue.m */,
+				0557CB1722A7504B0037175F /* OEShadersModel.swift */,
+				0557CB1A22A781B60037175F /* OEShadersModel+OpenEmu.swift */,
+				05410EE522F690DB00303424 /* OEShaderParametersWindowController.h */,
+				05410EE622F690E200303424 /* OEShaderParametersWindowController.m */,
+			);
+			name = Shaders;
+			sourceTree = "<group>";
+		};
 		081A461F1B9572C400565444 /* Pokemon mini */ = {
 			isa = PBXGroup;
 			children = (
@@ -3250,11 +3156,9 @@
 		1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8CCBC0C8169B323100141631 /* Cg.framework */,
 				14A9073916FAA0AE005E2635 /* FeedbackReporter.framework */,
 				8F4BDF7C1CE4AB34007DCB86 /* libsqlite3.tbd */,
 				8F4BDF7A1CE4AB25007DCB86 /* libz.tbd */,
-				1B42C66C1429510A004691D7 /* Syphon.framework */,
 				82DE4AEE1026533E007184EB /* UniversalDetector.framework */,
 				82DE4AEF1026533E007184EB /* XADMaster.framework */,
 			);
@@ -3370,18 +3274,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1B22426B100D171700F42067 /* CRT Masks */ = {
-			isa = PBXGroup;
-			children = (
-				1B224267100D170F00F42067 /* CRTMaskStraightScanlineOnly.tiff */,
-				1B224268100D170F00F42067 /* CRTMaskStaggeredScanlineOnly.tiff */,
-				1B5B5FF7100986400043536B /* CRTMaskStaggered.tiff */,
-				1B224229100CF18E00F42067 /* CRTMaskStraight.tiff */,
-				1B2243AE100E92E700F42067 /* CRTMaskShadow.tiff */,
-			);
-			name = "CRT Masks";
-			sourceTree = "<group>";
-		};
 		1B32150F14DDD03200C5B50A /* Setup Assistant Animation Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -3403,17 +3295,18 @@
 			name = "Helper Classes";
 			sourceTree = "<group>";
 		};
-		1BEF2A621168265D0090F72B /* Helper App (IOSurface helper) */ = {
+		1BEF2A621168265D0090F72B /* Helper App (Remote Layer) */ = {
 			isa = PBXGroup;
 			children = (
 				3D41E8E41BD47DA300A76EFD /* Renderers */,
+				3DCFA4991D02BD80005B8A3B /* Video */,
 				C6AC9D371190C5E60083DDFD /* OpenEmuHelperAppMain.m */,
 				1BEF2A7311682A330090F72B /* OpenEmuHelperApp.h */,
 				1BEF2A7411682A330090F72B /* OpenEmuHelperApp.m */,
 				C6096198179B6E3F00239067 /* OpenEmuXPCHelperApp.h */,
 				C6096199179B6E3F00239067 /* OpenEmuXPCHelperApp.m */,
 			);
-			name = "Helper App (IOSurface helper)";
+			name = "Helper App (Remote Layer)";
 			sourceTree = "<group>";
 		};
 		1BEF34721168F8210090F72B /* XIBs */ = {
@@ -3427,6 +3320,8 @@
 				832D29421451ACF200BDF950 /* MainWindow.xib */,
 				83FE965B19685F6700DD8DB9 /* OEGameScanner.xib */,
 				83FE966619685F8F00DD8DB9 /* OESetupAssistant.xib */,
+				05410EE022F68ED900303424 /* ShaderParameters.xib */,
+				05410EEF22F7535A00303424 /* Cell Views */,
 			);
 			name = XIBs;
 			sourceTree = "<group>";
@@ -3457,6 +3352,7 @@
 				5A2CE895206EA5E900790F89 /* NSArray+OEAdditions.h */,
 				5A2CE899206EA61B00790F89 /* NSArray+OEAdditions.m */,
 				5A9606DD1C0B0E220089B494 /* NSAttributedString+Hyperlink.swift */,
+				052EA5BB2357941100DEC2A3 /* NSBitmapImageRep+OEAdditions.swift */,
 				EFBD5D7614EFE19A00FBD1E0 /* NSColor+OEAdditions.h */,
 				EFBD5D7714EFE19A00FBD1E0 /* NSColor+OEAdditions.m */,
 				5A9606DF1C0B12FE0089B494 /* NSControl+TargetAction.swift */,
@@ -3507,24 +3403,6 @@
 			name = QuickLook;
 			sourceTree = "<group>";
 		};
-		2205C354196204A60013C675 /* HQx */ = {
-			isa = PBXGroup;
-			children = (
-				2205C355196204A60013C675 /* _hq2x.cg */,
-				2205C356196204A60013C675 /* _hq2x.png */,
-				2205C357196204A60013C675 /* _hq3x.cg */,
-				2205C358196204A60013C675 /* _hq3x.png */,
-				2205C359196204A60013C675 /* _hq4x.cg */,
-				2205C35A196204A60013C675 /* _hq4x.png */,
-				2205C35B196204A60013C675 /* _pass1.cg */,
-				2205C35C196204A60013C675 /* _pass2.inc */,
-				2205C35D196204A60013C675 /* HQ2x.cgp */,
-				2205C35E196204A60013C675 /* HQ3x.cgp */,
-				2205C35F196204A60013C675 /* HQ4x.cgp */,
-			);
-			path = HQx;
-			sourceTree = "<group>";
-		};
 		277CBA2E19DE52640059A2C1 /* Intellivision */ = {
 			isa = PBXGroup;
 			children = (
@@ -3573,11 +3451,12 @@
 			name = OpenEmu;
 			sourceTree = "<group>";
 			tabWidth = 4;
+			usesTabs = 0;
 		};
 		2A37F4ABFDCFA73011CA2CEA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1BEF2A621168265D0090F72B /* Helper App (IOSurface helper) */,
+				1BEF2A621168265D0090F72B /* Helper App (Remote Layer) */,
 				C60238E7179509CC00F4AF6C /* Game Core Helper Protocols */,
 				3887A8011024D29D000FC4CF /* OpenEmuQLGenerator */,
 				C66DFA600F51C9550080AA28 /* GameCore framework */,
@@ -3606,6 +3485,7 @@
 		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				05E4400A22991527009E6D27 /* Shaders */,
 				87191CC51F6F5524006D2EE3 /* dsa_pub.pem */,
 				8F071F3A1C255362007B76DA /* Credits.rtf */,
 				1B32150F14DDD03200C5B50A /* Setup Assistant Animation Resources */,
@@ -3614,8 +3494,6 @@
 				556CEBEF1BCE173B00F00EAA /* Graphics.xcassets */,
 				53439B9D13B93920005C0CC8 /* Interface Graphics */,
 				1BEF34721168F8210090F72B /* XIBs */,
-				1B22426B100D171700F42067 /* CRT Masks */,
-				C344D5F6174C45050011579E /* Shaders */,
 				94AE2C0F17B07D450018DFBB /* cheats-database.xml */,
 				375903750FF82C4000135C45 /* openemuqc_pub.pem */,
 				1B96BA55166BDD52005064C8 /* FRFeedbackReporter.sh */,
@@ -3626,6 +3504,8 @@
 		2A37F4C3FDCFA73011CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				05F5BAE8228662C5004D713C /* OpenEmuShaders.framework */,
+				052B92D2226EE5FA00701431 /* libc++.tbd */,
 				87DF05431BCE3DA50060E2C2 /* OpenEmuSystem.framework */,
 				83FA054F13B9DFC20055A520 /* Copied Frameworks */,
 				C6772C081710E9A900ED580A /* OpenEmu */,
@@ -3648,8 +3528,10 @@
 			isa = PBXGroup;
 			children = (
 				3D41E8E51BD47DEF00A76EFD /* OEGameRenderer.h */,
-				3D41E8E91BD4959300A76EFD /* OEOpenGL2GameRenderer.h */,
-				3D41E8EA1BD4959300A76EFD /* OEOpenGL2GameRenderer.m */,
+				052B9293226ED63200701431 /* OEMTLGameRenderer.h */,
+				052B9294226ED63200701431 /* OEMTLGameRenderer.m */,
+				05FB7D7F22A0A3CD0070633C /* OEOpenGL2GameRenderer.h */,
+				05FB7D8022A0A3D60070633C /* OEOpenGL2GameRenderer.m */,
 				3DA6EDCA1BD790B900560326 /* OEOpenGL3GameRenderer.h */,
 				3DA6EDCB1BD790B900560326 /* OEOpenGL3GameRenderer.m */,
 			);
@@ -3684,6 +3566,17 @@
 				3DB744881BD8B9DE00C23E74 /* psx_library@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3DCFA4991D02BD80005B8A3B /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				05FB7D8322A0A4A40070633C /* OECoreVideoTexture.h */,
+				05FB7D8422A0A4A40070633C /* OECoreVideoTexture.m */,
+				A902075D9FB462EB5568DCCB /* OEGameHelperMetalLayer.h */,
+				A902019312DE5D81DCEEDF26 /* OEGameHelperMetalLayer.m */,
+			);
+			name = Video;
 			sourceTree = "<group>";
 		};
 		53439A8613B92BEB005C0CC8 /* HUD */ = {
@@ -3961,8 +3854,10 @@
 		8249C8E40E899CD30027EFDF /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				051F76C322A8808000E1C0C4 /* OEAudioUnit.h */,
+				051F76C422A8808100E1C0C4 /* OEAudioUnit.mm */,
 				829779320E743F2A00631240 /* OEGameAudio.h */,
-				829779330E743F2A00631240 /* OEGameAudio.m */,
+				051F76D522A887E600E1C0C4 /* OEGameAudio.m */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -3982,6 +3877,7 @@
 				53439A8613B92BEB005C0CC8 /* HUD */,
 				1E2F3DB810DEAB370019AA84 /* Migration */,
 				82DE498810263A09007184EB /* Downloader */,
+				0557CB1322A750260037175F /* Shaders */,
 				C62F546E0FE6AD6700DF15BA /* Plugins */,
 				8249C8E40E899CD30027EFDF /* Audio */,
 				829165DA0E85F9A400493FD8 /* Graphics */,
@@ -4006,24 +3902,9 @@
 		829165DA0E85F9A400493FD8 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
-				8C8AD72F16B5DBA70004D97C /* Blargg's NTSC filter */,
-				1BA788FD0FF9C95A007CE5DB /* OEGameShader.h */,
-				1BA788FE0FF9C95A007CE5DB /* OEGameShader.m */,
-				C6C3728016BDB22F003E57AE /* OEGameShader_ForSubclassEyesOnly.h */,
-				C6C3734016BE7065003E57AE /* OEBuiltInShader.h */,
-				C6C3734116BE7065003E57AE /* OEBuiltInShader.m */,
-				C6953C9F117293760091276F /* OEGameView.h */,
-				C6953CA0117293760091276F /* OEGameView.m */,
-				8C4C808716986697009B8A28 /* OEGLSLShader.h */,
-				8C4C808816986697009B8A28 /* OEGLSLShader.m */,
-				8C4C808C16986C87009B8A28 /* OECGShader.h */,
-				8C4C808D16986C87009B8A28 /* OECGShader.m */,
-				8C415ECB16B0682B00980DB9 /* OEMultipassShader.h */,
-				8C415ECC16B0682B00980DB9 /* OEMultipassShader.m */,
-				2205C376196402B50013C675 /* OELUTTexture.h */,
-				2205C377196402B50013C675 /* OELUTTexture.m */,
-				830BBEC91B7BE979000B13CB /* OEGameViewNotificationRenderer.h */,
-				830BBECA1B7BE979000B13CB /* OEGameViewNotificationRenderer.m */,
+				3D0D6FD11CC6366B00E3F284 /* OEGameLayerView.h */,
+				3D0D6FD21CC6366B00E3F284 /* OEGameLayerView.m */,
+				0586AB21231A1E9A00BCDA6B /* OEGameLayerNotificationView.swift */,
 			);
 			name = Graphics;
 			sourceTree = "<group>";
@@ -4362,6 +4243,8 @@
 			children = (
 				836291FC1515F30700192116 /* OEFSWatcher.h */,
 				836291FD1515F30700192116 /* OEFSWatcher.m */,
+				05B2E05923693A7500644C58 /* OELogging.h */,
+				05B2E05D23693A7500644C58 /* OELogging.m */,
 				C60961A5179C4BD000239067 /* OEThreadProxy.h */,
 				C60961A6179C4BD000239067 /* OEThreadProxy.m */,
 			);
@@ -4515,21 +4398,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8C8AD72F16B5DBA70004D97C /* Blargg's NTSC filter */ = {
-			isa = PBXGroup;
-			children = (
-				8C8AD73016B5DBE20004D97C /* changes.txt */,
-				8C8AD73116B5DBE20004D97C /* license.txt */,
-				8C8AD73216B5DBE20004D97C /* readme.txt */,
-				8C8AD73316B5DBE20004D97C /* snes_ntsc_config.h */,
-				8C8AD73416B5DBE20004D97C /* snes_ntsc_impl.h */,
-				8C8AD73516B5DBE20004D97C /* snes_ntsc.c */,
-				8C8AD73616B5DBE20004D97C /* snes_ntsc.h */,
-				8C8AD73716B5DBE20004D97C /* snes_ntsc.txt */,
-			);
-			path = "Blargg's NTSC filter";
-			sourceTree = "<group>";
-		};
 		934354F91F0C130A0076E859 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -4604,25 +4472,6 @@
 				941F5A1717A786870005D7EA /* Controller-Preferences.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		94380773184E6AE100E2274B /* Themaister NTSC */ = {
-			isa = PBXGroup;
-			children = (
-				94380774184E6AE100E2274B /* _ntsc-decode-filter-3phase.inc */,
-				94380775184E6AE100E2274B /* _ntsc-gauss-pass.cg */,
-				94380776184E6AE100E2274B /* _ntsc-param.inc */,
-				94FEFA4B18A80ECC0033A762 /* _ntsc-pass1-composite-3phase.cg */,
-				94FEFA4C18A80ECC0033A762 /* _ntsc-pass1-encode-demodulate.inc */,
-				94FEFA4D18A80ECC0033A762 /* _ntsc-pass1-vertex.inc */,
-				94FEFA4E18A80ECD0033A762 /* _ntsc-pass2-decode.inc */,
-				94FEFA4F18A80ECD0033A762 /* _ntsc-pass2-vertex.inc */,
-				9438077A184E6AE100E2274B /* _ntsc-pass2-3phase.cg */,
-				94380781184E6AE100E2274B /* _ntsc-rgbyuv.inc */,
-				94380782184E6AE100E2274B /* _ntsc-stock.cg */,
-				94380783184E6AE100E2274B /* NTSC.cgp */,
-			);
-			path = "Themaister NTSC";
 			sourceTree = "<group>";
 		};
 		943C80141708A62F00D8D93E /* Jaguar */ = {
@@ -5353,27 +5202,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C344D5F6174C45050011579E /* Shaders */ = {
-			isa = PBXGroup;
-			children = (
-				2205C354196204A60013C675 /* HQx */,
-				94380773184E6AE100E2274B /* Themaister NTSC */,
-				8C09E4BE1867975E0095DB4E /* Beam4.cgp */,
-				8C09E4BF1867975E0095DB4E /* NTSC (Blargg).cgp */,
-				8C09E4C01867975E0095DB4E /* _beam4_1.cg */,
-				8C09E4C11867975E0095DB4E /* _beam4_2.cg */,
-				8C09E4C21867975E0095DB4E /* _beam4_3.cg */,
-				8C09E4C31867975E0095DB4E /* _stock.cg */,
-				8C09E4C61867975E0095DB4E /* Blinky.cg */,
-				8C09E4C71867975E0095DB4E /* CRT.cg */,
-				8C09E4C81867975E0095DB4E /* LCD3x.cg */,
-				94539AFD187D096C00CD1BA9 /* Pixellate.cg */,
-				8C09E4C91867975E0095DB4E /* SABR.cg */,
-				8C09E4CA1867975E0095DB4E /* Scanline.cg */,
-			);
-			path = Shaders;
-			sourceTree = "<group>";
-		};
 		C60238E7179509CC00F4AF6C /* Game Core Helper Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -5434,8 +5262,6 @@
 				C62F549A0FE6CC1500DF15BA /* OECorePlugin.m */,
 				C6289C30135B215B00EEE97C /* OESystemPlugin.h */,
 				C6289C31135B215B00EEE97C /* OESystemPlugin.m */,
-				94791E9316AE8A18007DB8BE /* OEShaderPlugin.h */,
-				94791E9416AE8A18007DB8BE /* OEShaderPlugin.m */,
 			);
 			name = Plugins;
 			sourceTree = "<group>";
@@ -5966,7 +5792,6 @@
 			buildConfigurationList = C05733C708A9546B00998B17 /* Build configuration list for PBXNativeTarget "OpenEmu" */;
 			buildPhases = (
 				8D15AC2B0486D014006FF6A4 /* Resources */,
-				1B22406D100BD6C600F42067 /* Copy Filters Folder To App Resources */,
 				8D15AC300486D014006FF6A4 /* Sources */,
 				8D15AC330486D014006FF6A4 /* Frameworks */,
 				828ED4F00E7D98F60059F397 /* Copy Frameworks to App Frameworks */,
@@ -6556,34 +6381,177 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1110;
 				TargetAttributes = {
 					081A46251B95744A00565444 = {
 						CreatedOnToolsVersion = 6.4;
+						ProvisioningStyle = Manual;
+					};
+					1415540E1442B3B300A01683 = {
+						ProvisioningStyle = Manual;
+					};
+					1BEF2A9311682A530090F72B = {
+						ProvisioningStyle = Manual;
+					};
+					277CBA3219DE54200059A2C1 = {
+						ProvisioningStyle = Manual;
+					};
+					37C802FF101564A300356EF3 = {
+						ProvisioningStyle = Manual;
+					};
+					3887A7F51024D1F9000FC4CF = {
+						ProvisioningStyle = Manual;
+					};
+					3DB744A51BD8BA9E00C23E74 = {
+						ProvisioningStyle = Manual;
+					};
+					820EB7391483F9A2008EC398 = {
+						ProvisioningStyle = Manual;
+					};
+					8227753E148946DF00B19E27 = {
+						ProvisioningStyle = Manual;
+					};
+					82C9C96F0F080C7F0071460B = {
+						ProvisioningStyle = Manual;
 					};
 					837964E01A6149C000A8DE5C = {
 						CreatedOnToolsVersion = 6.1.1;
+						ProvisioningStyle = Manual;
+					};
+					83F37141140BB166005A7353 = {
+						ProvisioningStyle = Manual;
 					};
 					87DF04FD1BCE2D100060E2C2 = {
 						CreatedOnToolsVersion = 7.0.1;
+						ProvisioningStyle = Manual;
 					};
 					87FBC06C1BFC70FE00AECF5A = {
 						CreatedOnToolsVersion = 7.1.1;
+						ProvisioningStyle = Manual;
 					};
 					87FBC08D1C0790B400AECF5A = {
 						CreatedOnToolsVersion = 7.1.1;
+						ProvisioningStyle = Manual;
 					};
 					8D15AC270486D014006FF6A4 = {
 						LastSwiftMigration = 1020;
+						ProvisioningStyle = Manual;
+					};
+					9405538317A34C6B009B505D = {
+						ProvisioningStyle = Manual;
+					};
+					941F5A0017A785AD0005D7EA = {
+						ProvisioningStyle = Manual;
+					};
+					943C80111708A62E00D8D93E = {
+						ProvisioningStyle = Manual;
+					};
+					943C80341708F23900D8D93E = {
+						ProvisioningStyle = Manual;
+					};
+					943F998A1707D51100270E89 = {
+						ProvisioningStyle = Manual;
+					};
+					943F99B21707DF3700270E89 = {
+						ProvisioningStyle = Manual;
+					};
+					94404754199D4DF0002D805E = {
+						ProvisioningStyle = Manual;
+					};
+					94454EB317860E1D006C057B = {
+						ProvisioningStyle = Manual;
+					};
+					945E42FA1517F2B500057D08 = {
+						ProvisioningStyle = Manual;
+					};
+					946B9461178289BA00A212AC = {
+						ProvisioningStyle = Manual;
+					};
+					9479664E15EDE645004316AB = {
+						ProvisioningStyle = Manual;
+					};
+					94A224321707537F00098DA0 = {
+						ProvisioningStyle = Manual;
+					};
+					94A224421707539D00098DA0 = {
+						ProvisioningStyle = Manual;
+					};
+					94A22452170753C800098DA0 = {
+						ProvisioningStyle = Manual;
+					};
+					94A22462170753D500098DA0 = {
+						ProvisioningStyle = Manual;
+					};
+					94A22472170753E100098DA0 = {
+						ProvisioningStyle = Manual;
+					};
+					94A224821707541E00098DA0 = {
+						ProvisioningStyle = Manual;
+					};
+					94A224921707542A00098DA0 = {
+						ProvisioningStyle = Manual;
+					};
+					94A224A21707543600098DA0 = {
+						ProvisioningStyle = Manual;
+					};
+					94A224B21707544100098DA0 = {
+						ProvisioningStyle = Manual;
+					};
+					94A224C21707544B00098DA0 = {
+						ProvisioningStyle = Manual;
+					};
+					94A224D21707556D00098DA0 = {
+						ProvisioningStyle = Manual;
+					};
+					94A224E21707559100098DA0 = {
+						ProvisioningStyle = Manual;
+					};
+					94A224F51707596100098DA0 = {
+						ProvisioningStyle = Manual;
+					};
+					94BE9E4F171683E000AB08E6 = {
+						ProvisioningStyle = Manual;
+					};
+					94C51FBC1847077700206E6F = {
+						ProvisioningStyle = Manual;
+					};
+					94CEB26C17A84809005A2107 = {
+						ProvisioningStyle = Manual;
+					};
+					94D7E8C815073BA000FBDD85 = {
+						ProvisioningStyle = Manual;
+					};
+					94EBBCD7183F422500743756 = {
+						ProvisioningStyle = Manual;
+					};
+					C646574713771F12002A4F70 = {
+						ProvisioningStyle = Manual;
+					};
+					C6480FC013648F670094FA33 = {
+						ProvisioningStyle = Manual;
+					};
+					C64BB08C136478E600C1AB23 = {
+						ProvisioningStyle = Manual;
+					};
+					C671180E136368330034379A = {
+						ProvisioningStyle = Manual;
+					};
+					C6B947AE1364ECA600A425F0 = {
+						ProvisioningStyle = Manual;
+					};
+					C6B947E51365080B00A425F0 = {
+						ProvisioningStyle = Manual;
+					};
+					FEB6625A187B791800D14713 = {
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
 			buildConfigurationList = C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "OpenEmu" */;
 			compatibilityVersion = "Xcode 8.0";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
-				English,
 				en,
 				de,
 				pt,
@@ -6854,22 +6822,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05E4400B22991527009E6D27 /* Shaders in Resources */,
 				C6C3734316BE7BAF003E57AE /* OE Startup.qtz in Resources */,
 				8306CD261BD3AC3D0025BC6C /* OESidebarController.xib in Resources */,
 				1B32151514DDD49E00C5B50A /* OpenEmu.dae in Resources */,
 				1B32151614DDD49E00C5B50A /* OpenEmuText.dae in Resources */,
-				876FF0DC207B2BA6002F935A /* hud_stepforward_notification.png in Resources */,
 				1BFC26D0116C1CA300B95689 /* OpenEmuHelperApp in Resources */,
 				8F5074741C10BCEC00F52B83 /* OELibraryGamesViewController.xib in Resources */,
 				82DD29DB12369F1100B58A8F /* KeyboardUsages.plist in Resources */,
 				833ADC4D196B078E00217D9A /* OECollectionViewController.xib in Resources */,
-				876FF0DA207B2B96002F935A /* hud_stepbackward_notification.png in Resources */,
-				83F607761BD3E4C9001236FC /* hud_screenshot_notification@2x.png in Resources */,
-				83F607751BD3E4C9001236FC /* hud_screenshot_notification.png in Resources */,
-				87AA7D0D2071871E00E5DB80 /* hud_rewind_notification@2x.png in Resources */,
 				8F071F3B1C255362007B76DA /* Credits.rtf in Resources */,
-				87AA7D082071870F00E5DB80 /* hud_fastforward_notification@2x.png in Resources */,
+				05410EF522F7573D00303424 /* CheckboxCell.xib in Resources */,
 				83DEF7C1196C403400C7DF57 /* ControlLabels.strings in Resources */,
+				05410EF122F7538B00303424 /* SliderCell.xib in Resources */,
 				83B04E421968610F00CB985E /* Localizable.strings in Resources */,
 				87191CC61F6F5524006D2EE3 /* dsa_pub.pem in Resources */,
 				83FE9642196859B100DD8DB9 /* OEPrefCoresController.xib in Resources */,
@@ -6883,21 +6848,17 @@
 				83FE965519685F4300DD8DB9 /* MainMenu.xib in Resources */,
 				556CEBF01BCE173B00F00EAA /* Graphics.xcassets in Resources */,
 				832D29431451ACF200BDF950 /* MainWindow.xib in Resources */,
+				05410EE122F68ED900303424 /* ShaderParameters.xib in Resources */,
 				83753F1A14F5383F00D708A7 /* OEPrefDebugController.xib in Resources */,
-				83F607731BD3E4C9001236FC /* hud_quicksave_notification.png in Resources */,
 				838E2A231600A05C00CF7198 /* Theme.plist in Resources */,
 				C6F696C01648F64B00B243DB /* Controller-Database.plist in Resources */,
-				87AA7D092071870F00E5DB80 /* hud_fastforward_notification.png in Resources */,
 				83FE965919685F6700DD8DB9 /* OEGameScanner.xib in Resources */,
 				83B04E411968610F00CB985E /* InfoPlist.strings in Resources */,
-				876FF0D8207B1269002F935A /* hud_stepbackward_notification@2x.png in Resources */,
-				83F607741BD3E4C9001236FC /* hud_quicksave_notification@2x.png in Resources */,
 				83FE963C1968596C00DD8DB9 /* OEMigrationWindowController.xib in Resources */,
-				876FF0D6207B0A3D002F935A /* hud_stepforward_notification@2x.png in Resources */,
 				83495DD819A38F3D009DB6E5 /* OEPrefBiosController.xib in Resources */,
 				83338C2217A281C7007E32E9 /* secret.mp3 in Resources */,
 				94AE2C1017B07D450018DFBB /* cheats-database.xml in Resources */,
-				87AA7D0C2071871E00E5DB80 /* hud_rewind_notification.png in Resources */,
+				05410EF322F756BD00303424 /* GroupCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7475,7 +7436,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "rm -rf \"$USER_LIBRARY_DIR/Frameworks/OpenEmuBase.framework\"\ncp -R \"$BUILT_PRODUCTS_DIR/OpenEmuBase.framework\" \"$USER_LIBRARY_DIR/Frameworks/OpenEmuBase.framework\"";
+			shellScript = "rm -rf \"$USER_LIBRARY_DIR/Frameworks/OpenEmuBase.framework\"\ncp -R \"$BUILT_PRODUCTS_DIR/OpenEmuBase.framework\" \"$USER_LIBRARY_DIR/Frameworks/OpenEmuBase.framework\"\n";
 		};
 		9479665315EDE64C004316AB /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -7501,7 +7462,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# For Build All + Experimental scheme, tell Sparkle where to find experimental app and cores\n/usr/libexec/PlistBuddy -c \"Set :OECoreListURL https://raw.github.com/OpenEmu/OpenEmu-Update/master/oecores-experimental.xml\" OpenEmu-Info.plist\n\n/usr/libexec/PlistBuddy -c \"Set :SUFeedURL https://raw.github.com/OpenEmu/OpenEmu-Update/master/appcast-experimental.xml\" OpenEmu-Info.plist";
+			shellScript = "# For Build All + Experimental scheme, tell Sparkle where to find experimental app and cores\n/usr/libexec/PlistBuddy -c \"Set :OECoreListURL https://raw.github.com/OpenEmu/OpenEmu-Update/master/oecores-experimental.xml\" OpenEmu-Info.plist\n\n/usr/libexec/PlistBuddy -c \"Set :SUFeedURL https://raw.github.com/OpenEmu/OpenEmu-Update/master/appcast-experimental.xml\" OpenEmu-Info.plist\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -7528,17 +7489,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				C62DC3E317A0E62700FF50D2 /* OEThreadProxy.m in Sources */,
+				052B9296226ED63200701431 /* OEMTLGameRenderer.m in Sources */,
 				C6772A841710C9C400ED580A /* OEPlugin.m in Sources */,
 				C6772A851710C9C400ED580A /* OECorePlugin.m in Sources */,
 				C609619B179B74DE00239067 /* OESystemPlugin.m in Sources */,
-				1BEF2CA011684E7E0090F72B /* OEGameAudio.m in Sources */,
-				3D41E8EC1BD4959300A76EFD /* OEOpenGL2GameRenderer.m in Sources */,
+				3DD7A23C1D193DA40003D426 /* NSColor+OEAdditions.m in Sources */,
 				1BEF2A9C11682A5E0090F72B /* OpenEmuHelperApp.m in Sources */,
+				051F76C822A8817400E1C0C4 /* OEAudioUnit.mm in Sources */,
 				1BEF2D15116855690090F72B /* OETaskWrapper.m in Sources */,
+				05B2E05F23693A7600644C58 /* OELogging.m in Sources */,
+				05FB7D8222A0A3D60070633C /* OEOpenGL2GameRenderer.m in Sources */,
+				0557CB1922A77D7C0037175F /* OEShadersModel.swift in Sources */,
 				3DA6EDCD1BD790B900560326 /* OEOpenGL3GameRenderer.m in Sources */,
 				C6AC9D391190C6490083DDFD /* OpenEmuHelperAppMain.m in Sources */,
 				828BF57F1669F99600759F10 /* OEUtilities.m in Sources */,
 				C609619A179B6E3F00239067 /* OpenEmuXPCHelperApp.m in Sources */,
+				05FB7D8622A0A4A40070633C /* OECoreVideoTexture.m in Sources */,
+				051F76DB22A887E700E1C0C4 /* OEGameAudio.m in Sources */,
+				05F6381522E3C08100FC49FF /* OEShaderParamValue.m in Sources */,
+				A90208FC9B5D10B9F8150E57 /* OEGameHelperMetalLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7626,6 +7595,7 @@
 			files = (
 				C6252DC814E7A38000350A13 /* OEControlsButtonSetupView.m in Sources */,
 				83D7F2BA147E399B004419A6 /* OEDBRom.m in Sources */,
+				0586AB22231A1E9A00BCDA6B /* OEGameLayerNotificationView.swift in Sources */,
 				8306CD2B1BD3AD480025BC6C /* OESidebarCell.m in Sources */,
 				8306CD2C1BD3AD480025BC6C /* OESidebarController.m in Sources */,
 				5A3BB03F1D964C1100E10F27 /* OEControlsKeyLabelCell.m in Sources */,
@@ -7634,7 +7604,6 @@
 				8306CD2F1BD3AD480025BC6C /* OESidebarOutlineView.m in Sources */,
 				1BFC2725116C1F6700B95689 /* OETaskWrapper.m in Sources */,
 				8D15AC310486D014006FF6A4 /* OEGameDocument.m in Sources */,
-				829779340E743F2A00631240 /* OEGameAudio.m in Sources */,
 				837820B61907E8520043593F /* OEBlankSlateForegroundLayer.m in Sources */,
 				83495DD419A38F31009DB6E5 /* OEPrefBiosController.m in Sources */,
 				C62F54710FE6ADC500DF15BA /* OEPlugin.m in Sources */,
@@ -7642,7 +7611,6 @@
 				C69DCD010FE994A5009AE5A6 /* OEPluginDocument.m in Sources */,
 				8370D3DC1A8D25D900313F87 /* OETableCellView.m in Sources */,
 				1E2F3DBB10DEAB4C0019AA84 /* OEVersionMigrationController.m in Sources */,
-				C6953CA1117293760091276F /* OEGameView.m in Sources */,
 				C6AC9D4D1190C9AE0083DDFD /* OEGameCoreManager.m in Sources */,
 				C6AC9DEF1190E2C90083DDFD /* OpenEmuHelperApp.m in Sources */,
 				1EA4404911973E9C001D71CA /* OEGameQuickLookDocument.m in Sources */,
@@ -7655,9 +7623,11 @@
 				5A9606DC1C0A84BC0089B494 /* LibraryToolbar.swift in Sources */,
 				53439A9B13B92C97005C0CC8 /* OEDBCollection.m in Sources */,
 				53439A9C13B92C97005C0CC8 /* OEDBCollectionFolder.m in Sources */,
+				052EA5BC2357941100DEC2A3 /* NSBitmapImageRep+OEAdditions.swift in Sources */,
 				53439A9D13B92C97005C0CC8 /* OEDBSmartCollection.m in Sources */,
 				5A3DB1691D8C93C3009445EC /* PreferencesControlsBox.swift in Sources */,
 				53439AA213B92C9D005C0CC8 /* OEDBGame.m in Sources */,
+				05FB7D8522A0A4A40070633C /* OECoreVideoTexture.m in Sources */,
 				53439AA313B92C9D005C0CC8 /* OEDBSystem.m in Sources */,
 				53439AA613B92CC7005C0CC8 /* OELibraryController.m in Sources */,
 				5A9606EA1C0BD2BD0089B494 /* DLog.swift in Sources */,
@@ -7680,29 +7650,32 @@
 				53439B0013B92EC1005C0CC8 /* OEScrollView.m in Sources */,
 				53439B0713B92EEC005C0CC8 /* OEGridViewFieldEditor.m in Sources */,
 				5A3BB0361D964A1C00E10F27 /* OEAttributedTextFieldCell.m in Sources */,
+				05410EE722F690E200303424 /* OEShaderParametersWindowController.m in Sources */,
 				83E8927D197490B3004D4489 /* OEDisabledScrollView.m in Sources */,
 				83F444FD196CA24B007E8C63 /* OEHomebrewViewController.m in Sources */,
 				830CB918186878D6006EAE5A /* OEArrayController.m in Sources */,
 				8363A43F193CD12C00F18425 /* OEGridMediaGroupItemCell.m in Sources */,
 				53439B6E13B932DB005C0CC8 /* OEPrefLibraryController.m in Sources */,
+				0557CB1B22A781B60037175F /* OEShadersModel+OpenEmu.swift in Sources */,
 				53439B7113B932ED005C0CC8 /* OEPrefGameplayController.m in Sources */,
 				53439B7413B932FA005C0CC8 /* OEPrefControlsController.m in Sources */,
-				3D41E8EB1BD4959300A76EFD /* OEOpenGL2GameRenderer.m in Sources */,
 				53439B7713B93303005C0CC8 /* OEPrefCoresController.m in Sources */,
 				53439B7A13B933B8005C0CC8 /* OEGameControlsBar.m in Sources */,
+				05FB7D8122A0A3D60070633C /* OEOpenGL2GameRenderer.m in Sources */,
 				5A46AC411DC66D8300771B3B /* OEGameViewController+TouchBar.swift in Sources */,
 				53439B8213B933E9005C0CC8 /* OEHUDWindow.m in Sources */,
 				836AEA711975BFE100B86935 /* OEGridCell.m in Sources */,
 				C6289C32135B215B00EEE97C /* OESystemPlugin.m in Sources */,
+				05B2E05E23693A7600644C58 /* OELogging.m in Sources */,
 				5A9606E81C0BCD350089B494 /* NSImage+DrawingAdditions.swift in Sources */,
 				83199722142741790068C865 /* OEROMImporter.m in Sources */,
 				83507247142F6029005D9033 /* OEControllerImageView.m in Sources */,
 				1B47F105142F01E700EBC55B /* OESetupAssistant.m in Sources */,
 				012FE6591CE51D4100716960 /* LibraryToolbarDelegate.swift in Sources */,
 				83CD082D143DEF9A00B6A2E8 /* OEDBSaveState.m in Sources */,
-				3DFAB00D144644D4005EF0C3 /* OEGameShader.m in Sources */,
 				5A9606DE1C0B0E220089B494 /* NSAttributedString+Hyperlink.swift in Sources */,
 				83C68ED114483579000F720A /* OEHUDAlert.m in Sources */,
+				051F76DA22A887E700E1C0C4 /* OEGameAudio.m in Sources */,
 				832D29401451A68700BDF950 /* OEMainWindowController.m in Sources */,
 				8301557B1456BF7A0093D681 /* OEGameViewController.m in Sources */,
 				83AAC32914581699005ADD16 /* OESetupAssistantBackgroundView.m in Sources */,
@@ -7732,6 +7705,7 @@
 				83A9758A184F5EEE00C90DF4 /* OESetupAssistantScrollBorderView.m in Sources */,
 				83DDEE87156CE2F0009EB43D /* OEFadeView.m in Sources */,
 				8356AEF215DA703100AA6B44 /* OEImportOperation.m in Sources */,
+				052B9295226ED63200701431 /* OEMTLGameRenderer.m in Sources */,
 				8353EB2015FF5CB10026E326 /* OEDBRomMigrationPolicy.m in Sources */,
 				8363A43A193CBAFA00F18425 /* OEGridMediaItemCell.m in Sources */,
 				8353EB2315FF609F0026E326 /* OEDBSaveStateMigrationPolicy.m in Sources */,
@@ -7751,7 +7725,6 @@
 				831C9AD0160096E000038D0D /* OEMatrix.m in Sources */,
 				831C9AD61600971600038D0D /* OEButton.m in Sources */,
 				83D94FAF19A4CD2A007583E1 /* OETableCellGroupView.m in Sources */,
-				2205C378196402B50013C675 /* OELUTTexture.m in Sources */,
 				831C9AD71600971600038D0D /* OEButtonCell.m in Sources */,
 				83D33BD61AEB9ABE0085753B /* ALIterativeMigrator.m in Sources */,
 				5A79F7951C15F542003124D5 /* PreferencesWindowController.swift in Sources */,
@@ -7760,6 +7733,7 @@
 				831C9ADD1600973B00038D0D /* OEPopUpButtonCell.m in Sources */,
 				C6F738FC1617FF2B00BB2519 /* OEUtilities.m in Sources */,
 				5A886E581BF43AC900775123 /* NSWindow+Image.swift in Sources */,
+				051F76C722A8817300E1C0C4 /* OEAudioUnit.mm in Sources */,
 				83DEE48F162D52DC005D8AD7 /* OELabel.m in Sources */,
 				836BC9571853815A00B6AF26 /* OESQLiteDatabase.m in Sources */,
 				83DEE490162D52DC005D8AD7 /* OELabelCell.m in Sources */,
@@ -7769,7 +7743,7 @@
 				8397082F163C405000E04871 /* 0.2 to 0.3.xcmappingmodel in Sources */,
 				14F8750D1649377E002AE3B8 /* OEFiniteStateMachine.m in Sources */,
 				5A575DFB1E92B6CE00491B0D /* BIOSFile.swift in Sources */,
-				830BBECB1B7BE979000B13CB /* OEGameViewNotificationRenderer.m in Sources */,
+				05F6381422E3C08100FC49FF /* OEShaderParamValue.m in Sources */,
 				83955CB5165D939100572B34 /* OEBlankSlateView.m in Sources */,
 				83C6C1DC190536CC00DD7B13 /* OEDBImageMigrationPolicy.m in Sources */,
 				83DBA2271906A250000815B9 /* 1.1 to 1.2.xcmappingmodel in Sources */,
@@ -7782,21 +7756,17 @@
 				5A9606E01C0B12FE0089B494 /* NSControl+TargetAction.swift in Sources */,
 				3DA6EDCC1BD790B900560326 /* OEOpenGL3GameRenderer.m in Sources */,
 				14F6A926168180D00071386D /* OEPopoutGameWindowController.m in Sources */,
-				8C4C808916986697009B8A28 /* OEGLSLShader.m in Sources */,
 				8305A48018FD2908005F1AE4 /* OEGridViewCellIndicationLayer.m in Sources */,
-				8C4C808E16986C87009B8A28 /* OECGShader.m in Sources */,
-				94791E9516AE8A18007DB8BE /* OEShaderPlugin.m in Sources */,
-				8C415ECD16B0682B00980DB9 /* OEMultipassShader.m in Sources */,
+				0557CB1822A7504B0037175F /* OEShadersModel.swift in Sources */,
 				5A3BB03E1D964C1100E10F27 /* OEControlsKeyHeadlineCell.m in Sources */,
 				834B6F2E1A3B453000CA6A26 /* OEHomebrewBlankSlateView.m in Sources */,
-				C6C3734216BE7065003E57AE /* OEBuiltInShader.m in Sources */,
 				5A9606E41C0BA85F0089B494 /* NSURL+LibraryAdditions.swift in Sources */,
 				5A3BB0391D964A4500E10F27 /* OECenteredTextFieldCell.m in Sources */,
 				838DB01916DBE14E00B8DDC8 /* OETextField.m in Sources */,
 				838DB01C16DBE15900B8DDC8 /* OETextFieldCell.m in Sources */,
 				14CB5DAA16FE1F8300342817 /* OEAudioDeviceManager.m in Sources */,
+				3D0D6FD31CC6366B00E3F284 /* OEGameLayerView.m in Sources */,
 				8328D9E513C75CAE0026D2A7 /* OEDBImage.m in Sources */,
-				C6772A7F1710C0C900ED580A /* snes_ntsc.c in Sources */,
 				836AEA6E19755FE300B86935 /* OEOutlinedButtonCell.m in Sources */,
 				83D175B318FF155700E5ED34 /* OEBlankSlateBackgroundView.m in Sources */,
 				837820BD19081A090043593F /* OELibraryMigrator.m in Sources */,
@@ -7816,6 +7786,7 @@
 				C67DBF4317DBE859006AF087 /* NSDocument+OEAdditions.m in Sources */,
 				8CBD3AA217D23AA80022399B /* OEGridGameCell.m in Sources */,
 				5A9606D41C0A63740089B494 /* NSMutableDictionary+Pop.swift in Sources */,
+				A9020A6B0B5DCC3081F0DB19 /* OEGameHelperMetalLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8424,8 +8395,10 @@
 				7699EC941D6303EC005BC437 /* ca */,
 				82BBE7BD21D961A2006CD402 /* zh-Hant */,
 			);
+			indentWidth = 2;
 			name = ControlLabels.strings;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		83FE963E1968596C00DD8DB9 /* OEMigrationWindowController.xib */ = {
 			isa = PBXVariantGroup;
@@ -8609,6 +8582,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -8635,6 +8609,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -8655,6 +8630,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -8681,6 +8657,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -8701,6 +8678,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -8716,6 +8694,7 @@
 				INSTALL_PATH = "";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-sectcreate",
 					__TEXT,
 					__info_plist,
@@ -8725,6 +8704,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.openemu.OpenEmuHelperApp;
 				PRODUCT_NAME = OpenEmuHelperApp;
+				SWIFT_VERSION = 5.0;
 				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
@@ -8733,6 +8713,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -8749,6 +8730,7 @@
 				INSTALL_PATH = "";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-sectcreate",
 					__TEXT,
 					__info_plist,
@@ -8758,6 +8740,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.openemu.OpenEmuHelperApp;
 				PRODUCT_NAME = OpenEmuHelperApp;
+				SWIFT_VERSION = 5.0;
 				VALID_ARCHS = x86_64;
 			};
 			name = Release;
@@ -8769,6 +8752,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -8794,6 +8778,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -8827,6 +8812,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "OESaveStateQLPlugin-Info.plist";
 				INSTALL_PATH = "";
@@ -8840,6 +8826,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "OESaveStateQLPlugin-Info.plist";
 				INSTALL_PATH = "";
@@ -8856,6 +8843,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -8881,6 +8869,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -8898,6 +8887,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -8921,6 +8911,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -8942,6 +8933,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -8965,6 +8957,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -9009,6 +9002,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -9035,6 +9029,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -9076,12 +9071,9 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)-SDK/build/Debug",
-				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -9107,14 +9099,10 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_BUILD_DIR)",
-					"$(PROJECT_DIR)-SDK/build/Debug",
-				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "Dreamcast/Dreamcast-Info.plist";
@@ -9134,6 +9122,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -9159,6 +9148,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -9181,7 +9171,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -9207,7 +9197,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -9231,6 +9221,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9256,6 +9247,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9276,6 +9268,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9301,6 +9294,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9321,6 +9315,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9346,6 +9341,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9365,6 +9361,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9389,6 +9386,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9409,6 +9407,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9434,6 +9433,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9454,6 +9454,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9479,6 +9480,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9500,6 +9502,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9526,6 +9529,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -9548,6 +9552,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9573,6 +9578,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9590,6 +9596,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9613,6 +9620,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9634,6 +9642,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9659,6 +9668,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9695,6 +9705,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9720,6 +9731,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9740,6 +9752,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9765,6 +9778,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9785,6 +9799,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9810,6 +9825,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9830,6 +9846,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9855,6 +9872,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9875,6 +9893,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9900,6 +9919,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9920,6 +9940,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9945,6 +9966,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9965,6 +9987,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -9990,6 +10013,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -10010,6 +10034,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -10035,6 +10060,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -10055,6 +10081,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -10080,6 +10107,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -10100,6 +10128,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -10125,6 +10154,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -10145,6 +10175,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -10170,6 +10201,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -10189,6 +10221,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -10213,6 +10246,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -10233,6 +10267,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -10258,6 +10293,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -10278,6 +10314,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -10303,6 +10340,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -10338,6 +10376,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -10361,6 +10400,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -10377,6 +10417,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -10401,6 +10442,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -10441,35 +10483,33 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_EXPERIMENTAL = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SYSTEM_LIBRARY_DIR)/Frameworks/Quartz.framework/Versions/A/Frameworks\"",
 				);
 				GCC_PREFIX_HEADER = OpenEmu_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
-					CG_SUPPORT,
-					SYPHON_SUPPORT,
 					"SUPPORTS_LIBRARY_REGISTRATION=1",
 				);
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
-				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "OpenEmu-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks /Library/Frameworks ~/Library/Frameworks";
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-weak_framework",
 					OpenEmuXPCCommunicator,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.openemu.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = OpenEmu;
 				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) CG_SUPPORT";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OpenEmu-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -10484,34 +10524,31 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_EXPERIMENTAL = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SYSTEM_LIBRARY_DIR)/Frameworks/Quartz.framework/Versions/A/Frameworks\"",
 				);
 				GCC_PREFIX_HEADER = OpenEmu_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
-					CG_SUPPORT,
-					SYPHON_SUPPORT,
 					"SUPPORTS_LIBRARY_REGISTRATION=1",
 				);
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
-				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "OpenEmu-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks /Library/Frameworks ~/Library/Frameworks";
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-weak_framework",
 					OpenEmuXPCCommunicator,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.openemu.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = OpenEmu;
 				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) CG_SUPPORT";
 				SWIFT_OBJC_BRIDGING_HEADER = "OpenEmu-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VALID_ARCHS = x86_64;
@@ -10543,6 +10580,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -10555,6 +10593,8 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DEBUG_PRINT,
 					NS_BUILD_32_LIKE_64,
+					GL_SILENCE_DEPRECATION,
+					QC_SILENCE_GL_DEPRECATION,
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -10565,7 +10605,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_LANGUAGE_REVISION = Metal20;
 				ONLY_ACTIVE_ARCH = YES;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				SDKROOT = macosx;
@@ -10599,6 +10640,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Manual;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -10606,7 +10648,11 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = NS_BUILD_32_LIKE_64;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NS_BUILD_32_LIKE_64,
+					GL_SILENCE_DEPRECATION,
+					QC_SILENCE_GL_DEPRECATION,
+				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -10616,7 +10662,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_LANGUAGE_REVISION = Metal20;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				SDKROOT = macosx;
 				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
@@ -10629,6 +10676,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -10652,6 +10700,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -10673,6 +10722,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -10696,6 +10746,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -10717,6 +10768,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -10740,6 +10792,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -10761,6 +10814,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -10784,6 +10838,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -10805,6 +10860,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -10828,6 +10884,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -10849,6 +10906,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -10872,6 +10930,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -10898,6 +10957,7 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				ENABLE_NS_ASSERTIONS = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -10934,6 +10994,7 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = YES;

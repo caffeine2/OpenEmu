@@ -83,14 +83,14 @@
 
     cellFrame = NSInsetRect(cellFrame, self.widthInset, (cellFrame.size.height-15)/2);
 
-    [image drawInRect:cellFrame fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:YES hints:nil];
+    [image drawInRect:cellFrame fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0 respectFlipped:YES hints:nil];
 
     cellFrame.origin.y += 1;
     
     NSString *label = [self title];
     
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
-    [paraStyle setAlignment:NSCenterTextAlignment];
+    [paraStyle setAlignment:NSTextAlignmentCenter];
     NSDictionary *textAttributes;
     
     NSShadow *shadow = [[NSShadow alloc] init];
@@ -99,22 +99,21 @@
     
     if([self isHighlighted])
     {
-        textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    [NSFont systemFontOfSize:9], NSFontAttributeName,
-                                    [NSColor colorWithDeviceWhite:1.0 alpha:1.0], NSForegroundColorAttributeName,
-                                    paraStyle, NSParagraphStyleAttributeName,
-                                    shadow, NSShadowAttributeName,
-                                    nil];
+        textAttributes = @{
+                           NSFontAttributeName : [NSFont systemFontOfSize:9],
+                           NSForegroundColorAttributeName : [NSColor colorWithWhite:1.0 alpha:1.0],
+                           NSParagraphStyleAttributeName : paraStyle,
+                           NSShadowAttributeName : shadow
+                           };
     }
     else
     {
-        textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
-                          [NSFont systemFontOfSize:9], NSFontAttributeName,
-                          [NSColor colorWithDeviceWhite:0.89 alpha:1.0], NSForegroundColorAttributeName,
-                          paraStyle, NSParagraphStyleAttributeName,
-                          shadow, NSShadowAttributeName,
-                          nil];
-   
+        textAttributes = @{
+                           NSFontAttributeName : [NSFont systemFontOfSize:9],
+                           NSForegroundColorAttributeName : [NSColor colorWithWhite:0.89 alpha:1.0],
+                           NSParagraphStyleAttributeName : paraStyle,
+                           NSShadowAttributeName : shadow
+                           };
     }
     
     [label drawInRect:cellFrame withAttributes:textAttributes];

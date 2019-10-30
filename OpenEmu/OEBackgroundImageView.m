@@ -50,9 +50,9 @@
 {
     OEThemeState currentState = [self OE_currentState];
     
-    [[[self backgroundThemeImage] imageForState:currentState] drawInRect:dirtyRect fromRect:dirtyRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:[self isFlipped] hints:nil];
-    [[[self themeImage] imageForState:currentState] drawInRect:dirtyRect fromRect:dirtyRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:[self isFlipped] hints:nil];
-    [[self image] drawInRect:dirtyRect fromRect:dirtyRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:[self isFlipped] hints:nil];
+    [[[self backgroundThemeImage] imageForState:currentState] drawInRect:dirtyRect fromRect:dirtyRect operation:NSCompositingOperationSourceOver fraction:1.0 respectFlipped:[self isFlipped] hints:nil];
+    [[[self themeImage] imageForState:currentState] drawInRect:dirtyRect fromRect:dirtyRect operation:NSCompositingOperationSourceOver fraction:1.0 respectFlipped:[self isFlipped] hints:nil];
+    [[self image] drawInRect:dirtyRect fromRect:dirtyRect operation:NSCompositingOperationSourceOver fraction:1.0 respectFlipped:[self isFlipped] hints:nil];
 }
 
 - (BOOL)isFlipped
@@ -134,7 +134,7 @@
         windowActive = ((_stateMask & OEThemeStateAnyWindowActivity) != 0) && ([window isMainWindow] || ([window parentWindow] && [[window parentWindow] isMainWindow]));
     }
 
-    return [OEThemeObject themeStateWithWindowActive:windowActive buttonState:NSMixedState selected:NO enabled:NO focused:focused houseHover:[self isHovering] modifierMask:[NSEvent modifierFlags]] & _stateMask;
+    return [OEThemeObject themeStateWithWindowActive:windowActive buttonState:NSControlStateValueMixed selected:NO enabled:NO focused:focused houseHover:[self isHovering] modifierMask:[NSEvent modifierFlags]] & _stateMask;
 }
 
 - (void)OE_recomputeStateMask

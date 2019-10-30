@@ -255,7 +255,7 @@ NSString *const OEDefaultWindowTitle       = @"OpenEmu";
             
             // Disable the full size content view window style mask attribute.
             NSRect windowFrame = window.frame;
-            window.styleMask &= ~NSFullSizeContentViewWindowMask;
+            window.styleMask &= ~NSWindowStyleMaskFullSizeContentView;
             [window setFrame:windowFrame display:NO];
             
             self->_gameDocument.gameWindowController = self;
@@ -268,7 +268,7 @@ NSString *const OEDefaultWindowTitle       = @"OpenEmu";
             {
                 // Enable the full size content view window style mask attribute.
                 NSRect windowFrame = window.frame;
-                window.styleMask |= NSFullSizeContentViewWindowMask;
+                window.styleMask |= NSWindowStyleMaskFullSizeContentView;
                 [window setFrame:windowFrame display:NO];
                 
                 // Adjust visual properties of the window.
@@ -479,7 +479,7 @@ NSString *const OEDefaultWindowTitle       = @"OpenEmu";
     
     NSMenu *windowMenu = [[mainMenu itemAtIndex:5] submenu];
     NSMenuItem *item = [windowMenu itemWithTag:MainMenu_Window_OpenEmuTag];
-    [item setState:NSOnState];
+    [item setState:NSControlStateValueOn];
 }
 
 - (void)windowDidResignMain:(NSNotification *)notification
@@ -488,7 +488,7 @@ NSString *const OEDefaultWindowTitle       = @"OpenEmu";
     
     NSMenu *windowMenu = [[mainMenu itemAtIndex:5] submenu];
     NSMenuItem *item = [windowMenu itemWithTag:MainMenu_Window_OpenEmuTag];
-    [item setState:NSOffState];
+    [item setState:NSControlStateValueOff];
 }
 
 - (void)windowWillEnterFullScreen:(NSNotification *)notification

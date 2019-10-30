@@ -41,7 +41,7 @@
         return OEFileSupportNo;
 
     // First check if we find these bytes at offset 0x0 found in some dumps
-    uint8_t bytes[] = { 0x00, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00, 0x00, 0x02, 0x00, 0x01 };
+    const uint8_t bytes[] = { 0x00, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00, 0x00, 0x02, 0x00, 0x01 };
     NSData *dataCompare = [[NSData alloc] initWithBytes:bytes length:sizeof(bytes)];
 
     NSData *dataTrackBuffer = [file readDataInRange:NSMakeRange(0, 16)];
@@ -73,7 +73,7 @@
         return nil;
 
     // First check if we find these bytes at offset 0x0 found in some dumps
-    uint8_t bytes[] = { 0x00, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00, 0x00, 0x02, 0x00, 0x01 };
+    const uint8_t bytes[] = { 0x00, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00, 0x00, 0x02, 0x00, 0x01 };
     NSData *dataCompare = [[NSData alloc] initWithBytes:bytes length:sizeof(bytes)];
 
     NSData *dataTrackBuffer = [file readDataInRange:NSMakeRange(0, 16)];
@@ -83,8 +83,7 @@
     NSData *headerDataTrackBuffer = [file readDataInRange:NSMakeRange(bytesFound ? 0x60 : 0x50, 16)];
 
     // Format the hexadecimal representation and return
-    NSString *buffer = [[headerDataTrackBuffer description] uppercaseString];
-    NSString *hex = [[buffer componentsSeparatedByCharactersInSet:[[NSCharacterSet alphanumericCharacterSet] invertedSet]] componentsJoinedByString:@""];
+    NSString *hex = [headerDataTrackBuffer oe_hexStringRepresentation];
     
     return hex;
 }

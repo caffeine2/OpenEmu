@@ -86,8 +86,8 @@
 
 - (void)OE_setupDefaultColors
 {
-    [self setDropBorderColor:[NSColor colorWithDeviceRed:0.03 green:0.41 blue:0.85 alpha:1.0]];
-    [self setDropBackgroundColor:[NSColor colorWithDeviceRed:0.03 green:0.24 blue:0.34 alpha:1.0]];
+    [self setDropBorderColor:[NSColor controlAccentColor]];
+    [self setDropBackgroundColor:[NSColor selectedContentBackgroundColor]];
     [self setDropBorderWidth:2.0];
     [self setDropCornerRadius:8.0];
 }
@@ -104,7 +104,7 @@
 {
     // ignore control-clicks, those will go directly to -menuForEvent:
     // before eventually arriving here
-    if([theEvent modifierFlags] & NSControlKeyMask)
+    if([theEvent modifierFlags] & NSEventModifierFlagControl)
         return;
 
     [super mouseDown:theEvent];
@@ -123,7 +123,7 @@
     id item = [self itemAtRow:index];
 
     _highlightedRow = index;
-    [self setNeedsDisplay];
+    [self setNeedsDisplay:YES];
 
     NSMenu *menu = [[NSMenu alloc] init];
     NSMenuItem *menuItem;
@@ -138,7 +138,7 @@
             {
                 menuItem = [[NSMenuItem alloc] initWithTitle:[system name] action:@selector(OE_toggleSystemForMenuItem:) keyEquivalent:@""];
                 [menuItem setRepresentedObject:system];
-                [menuItem setState:[[system enabled] boolValue] ? NSOnState : NSOffState];
+                [menuItem setState:[[system enabled] boolValue] ? NSControlStateValueOn : NSControlStateValueOff];
                 [menu addItem:menuItem];
             }
         }
@@ -169,7 +169,7 @@
                 NSString *coreIdentifier = [core bundleIdentifier];
 
                 NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:coreName action:@selector(changeDefaultCore:) keyEquivalent:@""];
-                NSInteger state = [coreIdentifier isEqualToString:defaultCoreIdentifier] ? NSOnState : NSOffState;
+                NSInteger state = [coreIdentifier isEqualToString:defaultCoreIdentifier] ? NSControlStateValueOn : NSControlStateValueOff;
                 [item setState:state];
 
                 [item setRepresentedObject:@{@"core":coreIdentifier, @"system":systemIdentifier}];
@@ -223,7 +223,7 @@
     }
 
     _highlightedRow = -1;
-    [self setNeedsDisplay];
+    [self setNeedsDisplay:YES];
 
     return nil;
 }
@@ -308,7 +308,7 @@
     if(isActive)
     {
         // Active
-        fillColor = [NSColor colorWithDeviceRed:0.243 green:0.502 blue:0.871 alpha:1];
+        fillColor = [NSColor controlAccentColor];
     }
     else 
     {
@@ -378,7 +378,7 @@
 
 - (id)_dropHighlightColor
 {
-    return [NSColor colorWithDeviceRed:8/255.0 green:105/255.0 blue:216/255.0 alpha:1.0];
+    return [NSColor controlAccentColor];
 }
 
 - (void)_flashOutlineCell

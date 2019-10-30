@@ -24,8 +24,7 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-// for speedz
-#import <OpenGL/CGLMacro.h>
+@import OpenEmuShaders;
 
 #import "OpenEmuHelperApp.h"
 
@@ -35,21 +34,54 @@
 #import "OEGameRenderer.h"
 #import "OEOpenGL2GameRenderer.h"
 #import "OEOpenGL3GameRenderer.h"
+#import "OEMTLGameRenderer.h"
 #import "OESystemPlugin.h"
+#import "OEGameHelperMetalLayer.h"
+#import "NSColor+OEAdditions.h"
 #import <OpenEmuSystem/OpenEmuSystem.h>
+#import "OECoreVideoTexture.h"
+#import "OEShaderParamValue.h"
+#if __has_include("OpenEmuHelperApp-Swift.h")
+#import "OpenEmuHelperApp-Swift.h"
+#elif __has_include("OpenEmu-Swift.h")
+#import "OpenEmu-Swift.h"
+#else
+#error no header
+#endif
 
 #ifndef BOOL_STR
 #define BOOL_STR(b) ((b) ? "YES" : "NO")
 #endif
 
-@interface OpenEmuHelperApp () <OEGameCoreDelegate, OEGlobalEventsHandler>
-@property BOOL loadedRom;
+/// Only send 1 frame at once to the GPU.
+/// Since we aren't synced to the display, even one more
+/// is enough to block in nextDrawable for more than a frame
+/// and cause audio skipping.
+/// TODO(sgc): implement triple buffering
+#define MAX_INFLIGHT 1
 
+// SPI: Stolen from Chrome
+typedef uint32_t CGSConnectionID;
+CGSConnectionID CGSMainConnectionID(void);
+
+typedef uint32_t CAContextID;
+
+@interface CAContext : NSObject
+{
+}
++ (id)contextWithCGSConnection:(CAContextID)contextId options:(NSDictionary*)optionsDict;
+@property(readonly) CAContextID contextId;
+@property(retain) CALayer *layer;
+@end
+
+extern NSString * const kCAContextCIFilterBehavior;
+
+// End SPI
+
+@interface OpenEmuHelperApp () <OEGameCoreDelegate, OEGlobalEventsHandler>
+@property (nonatomic) BOOL loadedRom;
 @property(readonly) OEIntSize screenSize;
 @property(readonly) OEIntSize aspectSize;
-@property(readonly) BOOL isEmulationPaused;
-
-@property(readonly) IOSurfaceID surfaceID;
 
 - (void)setupProcessPollingTimer;
 - (void)quitHelperTool;
@@ -58,45 +90,52 @@
 
 @implementation OpenEmuHelperApp
 {
+    OEIntRect _previousScreenRect;
     OEIntSize _previousAspectSize;
-
+    
     NSRunningApplication *_parentApplication; // the process id of the parent app (Open Emu or our debug helper)
-
+    
     // Video
     id <OEGameRenderer>   _gameRenderer;
-    IOSurfaceRef          _surfaceRef;
-
+    OECoreVideoTexture    *_surface;
+    
     // poll parent ID, KVO does not seem to be working with NSRunningApplication
     NSTimer              *_pollingTimer;
-
+    
     // OE stuff
     OEGameCoreController *_gameController;
     OESystemController   *_systemController;
     OESystemResponder    *_systemResponder;
     OEGameAudio          *_gameAudio;
-
+    
     NSMutableDictionary<OEDeviceHandlerPlaceholder *, NSMutableArray<void(^)(void)> *> *_pendingDeviceHandlerBindings;
-
-    id _unhandledEventsMonitor;
-
-    // screen subrect stuff
-    OEIntSize             _previousScreenSize;
-    CGFloat               _gameAspectRatio;
-
-    BOOL                  _hasStartedAudio;
+    
+    CAContext             *_gameVideoCAContext;
+    
+    OEGameHelperMetalLayer  *_videoLayer;
+    OEFilterChain           *_filterChain;
+    dispatch_semaphore_t    _inflightSemaphore;
+    id<MTLCaptureScope>     _scope;
+    id<MTLDevice>           _device;
+    id<MTLCommandQueue>     _commandQueue;
+    MTLClearColor           _clearColor;
+    NSUInteger              _skippedFrames;
+    
+    id   _unhandledEventsMonitor;
+    BOOL _hasStartedAudio;
 }
-
-@synthesize enableVSync = _enableVSync;
 
 - (instancetype)init
 {
     if (!(self = [super init]))
+    {
         return nil;
-
+    }
+    
     _pendingDeviceHandlerBindings = [NSMutableDictionary dictionary];
-
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_deviceHandlerPlaceholderDidResolveNotification:) name:OEDeviceHandlerPlaceholderOriginalDeviceDidBecomeAvailableNotification object:nil];
-
+    
     return self;
 }
 
@@ -104,19 +143,35 @@
 
 - (void)launchApplication
 {
-
+    
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     _parentApplication = [NSRunningApplication runningApplicationWithProcessIdentifier:getppid()];
+    [_parentApplication addObserver:self forKeyPath:@"terminated" options:NSKeyValueObservingOptionNew context:nil];
     if(_parentApplication != nil)
     {
         NSLog(@"parent application is: %@", [_parentApplication localizedName]);
         [self setupProcessPollingTimer];
     }
+    
+    OEDeviceManager *dm = [OEDeviceManager sharedDeviceManager];
+    if (@available(macOS 10.15, *))
+    {
+        if (dm.accessType != OEDeviceAccessTypeGranted)
+        {
+            NSLog(@"Input Monitoring: Access Denied");
+        }
+    }
+}
 
-    [OEDeviceManager sharedDeviceManager];
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary<NSKeyValueChangeKey,id> *)change
+                       context:(void *)context
+{
+    NSLog(@"TERMINATED");
 }
 
 - (void)OE_loadPlugins
@@ -129,11 +184,37 @@
     // 1. Audio
     _gameAudio = [[OEGameAudio alloc] initWithCore:_gameCore];
     [_gameAudio setVolume:1.0];
-
+    
     // 2. Video
+    _inflightSemaphore = dispatch_semaphore_create(MAX_INFLIGHT);
+    _device            = MTLCreateSystemDefaultDevice();
+    _scope             = [[MTLCaptureManager sharedCaptureManager] newCaptureScopeWithDevice:_device];
+    _commandQueue      = [_device newCommandQueue];
+    _clearColor        = MTLClearColorMake(0, 0, 0, 1);
+    _filterChain       = [[OEFilterChain alloc] initWithDevice:_device];
+    [_filterChain setDefaultFilteringLinear:NO];
+    
     [self updateScreenSize];
     [self updateGameRenderer];
-    [self setupIOSurface];
+    [self setupCVBuffer];
+    [self setupRemoteLayer];
+    
+    NSURL *shaderURL  = nil;
+    
+    // Option to override shader with absolute path
+    NSString *shaderPath = [NSUserDefaults.oe_applicationUserDefaults stringForKey:@"shaderPath"];
+    if (shaderPath != nil && [NSFileManager.defaultManager fileExistsAtPath:shaderPath]) {
+        shaderURL = [NSURL fileURLWithPath:shaderPath];
+    } else {
+        OEShaderModel *shader = [OEShadersModel.shared shaderForSystem:_gameCore.systemIdentifier];
+        if (shader != nil) {
+            shaderURL = [NSURL fileURLWithPath:shader.path];
+        }
+    }
+
+    if (shaderURL != nil) {
+        [self setShaderURL:shaderURL error:nil];
+    }
 }
 
 - (void)setupProcessPollingTimer
@@ -148,122 +229,200 @@
 
 - (void)pollParentProcess
 {
-    if([_parentApplication isTerminated]) [self quitHelperTool];
+    if([_parentApplication isTerminated])
+    {
+        [self quitHelperTool];
+    }
 }
 
 - (void)quitHelperTool
 {
-    // TODO: add proper deallocs etc.
     [_pollingTimer invalidate];
-
+    
     [[NSApplication sharedApplication] terminate:nil];
 }
 
-#pragma mark - IOSurface and Generic Video
+#pragma mark - Core Video and Generic Video
 
 - (void)updateScreenSize
 {
-    OEIntRect screenRect = _gameCore.screenRect;
-
     _previousAspectSize = _gameCore.aspectSize;
-    _previousScreenSize = screenRect.size;
-
-    if(_previousScreenSize.width == 0)
-        _gameAspectRatio = screenRect.size.width / (CGFloat)screenRect.size.height;
-
-    // Aspect ratio correction, should not be needed
-#if 0
-    if(_drawSquarePixels)
-    {
-        CGFloat screenAspect = screenRect.size.width / (CGFloat)screenRect.size.height;
-        _screenSize = screenRect.size;
-
-        // try to maximize the drawn rect so we don't lose any pixels
-        // (risk: we can only upscale bilinearly as opposed to filteredly)
-        if(screenAspect > _gameAspectRatio)
-            _screenSize.height = _screenSize.width / _gameAspectRatio;
-        else
-            _screenSize.width  = _screenSize.height * _gameAspectRatio;
-    }
-#endif
-
-    _screenSize = screenRect.size;
+    _previousScreenRect = _gameCore.screenRect;
 }
 
 - (void)updateGameRenderer
 {
     OEGameCoreRendering rendering = _gameCore.gameCoreRendering;
+    [CATransaction begin];
+    [CATransaction setDisableActions:YES];
+    
+    _videoLayer = [OEGameHelperMetalLayer new];
+    _videoLayer.device = _device;
+    _videoLayer.opaque = YES;
+    _videoLayer.framebufferOnly = YES;
+    _videoLayer.displaySyncEnabled = YES;
 
-    if (rendering == OEGameCoreRendering2DVideo || rendering == OEGameCoreRenderingOpenGL2Video)
-        _gameRenderer = [OEOpenGL2GameRenderer new];
-    else if (rendering == OEGameCoreRenderingOpenGL3Video)
-        _gameRenderer = [OEOpenGL3GameRenderer new];
-    else
-        NSAssert(0, @"Rendering API %u not supported yet", (unsigned)rendering);
+    switch (rendering) {
+        case OEGameCoreRendering2DVideo:
+            _gameRenderer = [[OEMTLGameRenderer alloc] initWithFilterChain:_filterChain];
+            break;
+            
+        case OEGameCoreRenderingOpenGL2Video:
+        case OEGameCoreRenderingOpenGL3Video:
+            _surface = [[OECoreVideoTexture alloc] initMetalPixelFormat:MTLPixelFormatBGRA8Unorm];
+            _surface.metalDevice = _device;
+            
+            if (rendering == OEGameCoreRenderingOpenGL2Video) {
+                _gameRenderer = [[OEOpenGL2GameRenderer alloc] initWithInteropTexture:_surface];
+            } else {
+                _gameRenderer = [[OEOpenGL3GameRenderer alloc] initWithInteropTexture:_surface];
+            }
+            break;
+            
+        default:
+            NSAssert(0, @"Rendering API %u not supported yet", (unsigned)rendering);
+            break;
+    }
 
-    _gameRenderer.gameCore  = _gameCore;
-    // pass over core and iosurface and tell it to setup
+    [CATransaction commit];
+    
+    _gameRenderer.gameCore = _gameCore;
 }
 
-- (void)setupIOSurface
+- (void)setupCVBuffer
 {
-    [self destroyIOSurface];
-
     // init our texture and IOSurface
     OEIntSize surfaceSize = _gameCore.bufferSize;
+    CGSize size = CGSizeMake(surfaceSize.width, surfaceSize.height);
 
-    NSDictionary *surfaceAttributes = @{
-        (NSString *)kIOSurfaceIsGlobal: @YES,
-        (NSString *)kIOSurfaceWidth: @(surfaceSize.width),
-        (NSString *)kIOSurfaceHeight: @(surfaceSize.height),
-        (NSString *)kIOSurfaceBytesPerElement: @4,
-    };
+    if (_gameCore.gameCoreRendering != OEGameCoreRendering2DVideo) {
+        _surface.size = size;
+        DLog(@"Updated surface size to %@", NSStringFromOEIntSize(surfaceSize));
+        _filterChain.sourceTexture          = _surface.metalTexture;
+        _filterChain.sourceTextureIsFlipped = _surface.metalTextureIsFlipped;
+    }
 
-    // TODO: do we need to ensure openGL Compatibility and CALayer compatibility?
-    _surfaceRef = IOSurfaceCreate((__bridge CFDictionaryRef)surfaceAttributes);
-    _surfaceID = IOSurfaceGetID(_surfaceRef);
-
-    _gameRenderer.surfaceSize = surfaceSize;
-    _gameRenderer.ioSurface   = _surfaceRef;
     [_gameRenderer updateRenderer];
-
-    [self updateScreenSize:_screenSize withIOSurfaceID:_surfaceID];
+    OEIntRect rect = _gameCore.screenRect;
+    CGRect sourceRect = {.origin = {.x = rect.origin.x, .y = rect.origin.y}, .size = {.width = rect.size.width, .height = rect.size.height}};
+    CGSize aspectSize = {.width = _gameCore.aspectSize.width, .height = _gameCore.aspectSize.height};
+    [_filterChain setSourceRect:sourceRect aspect:aspectSize];
 }
 
-- (void)destroyIOSurface
+- (void)setupRemoteLayer
 {
-    if(_surfaceRef == nil) return;
-
-    CFRelease(_surfaceRef);
-    _surfaceRef = nil;
+    [CATransaction begin];
+    [CATransaction setDisableActions:YES];
+    
+    // TODO: If there's a good default bounds, use that.
+    [_videoLayer setBounds:NSMakeRect(0, 0, _gameCore.bufferSize.width, _gameCore.bufferSize.height)];
+    [_filterChain setDrawableSize:_videoLayer.drawableSize];
+    
+    CGSConnectionID connection_id = CGSMainConnectionID();
+    _gameVideoCAContext       = [CAContext contextWithCGSConnection:connection_id options:@{kCAContextCIFilterBehavior: @"ignore"}];
+    _gameVideoCAContext.layer = _videoLayer;
+    [CATransaction commit];
+    
+    [self updateRemoteContextID:_gameVideoCAContext.contextId];
 }
+
+- (void)setOutputBounds:(NSRect)rect
+{
+    OEIntSize newBufferSize = OEIntSizeMake(ceil(rect.size.width), ceil(rect.size.height));
+    if (OEIntSizeEqualToSize(_gameRenderer.surfaceSize, newBufferSize))
+    {
+        return;
+    }
+    
+    DLog(@"Output size change to: %@", NSStringFromOEIntSize(newBufferSize));
+    
+    [CATransaction begin];
+    [CATransaction setDisableActions:YES];
+    if (_videoLayer) {
+        _videoLayer.bounds = rect;
+    }
+    [_filterChain setDrawableSize:_videoLayer.drawableSize];
+    [CATransaction commit];
+
+    // Game will try to render at the window size on its next frame.
+    if ([_gameRenderer canChangeBufferSize] == NO) return;
+    if ([_gameCore tryToResizeVideoTo:newBufferSize] == NO) return;
+}
+
+- (void)setBackingScaleFactor:(CGFloat)newBackingScaleFactor
+{
+    [CATransaction begin];
+    [CATransaction setDisableActions:YES];
+    _videoLayer.contentsScale = newBackingScaleFactor;
+    [_filterChain setDrawableSize:_videoLayer.drawableSize];
+    [CATransaction commit];
+}
+
+- (void)setShaderURL:(NSURL *)url completionHandler:(void (^)(BOOL success, NSError *error))block {
+    [_gameCore performBlock:^{
+        NSError *err = nil;
+        BOOL success = [self setShaderURL:url error:&err];
+        block(success, err);
+    }];
+}
+
+- (BOOL)setShaderURL:(NSURL *)url error:(NSError **)error
+{
+    BOOL success = [_filterChain setShaderFromURL:url error:error];
+    if (success)
+    {
+        // apply user overrides for parameters
+        OEShaderModel *shader = [OEShadersModel.shared shaderForURL:url];
+        NSDictionary<NSString *, NSNumber *> *params = [shader parametersForIdentifier:_gameCore.systemIdentifier];
+        
+        for (NSString *key in params.allKeys) {
+            for (OEShaderParameter *p in _filterChain.shader.parameters) {
+                if ([p.name isEqualToString:key]) {
+                    p.value = params[key].doubleValue;
+                    break;
+                }
+            }
+        }
+    }
+    
+    return success;
+}
+
+- (void)shaderParamGroupsWithCompletionHandler:(void (^)(NSArray<OEShaderParamGroupValue *> *))handler
+{
+    handler([OEShaderParamGroupValue fromGroups:_filterChain.shader.parameterGroups]);
+}
+
+- (void)setShaderParameterValue:(CGFloat)value atIndex:(NSUInteger)index atGroupIndex:(NSUInteger)group
+{
+    _filterChain.shader.parameterGroups[group].parameters[index].value = value;
+}
+
 
 #pragma mark - Game Core methods
 
 - (BOOL)loadROMAtPath:(NSString *)aPath romCRC32:(NSString *)romCRC32 romMD5:(NSString *)romMD5 romHeader:(NSString *)romHeader romSerial:(NSString *)romSerial systemRegion:(NSString *)systemRegion displayModeInfo:(NSDictionary <NSString *, id> *)displayModeInfo withCorePluginAtPath:(NSString *)pluginPath systemPluginPath:(NSString *)systemPluginPath error:(NSError **)error
 {
     if(self.loadedRom) return NO;
-
+    
     aPath = [aPath stringByStandardizingPath];
-
+    
     DLog(@"New ROM path is: %@", aPath);
-
-    DLog(@"extension is: %@", [aPath pathExtension]);
     self.loadedRom = NO;
-
+    
     _systemController = [[OESystemPlugin systemPluginWithBundleAtPath:systemPluginPath] controller];
     _systemResponder = [_systemController newGameSystemResponder];
-
+    
     _gameController = [[OECorePlugin corePluginWithBundleAtPath:pluginPath] controller];
     _gameCore = [_gameController newGameCore];
-
+    
     NSString *systemIdentifier = [_systemController systemIdentifier];
-
+    
     [_gameCore setOwner:_gameController];
     [_gameCore setDelegate:self];
     [_gameCore setRenderDelegate:self];
     [_gameCore setAudioDelegate:self];
-
+    
     [_gameCore setSystemIdentifier:systemIdentifier];
     [_gameCore setSystemRegion:systemRegion];
     [_gameCore setDisplayModeInfo:displayModeInfo];
@@ -271,22 +430,27 @@
     [_gameCore setROMMD5:romMD5];
     [_gameCore setROMHeader:romHeader];
     [_gameCore setROMSerial:romSerial];
-
+    
     _systemResponder.client = _gameCore;
     _systemResponder.globalEventsHandler = self;
 
+    __weak typeof(self) weakSelf = self;
     _unhandledEventsMonitor = [[OEDeviceManager sharedDeviceManager] addUnhandledEventMonitorHandler:^(OEDeviceHandler *handler, OEHIDEvent *event) {
-        if (!self->_handleEvents)
+        typeof(self) strongSelf = weakSelf;
+
+        if (strongSelf == nil) return;
+
+        if (!strongSelf->_handleEvents)
             return;
 
-        if (!self->_handleKeyboardEvents && event.type == OEHIDEventTypeKeyboard)
+        if (!strongSelf->_handleKeyboardEvents && event.type == OEHIDEventTypeKeyboard)
             return;
 
-        [self->_systemResponder handleHIDEvent:event];
+        [strongSelf->_systemResponder handleHIDEvent:event];
     }];
-
+    
     DLog(@"Loaded bundle. About to load rom...");
-
+    
     // Never extract arcade roms and .md roms (XADMaster identifies some as LZMA archives)
     NSString *extension = aPath.pathExtension.lowercaseString;
     if(![systemIdentifier isEqualToString:@"openemu.system.arcade"] && ![extension isEqualToString:@"md"] && ![extension isEqualToString:@"nds"] && ![extension isEqualToString:@"iso"])
@@ -295,23 +459,23 @@
     if([_gameCore loadFileAtPath:aPath error:error])
     {
         DLog(@"Loaded new Rom: %@", aPath);
-        [[self gameCoreOwner] setDiscCount:[_gameCore discCount]];
-        [[self gameCoreOwner] setDisplayModes:[_gameCore displayModes]];
+        [_gameCoreOwner setDiscCount:[_gameCore discCount]];
+        [_gameCoreOwner setDisplayModes:[_gameCore displayModes]];
 
         self.loadedRom = YES;
-
+        
         return YES;
     }
-
+    
     if (error && !*error) {
         *error = [NSError errorWithDomain:OEGameCoreErrorDomain code:OEGameCoreCouldNotLoadROMError userInfo:@{
-            NSLocalizedDescriptionKey: NSLocalizedString(@"The emulator could not load ROM.", @"Error when loading a ROM."),
-        }];
+                                                                                                               NSLocalizedDescriptionKey: NSLocalizedString(@"The emulator could not load ROM.", @"Error when loading a ROM."),
+                                                                                                               }];
     }
-
+    
     NSLog(@"ROM did not load.");
     _gameCore = nil;
-
+    
     return NO;
 }
 
@@ -329,8 +493,10 @@
 
 - (void)setVolume:(CGFloat)volume
 {
-    DLog(@"%@", _gameAudio);
-    [_gameAudio setVolume:volume];
+    [_gameCore performBlock:^{
+        [self->_gameAudio setVolume:volume];
+    }];
+    
 }
 
 - (void)setPauseEmulation:(BOOL)paused
@@ -343,16 +509,18 @@
 - (void)setAudioOutputDeviceID:(AudioDeviceID)deviceID
 {
     DLog(@"Audio output device: %lu", (unsigned long)deviceID);
-    [_gameAudio setOutputDeviceID:deviceID];
+    [_gameCore performBlock:^{
+        [self->_gameAudio setOutputDeviceID:deviceID];
+    }];
 }
 
-- (void)setupEmulationWithCompletionHandler:(void(^)(IOSurfaceID surfaceID, OEIntSize screenSize, OEIntSize aspectSize))handler;
+- (void)setupEmulationWithCompletionHandler:(void(^)(OEIntSize screenSize, OEIntSize aspectSize))handler
 {
     [_gameCore setupEmulationWithCompletionHandler:^{
         [self setupGameCoreAudioAndVideo];
-
+        
         if(handler)
-            handler(self->_surfaceID, self->_screenSize, self->_previousAspectSize);
+            handler(self->_previousScreenRect.size, self->_previousAspectSize);
     }];
 }
 
@@ -370,7 +538,7 @@
 {
     [_pollingTimer invalidate];
     _pollingTimer = nil;
-
+    
     [_gameCore stopEmulationWithCompletionHandler: ^{
         [self->_gameAudio stopAudio];
         [self->_gameCore setRenderDelegate:nil];
@@ -423,7 +591,7 @@
 {
     [_gameCore performBlock:^{
         [self->_gameCore changeDisplayWithMode:displayMode];
-        [[self gameCoreOwner] setDisplayModes:[self->_gameCore displayModes]];
+        [self->_gameCoreOwner setDisplayModes:[self->_gameCore displayModes]];
     }];
 }
 
@@ -455,14 +623,14 @@
             block();
             return;
         }
-
+        
         OEDeviceHandlerPlaceholder *placeholder = event.deviceHandler;
         NSMutableArray<void(^)(void)> *pendingBlocks = self->_pendingDeviceHandlerBindings[placeholder];
         if (!pendingBlocks) {
             pendingBlocks = [NSMutableArray array];
             self->_pendingDeviceHandlerBindings[placeholder] = pendingBlocks;
         }
-
+        
         [pendingBlocks addObject:[^{
             [event resolveDeviceHandlerPlaceholder];
             block();
@@ -473,32 +641,46 @@
 - (void)_deviceHandlerPlaceholderDidResolveNotification:(NSNotification *)notification
 {
     OEDeviceHandlerPlaceholder *placeholder = notification.object;
-
+    
     NSMutableArray<void(^)(void)> *pendingBlocks = _pendingDeviceHandlerBindings[placeholder];
     if (!pendingBlocks)
         return;
-
+    
     for (void(^block)(void) in pendingBlocks)
         block();
-
+    
     [_pendingDeviceHandlerBindings removeObjectForKey:placeholder];
 }
 
+#pragma mark - OEGameCoreOwner image capture
+
+- (void)captureOutputImageWithCompletionHandler:(void (^)(NSBitmapImageRep *image))block
+{
+    __block OEFilterChain *chain = _filterChain;
+    [_gameCore performBlock:^{
+        block(chain.captureOutputImage);
+    }];
+}
+
+- (void)captureSourceImageWithCompletionHandler:(void (^)(NSBitmapImageRep *image))block
+{
+    __block OEFilterChain *chain = _filterChain;
+    [_gameCore performBlock:^{
+        block(chain.captureSourceImage);
+    }];
+}
+
+
 #pragma mark - OEGameCoreOwner subclass handles
 
-- (void)updateEnableVSync:(BOOL)enable
+- (void)updateScreenSize:(OEIntSize)newScreenSize aspectSize:(OEIntSize)newAspectSize
 {
-    [[self gameCoreOwner] setEnableVSync:enable];
+    [_gameCoreOwner setScreenSize:newScreenSize aspectSize:newAspectSize];
 }
 
-- (void)updateScreenSize:(OEIntSize)newScreenSize withIOSurfaceID:(IOSurfaceID)newSurfaceID
+- (void)updateRemoteContextID:(CAContextID)newContextID
 {
-    [[self gameCoreOwner] setScreenSize:newScreenSize withIOSurfaceID:newSurfaceID];
-}
-
-- (void)updateAspectSize:(OEIntSize)newAspectSize
-{
-    [[self gameCoreOwner] setAspectSize:newAspectSize];
+    [_gameCoreOwner setRemoteContextID:newContextID];
 }
 
 #pragma mark - OEGameCoreDelegate protocol methods
@@ -518,18 +700,7 @@
 
 - (void)willExecute
 {
-    // Check if bufferSize changed. (We'll let 3D games do this.)
-    // Try not to do this as it's kinda slow.
-    OEIntSize previousBufferSize = _gameRenderer.surfaceSize;
-    OEIntSize bufferSize = _gameCore.bufferSize;
-
-    if (!OEIntSizeEqualToSize(previousBufferSize, bufferSize)) {
-        DLog(@"Recreating IOSurface because of game size change to %@", NSStringFromOEIntSize(bufferSize));
-        NSAssert(_gameRenderer.canChangeBufferSize == YES, @"Game tried changing IOSurface in a state we don't support");
-
-        [self setupIOSurface];
-    }
-
+    [_scope beginScope];
     [_gameRenderer willExecuteFrame];
 }
 
@@ -537,33 +708,86 @@
 {
     OEIntSize previousBufferSize = _gameRenderer.surfaceSize;
     OEIntSize previousAspectSize = _previousAspectSize;
-
+    OEIntRect previousScreenRect = _previousScreenRect;
+    
     OEIntSize bufferSize = _gameCore.bufferSize;
     OEIntRect screenRect = _gameCore.screenRect;
     OEIntSize aspectSize = _gameCore.aspectSize;
+    BOOL mustUpdate = NO;
+
+    [CATransaction begin];
+    [CATransaction setDisableActions:YES];
 
     if (!OEIntSizeEqualToSize(previousBufferSize, bufferSize)) {
-        // The IOSurface is going to be recreated at the next frame.
-        // Don't check the other stuff because it's just going to glitch either way.
+        DLog(@"Recreating IOSurface because of game size change to %@", NSStringFromOEIntSize(bufferSize));
+        NSAssert(_gameRenderer.canChangeBufferSize == YES, @"Game tried changing IOSurface in a state we don't support");
+        
+        [self setupCVBuffer];
     } else {
-        if(!OEIntSizeEqualToSize(screenRect.size, _previousScreenSize))
+        if (!OEIntRectEqualToRect(screenRect, previousScreenRect))
+        //if (!OEIntSizeEqualToSize(screenRect.size, previousScreenSize))
         {
             NSAssert((screenRect.origin.x + screenRect.size.width) <= bufferSize.width, @"screen rect must not be larger than buffer size");
             NSAssert((screenRect.origin.y + screenRect.size.height) <= bufferSize.height, @"screen rect must not be larger than buffer size");
-
+            
             DLog(@"Sending did change screen rect to %@", NSStringFromOEIntRect(screenRect));
             [self updateScreenSize];
-            [self updateScreenSize:_screenSize withIOSurfaceID:_surfaceID];
+            mustUpdate = YES;
         }
-
+        
         if(!OEIntSizeEqualToSize(aspectSize, previousAspectSize))
         {
             DLog(@"Sending did change aspect to %@", NSStringFromOEIntSize(aspectSize));
-            [self updateAspectSize:aspectSize];
+            mustUpdate = YES;
+        }
+        
+        if (mustUpdate) {
+            [self updateScreenSize:_previousScreenRect.size aspectSize:_previousAspectSize];
+            [self setupCVBuffer];
         }
     }
-
+    
     [_gameRenderer didExecuteFrame];
+    
+    @autoreleasepool {
+        if (dispatch_semaphore_wait(_inflightSemaphore, DISPATCH_TIME_NOW) != 0) {
+            _skippedFrames++;
+        } else {
+            id<MTLCommandBuffer> commandBuffer = [_commandQueue commandBuffer];
+            commandBuffer.label = @"offscreen";
+            [commandBuffer enqueue];
+            [_filterChain renderOffscreenPassesWithCommandBuffer:commandBuffer];
+            [commandBuffer commit];
+
+            id<CAMetalDrawable> drawable = _videoLayer.nextDrawable;
+            if (drawable != nil) {
+                MTLRenderPassDescriptor *rpd = [MTLRenderPassDescriptor new];
+                rpd.colorAttachments[0].clearColor = self->_clearColor;
+                rpd.colorAttachments[0].loadAction = MTLLoadActionClear;
+                rpd.colorAttachments[0].texture    = drawable.texture;
+                commandBuffer = [_commandQueue commandBuffer];
+                commandBuffer.label = @"final";
+                id<MTLRenderCommandEncoder> rce = [commandBuffer renderCommandEncoderWithDescriptor:rpd];
+                [_filterChain renderFinalPassWithCommandEncoder:rce];
+                [rce endEncoding];
+
+                __block dispatch_semaphore_t inflight = _inflightSemaphore;
+                [commandBuffer addCompletedHandler:^(id<MTLCommandBuffer> _) {
+                    dispatch_semaphore_signal(inflight);
+                }];
+
+                [commandBuffer presentDrawable:drawable];
+                [commandBuffer commit];
+            } else {
+                dispatch_semaphore_signal(self->_inflightSemaphore);
+            }
+        }
+    }
+    
+    [_scope endScope];
+
+    [_videoLayer display];
+    [CATransaction commit];
 
     if(!_hasStartedAudio)
     {
@@ -597,120 +821,130 @@
     [_gameRenderer suspendFPSLimiting];
 }
 
+- (BOOL)enableVSync {
+    return NO;
+}
+
 - (void)setEnableVSync:(BOOL)enableVSync
 {
-    _enableVSync = enableVSync;
-    [self updateEnableVSync:_enableVSync];
+// TODO: Stub. Remove this when remote-layer lands
 }
 
 #pragma mark - OEAudioDelegate
 
 - (void)audioSampleRateDidChange
 {
-    [_gameAudio stopAudio];
-    [_gameAudio startAudio];
+    [_gameCore performBlock:^{
+        [self->_gameAudio audioSampleRateDidChange];
+    }];
 }
 
 - (void)pauseAudio
 {
-    [_gameAudio pauseAudio];
+    [_gameCore performBlock:^{
+        [self->_gameAudio pauseAudio];
+    }];
 }
 
 - (void)resumeAudio
 {
-    [_gameAudio resumeAudio];
+    [_gameCore performBlock:^{
+        [self->_gameAudio resumeAudio];
+    }];
 }
 
 #pragma mark - OEGlobalEventsHandler
 
 - (void)saveState:(id)sender
 {
-    [self.gameCoreOwner saveState];
+    [_gameCoreOwner saveState];
 }
 
 - (void)loadState:(id)sender
 {
-    [self.gameCoreOwner loadState];
+    [_gameCoreOwner loadState];
 }
 
 - (void)quickSave:(id)sender
 {
-    [self.gameCoreOwner quickSave];
+    [_gameCoreOwner quickSave];
 }
 
 - (void)quickLoad:(id)sender
 {
-    [self.gameCoreOwner quickLoad];
+    [_gameCoreOwner quickLoad];
 }
 
 - (void)toggleFullScreen:(id)sender
 {
-    [self.gameCoreOwner toggleFullScreen];
+    [_gameCoreOwner toggleFullScreen];
 }
 
 - (void)toggleAudioMute:(id)sender
 {
-    [self.gameCoreOwner toggleAudioMute];
+    [_gameCoreOwner toggleAudioMute];
 }
 
 - (void)volumeDown:(id)sender
 {
-    [self.gameCoreOwner volumeDown];
+    [_gameCoreOwner volumeDown];
 }
 
 - (void)volumeUp:(id)sender
 {
-    [self.gameCoreOwner volumeUp];
+    [_gameCoreOwner volumeUp];
 }
 
 - (void)stopEmulation:(id)sender
 {
-    [self.gameCoreOwner stopEmulation];
+    [_gameCoreOwner stopEmulation];
 }
 
 - (void)resetEmulation:(id)sender
 {
-    [self.gameCoreOwner resetEmulation];
+    [_gameCoreOwner resetEmulation];
 }
 
 - (void)toggleEmulationPaused:(id)sender
 {
-    [self.gameCoreOwner toggleEmulationPaused];
+    [_gameCoreOwner toggleEmulationPaused];
 }
 
 - (void)takeScreenshot:(id)sender
 {
-    [self.gameCoreOwner takeScreenshot];
+    [_gameCoreOwner takeScreenshot];
 }
 
 - (void)fastForwardGameplay:(BOOL)enable
 {
-    [self.gameCoreOwner fastForwardGameplay:enable];
+    [_gameCoreOwner fastForwardGameplay:enable];
 }
 
 - (void)rewindGameplay:(BOOL)enable
 {
-    [self.gameCoreOwner rewindGameplay:enable];
+    // TODO: technically a data race, but it is only updating a single NSInteger
+    _filterChain.frameDirection = enable ? -1 : 1;
+    [_gameCoreOwner rewindGameplay:enable];
 }
 
 - (void)stepGameplayFrameForward:(id)sender
 {
-    [self.gameCoreOwner stepGameplayFrameForward];
+    [_gameCoreOwner stepGameplayFrameForward];
 }
 
 - (void)stepGameplayFrameBackward:(id)sender
 {
-    [self.gameCoreOwner stepGameplayFrameBackward];
+    [_gameCoreOwner stepGameplayFrameBackward];
 }
 
 - (void)nextDisplayMode:(id)sender
 {
-    [self.gameCoreOwner nextDisplayMode];
+    [_gameCoreOwner nextDisplayMode];
 }
 
 - (void)lastDisplayMode:(id)sender
 {
-    [self.gameCoreOwner lastDisplayMode];
+    [_gameCoreOwner lastDisplayMode];
 }
 
 @end

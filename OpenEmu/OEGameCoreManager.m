@@ -50,7 +50,7 @@ NSString * const OEGameCoreErrorDomain = @"OEGameCoreErrorDomain";
         _systemPlugin      = systemPlugin;
         _gameCoreOwner     = gameCoreOwner;
     }
-
+    
     return self;
 }
 
@@ -110,15 +110,46 @@ NSString * const OEGameCoreErrorDomain = @"OEGameCoreErrorDomain";
     [[self gameCoreHelper] changeDisplayWithMode:displayMode];
 }
 
-- (void)setupEmulationWithCompletionHandler:(void(^)(IOSurfaceID surfaceID, OEIntSize screenSize, OEIntSize aspectSize))handler;
+- (void)setOutputBounds:(NSRect)rect
 {
-    [[self gameCoreHelper] setupEmulationWithCompletionHandler:
-     ^(IOSurfaceID surfaceID, OEIntSize screenSize, OEIntSize aspectSize)
-     {
-         dispatch_async(dispatch_get_main_queue(), ^{
-             handler(surfaceID, screenSize, aspectSize);
-         });
-     }];
+    [[self gameCoreHelper] setOutputBounds:rect];
+}
+
+- (void)setBackingScaleFactor:(CGFloat)newScaleFactor
+{
+    [[self gameCoreHelper] setBackingScaleFactor:newScaleFactor];
+}
+
+- (void)setShaderURL:(NSURL *)url completionHandler:(void (^)(BOOL success, NSError *error))block
+{
+    [[self gameCoreHelper] setShaderURL:url completionHandler:^(BOOL success, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            block(success, error);
+        });
+    }];
+}
+
+- (void)shaderParamGroupsWithCompletionHandler:(void (^)(NSArray<OEShaderParamGroupValue *> *))handler
+{
+    [self.gameCoreHelper shaderParamGroupsWithCompletionHandler:^(NSArray<OEShaderParamGroupValue *> *groups) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            handler(groups);
+        });
+    }];
+}
+
+- (void)setShaderParameterValue:(CGFloat)value atIndex:(NSUInteger)index atGroupIndex:(NSUInteger)group
+{
+    [self.gameCoreHelper setShaderParameterValue:value atIndex:index atGroupIndex:group];
+}
+
+- (void)setupEmulationWithCompletionHandler:(void(^)(OEIntSize screenSize, OEIntSize aspectSize))handler;
+{
+    [[self gameCoreHelper] setupEmulationWithCompletionHandler:^(OEIntSize screenSize, OEIntSize aspectSize) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            handler(screenSize, aspectSize);
+        });
+    }];
 }
 
 - (void)startEmulationWithCompletionHandler:(void(^)(void))handler;
@@ -172,6 +203,20 @@ NSString * const OEGameCoreErrorDomain = @"OEGameCoreErrorDomain";
              block(success, error);
          });
      }];
+}
+
+- (void)captureOutputImageWithCompletionHandler:(void (^)(NSBitmapImageRep *image))block
+{
+    [[self gameCoreHelper] captureOutputImageWithCompletionHandler:^(NSBitmapImageRep *image) {
+        block(image);
+    }];
+}
+
+- (void)captureSourceImageWithCompletionHandler:(void (^)(NSBitmapImageRep *image))block
+{
+    [[self gameCoreHelper] captureSourceImageWithCompletionHandler:^(NSBitmapImageRep *image) {
+        block(image);
+    }];
 }
 
 - (void)handleMouseEvent:(OEEvent *)event

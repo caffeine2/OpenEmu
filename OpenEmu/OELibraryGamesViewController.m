@@ -45,19 +45,13 @@
 
 NSString * const OESkipDiscGuideMessageKey = @"OESkipDiscGuideMessageKey";
 
-@interface OELibraryGamesViewController ()
-@property (nonatomic, weak) IBOutlet NSVisualEffectView *sidebarVisualEffectView;
-@end
-
 @implementation OELibraryGamesViewController
 @synthesize libraryController = _libraryController;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.sidebarVisualEffectView.material = NSVisualEffectMaterialSidebar;
-    
+        
     [self _assignLibraryController];
 
     NSNotificationCenter *noc = [NSNotificationCenter defaultCenter];
@@ -102,8 +96,8 @@ NSString * const OESkipDiscGuideMessageKey = @"OESkipDiscGuideMessageKey";
     
     OECollectionViewControllerViewTag selectedViewTag = self.collectionController.selectedViewTag;
     BOOL setGridView = selectedViewTag == OEGridViewTag || selectedViewTag == OEBlankSlateTag;
-    toolbar.gridViewButton.state = setGridView ? NSOnState : NSOffState;
-    toolbar.listViewButton.state = !setGridView ? NSOnState : NSOffState;
+    toolbar.gridViewButton.state = setGridView ? NSControlStateValueOn : NSControlStateValueOff;
+    toolbar.listViewButton.state = !setGridView ? NSControlStateValueOn : NSControlStateValueOff;
 
     NSSearchField *field = toolbar.searchField;
     field.searchMenuTemplate = nil;
@@ -148,8 +142,8 @@ NSString * const OESkipDiscGuideMessageKey = @"OESkipDiscGuideMessageKey";
     
     // Update state of respective view menu items.
     NSMenu *viewMenu = [[[NSApp mainMenu] itemAtIndex:3] submenu];
-    [[viewMenu itemWithTag:MainMenu_View_GridTag] setState:NSOnState];
-    [[viewMenu itemWithTag:MainMenu_View_ListTag] setState:NSOffState];
+    [[viewMenu itemWithTag:MainMenu_View_GridTag] setState:NSControlStateValueOn];
+    [[viewMenu itemWithTag:MainMenu_View_ListTag] setState:NSControlStateValueOff];
 }
 
 - (IBAction)switchToListView:(id)sender
@@ -158,8 +152,8 @@ NSString * const OESkipDiscGuideMessageKey = @"OESkipDiscGuideMessageKey";
     
     // Update state of respective view menu items.
     NSMenu *viewMenu = [[[NSApp mainMenu] itemAtIndex:3] submenu];
-    [[viewMenu itemWithTag:MainMenu_View_GridTag] setState:NSOffState];
-    [[viewMenu itemWithTag:MainMenu_View_ListTag] setState:NSOnState];
+    [[viewMenu itemWithTag:MainMenu_View_GridTag] setState:NSControlStateValueOff];
+    [[viewMenu itemWithTag:MainMenu_View_ListTag] setState:NSControlStateValueOn];
 }
 
 - (IBAction)search:(id)sender
@@ -189,7 +183,7 @@ NSString * const OESkipDiscGuideMessageKey = @"OESkipDiscGuideMessageKey";
         
         alert.messageText = NSLocalizedString(@"Have you read the guide?", @"");
         alert.informativeText = NSLocalizedString(@"Disc-based games have special requirements. Please read the disc importing guide.", @"");
-        alert.alertStyle = NSInformationalAlertStyle;
+        alert.alertStyle = NSAlertStyleInformational;
         [alert addButtonWithTitle:NSLocalizedString(@"View Guide in Browser", @"")];
         [alert addButtonWithTitle:NSLocalizedString(@"Dismiss", @"")];
                 

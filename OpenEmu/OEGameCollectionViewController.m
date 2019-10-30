@@ -503,7 +503,7 @@ static NSString * const OESelectedGamesKey = @"OESelectedGamesKey";
     [openPanel setAllowedFileTypes:imageTypes];
 
     [openPanel beginWithCompletionHandler:^(NSInteger result) {
-        if(result != NSFileHandlingPanelOKButton)
+        if(result != NSModalResponseOK)
             return;
 
         NSArray *selectedGames = [self selectedGames];
@@ -730,7 +730,7 @@ static NSString * const OESelectedGamesKey = @"OESelectedGamesKey";
             {
                 NSMenuItem *alternateItem = [[NSMenuItem alloc] initWithTitle:itemTitle action:@selector(deleteSaveState:) keyEquivalent:@""];
                 [alternateItem setAlternate:YES];
-                [alternateItem setKeyEquivalentModifierMask:NSAlternateKeyMask];
+                [alternateItem setKeyEquivalentModifierMask:NSEventModifierFlagOption];
                 [alternateItem setRepresentedObject:saveState];
                 [saveGamesMenu addItem:alternateItem];
             }
@@ -767,11 +767,11 @@ static NSString * const OESelectedGamesKey = @"OESelectedGamesKey";
         NSMenuItem *item = [ratingMenu itemAtIndex:itemIndex];
 
         if(i==0)
-            [item setState:NSOnState];
-        else if([item state] != NSOnState)
+            [item setState:NSControlStateValueOn];
+        else if([item state] != NSControlStateValueOn)
         {
             valuesDiffer = YES;
-            [item setState:NSMixedState];
+            [item setState:NSControlStateValueMixed];
         }
     }
 
@@ -779,7 +779,7 @@ static NSString * const OESelectedGamesKey = @"OESelectedGamesKey";
     {
         NSNumber   *gameRating = [(OEDBGame *)[games objectAtIndex:0] rating];
         NSMenuItem *item = [ratingMenu itemAtIndex:[gameRating integerValue]];
-        [item setState:NSMixedState];
+        [item setState:NSControlStateValueMixed];
     }
 
     return ratingMenu;

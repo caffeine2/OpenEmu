@@ -12,11 +12,10 @@
 @class OEGameCore;
 @protocol OERenderDelegate;
 
-@protocol OEGameRenderer
+@protocol OEGameRenderer<NSObject>
 
 // Setup
 @property (nonatomic) OEGameCore   *gameCore;
-@property (nonatomic) IOSurfaceRef  ioSurface;
 @property (nonatomic) OEIntSize     surfaceSize;
 
 @property (nonatomic, readonly) id presentationFramebuffer;

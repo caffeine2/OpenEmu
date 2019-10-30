@@ -29,14 +29,23 @@
 #import <OpenEmuSystem/OpenEmuSystem.h>
 
 @class OEEvent;
+@class OEShaderParamGroupValue;
 
 @protocol OEGameCoreHelper <NSObject>
 
 - (void)setVolume:(CGFloat)value;
 - (void)setPauseEmulation:(BOOL)pauseEmulation;
 - (void)setAudioOutputDeviceID:(AudioDeviceID)deviceID;
+- (void)setOutputBounds:(NSRect)rect;
+- (void)setBackingScaleFactor:(CGFloat)newBackingScaleFactor;
 
-- (void)setupEmulationWithCompletionHandler:(void(^)(IOSurfaceID surfaceID, OEIntSize screenSize, OEIntSize aspectSize))handler;
+#pragma mark - Shader management
+- (void)setShaderURL:(NSURL *)url completionHandler:(void (^)(BOOL success, NSError *error))block;
+/*! fetch a list of shader parameters */
+- (void)shaderParamGroupsWithCompletionHandler:(void(^)(NSArray<OEShaderParamGroupValue *> *groups))handler;
+- (void)setShaderParameterValue:(CGFloat)value atIndex:(NSUInteger)index atGroupIndex:(NSUInteger)group;
+
+- (void)setupEmulationWithCompletionHandler:(void(^)(OEIntSize screenSize, OEIntSize aspectSize))handler;
 - (void)startEmulationWithCompletionHandler:(void(^)(void))handler;
 - (void)resetEmulationWithCompletionHandler:(void(^)(void))handler;
 - (void)stopEmulationWithCompletionHandler:(void(^)(void))handler;
@@ -56,6 +65,11 @@
 - (void)setHandleKeyboardEvents:(BOOL)handleKeyboardEvents;
 - (void)systemBindingsDidSetEvent:(OEHIDEvent *)event forBinding:(__kindof OEBindingDescription *)bindingDescription playerNumber:(NSUInteger)playerNumber;
 - (void)systemBindingsDidUnsetEvent:(OEHIDEvent *)event forBinding:(__kindof OEBindingDescription *)bindingDescription playerNumber:(NSUInteger)playerNumber;
+
+#pragma mark - screenshot support
+
+- (void)captureOutputImageWithCompletionHandler:(void (^)(NSBitmapImageRep *image))block;
+- (void)captureSourceImageWithCompletionHandler:(void (^)(NSBitmapImageRep *image))block;
 
 @end
 
@@ -80,11 +94,9 @@
 - (void)nextDisplayMode;
 - (void)lastDisplayMode;
 
-- (void)setEnableVSync:(BOOL)enable;
-- (void)setAspectSize:(OEIntSize)newAspectSize;
-- (void)setScreenSize:(OEIntSize)newScreenSize withIOSurfaceID:(IOSurfaceID)newSurfaceID;
-- (void)setScreenSize:(OEIntSize)newScreenSize aspectSize:(OEIntSize)newAspectSize withIOSurfaceID:(IOSurfaceID)newSurfaceID;
+- (void)setScreenSize:(OEIntSize)newScreenSize aspectSize:(OEIntSize)newAspectSize;
 - (void)setDiscCount:(NSUInteger)discCount;
 - (void)setDisplayModes:(NSArray <NSDictionary <NSString *, id> *> *)displayModes;
+- (void)setRemoteContextID:(NSUInteger)contextID;
 
 @end

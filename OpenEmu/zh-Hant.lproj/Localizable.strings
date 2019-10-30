@@ -106,6 +106,8 @@
 
 "Collections" = "收藏";
 
+"Configure Shader…" = "配置著色器…";
+
 "Consoles" = "主機";
 
 "Consolidate Files…" = "整合文件…";
@@ -422,7 +424,7 @@
 
 "Select Display Mode" = "顯示模式";
 
-"Select Filter" = "選擇濾鏡";
+"Select Shader" = "選擇著色器";
 
 "Select Scale" = "選擇縮放";
 
@@ -587,7 +589,7 @@
 
 "Take screenshots in native size" = "以原始尺寸拍攝螢幕快照";
 
-"Disable aspect ratio correction" = "禁用長寬比修正";
+"Disable aspect ratio correction in screenshots" = "禁用長寬比修正"; // TODO: specify "in screenshots"
 
 "Game View Background color" = "遊戲視圖背景顏色";
 

@@ -83,7 +83,7 @@
     
     NSRect trackRect = cellFrame;
     NSImage *image = [[OETheme sharedTheme] imageForKey:@"install_progress_track" forState:OEThemeStateDefault];
-    [image drawInRect:trackRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:YES hints:nil];
+    [image drawInRect:trackRect fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0 respectFlipped:YES hints:nil];
     
     NSRect progressRect = cellFrame;
     float value = [[self objectValue] floatValue];
@@ -93,6 +93,6 @@
     progressRect.size.width = progressRect.size.width < 12 ? 12 : roundf(progressRect.size.width);
 
     image = [[OETheme sharedTheme] imageForKey:@"install_progress_bar" forState:OEThemeStateDefault];
-    [image drawInRect:progressRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:YES hints:nil];
+    [image drawInRect:progressRect fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0 respectFlipped:YES hints:nil];
 }
 @end

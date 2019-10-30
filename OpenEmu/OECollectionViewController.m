@@ -180,7 +180,7 @@ static void *OEUserDefaultsDisplayGameTitleKVOContext = &OEUserDefaultsDisplayGa
     OETableHeaderCell *romStatusHeaderCell = [[listView tableColumnWithIdentifier:@"listViewStatus"] headerCell];
     [romStatusHeaderCell setClickable:NO];
 
-    [listView registerForDraggedTypes:[NSArray arrayWithObjects:NSFilenamesPboardType, nil]];
+    [listView registerForDraggedTypes:@[NSFilenamesPboardType]];
 
     for(NSTableColumn *aColumn in [listView tableColumns])
     {
@@ -193,7 +193,7 @@ static void *OEUserDefaultsDisplayGameTitleKVOContext = &OEUserDefaultsDisplayGa
     // Setup BlankSlate View
     [blankSlateView setDelegate:self];
     [blankSlateView setAutoresizingMask:NSViewWidthSizable|NSViewHeightSizable];
-    [blankSlateView registerForDraggedTypes:[NSArray arrayWithObjects:NSFilenamesPboardType, nil]];
+    [blankSlateView registerForDraggedTypes:@[NSFilenamesPboardType]];
     [blankSlateView setFrame:[[self view] bounds]];
 
     // If the view has been loaded after a collection has been set via -setRepresentedObject:, set the appropriate
@@ -409,13 +409,13 @@ static void *OEUserDefaultsDisplayGameTitleKVOContext = &OEUserDefaultsDisplayGa
     OELibraryToolbar *toolbar = self.libraryController.toolbar;
     switch (tag) {
         case OEGridViewTag:
-            toolbar.gridViewButton.state = NSOnState;
-            toolbar.listViewButton.state = NSOffState;
+            toolbar.gridViewButton.state = NSControlStateValueOn;
+            toolbar.listViewButton.state = NSControlStateValueOff;
             toolbar.gridSizeSlider.enabled = YES;
             break;
         case OEListViewTag:
-            toolbar.gridViewButton.state = NSOffState;
-            toolbar.listViewButton.state = NSOnState;
+            toolbar.gridViewButton.state = NSControlStateValueOff;
+            toolbar.listViewButton.state = NSControlStateValueOn;
             toolbar.gridSizeSlider.enabled = NO;
             break;
         case OEBlankSlateTag:
@@ -465,7 +465,7 @@ static void *OEUserDefaultsDisplayGameTitleKVOContext = &OEUserDefaultsDisplayGa
 
 - (OECollectionViewControllerViewTag)OE_currentViewTagByToolbarState
 {
-    if (self.libraryController.toolbar.gridViewButton.state == NSOnState)
+    if (self.libraryController.toolbar.gridViewButton.state == NSControlStateValueOn)
         return OEGridViewTag;
     else
         return OEListViewTag;

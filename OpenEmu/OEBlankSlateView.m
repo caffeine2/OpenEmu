@@ -111,7 +111,7 @@ NSString * const OECDBasedGamesUserGuideURLString = @"https://github.com/OpenEmu
 
     // Setup drag indication layer
     _dragIndicationLayer = [[CALayer alloc] init];
-    _dragIndicationLayer.borderColor = [[NSColor colorWithDeviceRed:0.03 green:0.41 blue:0.85 alpha:1.0] CGColor];
+    _dragIndicationLayer.borderColor = [[NSColor controlAccentColor] CGColor];
     _dragIndicationLayer.borderWidth = 2.0;
     _dragIndicationLayer.cornerRadius = 8.0;
     _dragIndicationLayer.hidden = YES;
@@ -321,7 +321,7 @@ NSString * const OECDBasedGamesUserGuideURLString = @"https://github.com/OpenEmu
         OEButton *gotoButton = [[OEButton alloc] initWithFrame:frame];
         
         gotoButton.autoresizingMask = NSViewWidthSizable;
-        gotoButton.alignment = NSLeftTextAlignment;
+        gotoButton.alignment = NSTextAlignmentLeft;
         gotoButton.imagePosition = NSImageRight;
         [gotoButton setThemeKey:@"open_weblink"];
         gotoButton.target = self;
@@ -403,7 +403,7 @@ NSString * const OECDBasedGamesUserGuideURLString = @"https://github.com/OpenEmu
     shadow.shadowBlurRadius = 0.0;
 
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-    style.alignment = NSCenterTextAlignment;
+    style.alignment = NSTextAlignmentCenter;
 
     defaultCell.textAttributes = @{ NSFontAttributeName : [NSFont systemFontOfSize:24],
                                     NSParagraphStyleAttributeName : style,

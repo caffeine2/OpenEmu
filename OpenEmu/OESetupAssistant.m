@@ -185,7 +185,7 @@ enum : OEFSMEventLabel
     [super viewDidAppear];
 
     NSWindow *window = [[self view] window];
-    [window setStyleMask:[window styleMask] ^ NSClosableWindowMask];
+    [window setStyleMask:[window styleMask] ^ NSWindowStyleMaskClosable];
 }
 
 - (void)viewWillDisappear
@@ -193,7 +193,7 @@ enum : OEFSMEventLabel
     [super viewWillDisappear];
     
     NSWindow *window = [[self view] window];
-    [window setStyleMask:[window styleMask] | NSClosableWindowMask];
+    [window setStyleMask:[window styleMask] | NSWindowStyleMaskClosable];
 }
 
 - (IBAction)processFSMButtonAction:(id)sender
@@ -204,7 +204,7 @@ enum : OEFSMEventLabel
 
 - (IBAction)processAllowGameScannerNextButtonAction:(id)sender
 {
-    OEFSMEventLabel event = ([[self allowScanForGames] state] == NSOnState ? _OEFSMNextWithCheckmarkEvent : _OEFSMNextWithoutCheckmarkEvent);
+    OEFSMEventLabel event = ([[self allowScanForGames] state] == NSControlStateValueOn ? _OEFSMNextWithCheckmarkEvent : _OEFSMNextWithoutCheckmarkEvent);
     [_fsm processEvent:event];
 }
 

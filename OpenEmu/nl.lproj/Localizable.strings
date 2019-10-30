@@ -106,6 +106,8 @@
 
 "Collections" = "Verzamelingen";
 
+"Configure Shader…" = "Shader configureren…";
+
 "Consoles" = "Consoles";
 
 "Consolidate Files…" = "Voeg bestanden samen…";
@@ -422,7 +424,7 @@
 
 "Select Display Mode" = "Selecteer weergavemodus";
 
-"Select Filter" = "Selecteer filter";
+"Select Shader" = "Selecteer shader";
 
 "Select Scale" = "Selecteer schaal";
 
@@ -587,7 +589,7 @@
 
 "Take screenshots in native size" = "Neem schermafbeeldingen in native grootte";
 
-"Disable aspect ratio correction" = "Schakel aspect ratio correctie uit";
+"Disable aspect ratio correction in screenshots" = "Schakel aspect ratio correctie uit"; // TODO: specify "in screenshots"
 
 "Game View Background color" = "Achtergrondkleur van spellenvenster";
 
@@ -656,3 +658,9 @@
 "Threshold for analog controls bound to buttons" = "Threshold for analog controls bound to buttons";    // TODO
 
 "Range: %@ to %@" = "Range: %@ to %@";  // Range indicator tooltip for numeric text boxes in the Debug Preferences // TODO
+
+"Default Value: %@" = "Default Value: %@";  // Default value tooltip format in the Debug Preferences // TODO
+
+"Checked" = "Checked";  // Default value tooltip for checkboxes: checked default // TODO
+
+"Unchecked" = "Unchecked";  // Default value tooltip for checkboxes: unchecked default // TODO

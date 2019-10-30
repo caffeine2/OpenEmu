@@ -52,9 +52,9 @@
             [menuItem setRepresentedObject:column];
         
             if([[headerState valueForKey:[column identifier]] boolValue])
-                [menuItem setState:NSOffState];
+                [menuItem setState:NSControlStateValueOff];
             else
-                [menuItem setState:NSOnState];
+                [menuItem setState:NSControlStateValueOn];
         
             [menu addItem:menuItem];
         }
@@ -76,7 +76,7 @@
     NSMutableDictionary *newHeaderState = [[NSMutableDictionary alloc] initWithDictionary:oldHeaderState];
     BOOL newState = ![[newHeaderState valueForKey:[column identifier]] boolValue];
 
-    [newHeaderState setValue:[NSNumber numberWithBool:newState] forKey:[column identifier]];
+    [newHeaderState setValue:@(newState) forKey:[column identifier]];
 
     [tableView setHeaderState:newHeaderState];
 }

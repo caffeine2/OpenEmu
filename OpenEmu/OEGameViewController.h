@@ -28,8 +28,8 @@
 #import "OEGameCoreHelper.h"
 
 extern NSString *const OEGameVolumeKey;
-extern NSString *const OEGameDefaultVideoFilterKey;
-extern NSString *const OEGameSystemVideoFilterKeyFormat;
+extern NSString *const OEGameDefaultVideoShaderKey;
+extern NSString *const OEGameSystemVideoShaderKeyFormat;
 extern NSString *const OEGameCoreDisplayModeKeyFormat;
 extern NSString *const OEGameCoresInBackgroundKey;
 extern NSString *const OEAutoSwitchCoreAlertSuppressionKey;
@@ -50,21 +50,34 @@ extern NSString *const OEScreenshotPropertiesKey;
 @class OEDBSaveState;
 
 @class OEGameView;
+@class OEGameLayerView;
 
 @class OEGameControlsBar;
 @class OEGameDocument;
 @class OEDBSaveState;
 
 @class OECorePlugin;
+@class OEGameViewController;
+
+@class OEShaderParamGroupValue;
 
 @protocol OEGameIntegralScalingDelegate;
+
+@protocol OEGameViewControllerDelegate <NSObject>
+- (void)gameViewController:(OEGameViewController *)sender didReceiveMouseEvent:(OEEvent *)event;
+- (void)gameViewController:(OEGameViewController *)sender updateBounds:(CGRect)newBounds;
+- (void)gameViewController:(OEGameViewController *)sender updateBackingScaleFactor:(CGFloat)newScaleFactor;
+- (void)gameViewController:(OEGameViewController *)sender setShaderURL:(NSURL *)url completionHandler:(void (^)(BOOL success, NSError *error))block;
+- (void)gameViewController:(OEGameViewController *)sender shaderParamGroupsWithCompletionHandler:(void (^)(NSArray<OEShaderParamGroupValue *> *))handler;
+- (void)gameViewController:(OEGameViewController *)sender setShaderParameterValue:(CGFloat)value atIndex:(NSUInteger)index atGroupIndex:(NSUInteger)group;
+
+@end
 
 @interface OEGameViewController : NSViewController
 
 #pragma mark -
 
 @property(strong) OEGameControlsBar *controlsWindow;
-@property(readonly) OEGameView *gameView;
 
 @property(unsafe_unretained) id<OEGameIntegralScalingDelegate> integralScalingDelegate;
 
@@ -75,31 +88,41 @@ extern NSString *const OEScreenshotPropertiesKey;
 @property(readonly) BOOL supportsMultipleDiscs;
 @property(readonly) BOOL supportsFileInsertion;
 @property(readonly) BOOL supportsDisplayModeChange;
-@property(readonly) NSUInteger discCount;
-@property(readonly) NSArray <NSDictionary <NSString *, id> *> *displayModes;
 @property(readonly) NSString *coreIdentifier;
 @property(readonly) NSString *systemIdentifier;
 
-- (NSImage *)takeNativeScreenshot;
+- (void)setScreenSize:(OEIntSize)newScreenSize aspectSize:(OEIntSize)newAspectSize;
 
 - (void)reflectVolume:(float)volume;
 - (void)reflectEmulationPaused:(BOOL)paused;
 #pragma mark - HUD Bar Actions
 // switchCore:: expects sender or [sender representedObject] to be an OECorePlugin object and prompts the user for confirmation
-- (void)selectFilter:(id)sender;
+- (void)selectShader:(id)sender;
+- (void)configureShader:(id)sender;
 - (void)toggleControlsVisibility:(id)sender;
 
 #pragma mark - Taking Screenshots
+- (NSImage *)screenshot;
 - (IBAction)takeScreenshot:(id)sender;
 
 #pragma mark - Info
 @property(readonly) NSSize defaultScreenSize;
 
-- (void)setEnableVSync:(BOOL)enable;
-- (void)setAspectSize:(OEIntSize)newAspectSize;
-- (void)setScreenSize:(OEIntSize)newScreenSize withIOSurfaceID:(IOSurfaceID)newSurfaceID;
-- (void)setScreenSize:(OEIntSize)newScreenSize aspectSize:(OEIntSize)newAspectSize withIOSurfaceID:(IOSurfaceID)newSurfaceID;
-- (void)setDiscCount:(NSUInteger)discCount;
-- (void)setDisplayModes:(NSArray <NSDictionary <NSString *, id> *> *)displayModes;
+@property (readonly) OEIntSize aspectSize;
+@property (readonly) OEIntSize screenSize;
+@property (nonatomic) NSUInteger discCount;
+@property (nonatomic) NSArray <NSDictionary <NSString *, id> *> *displayModes;
+@property (nonatomic) NSUInteger remoteContextID;
+
+@end
+
+@interface OEGameViewController (Notifications)
+
+- (void)showQuickSaveNotification;
+- (void)showScreenShotNotification;
+- (void)showFastForwardNotification:(BOOL)enable;
+- (void)showRewindNotification:(BOOL)enable;
+- (void)showStepForwardNotification;
+- (void)showStepBackwardNotification;
 
 @end

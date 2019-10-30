@@ -106,6 +106,8 @@
 
 "Collections" = "Col·leccions";
 
+"Configure Shader…" = "Configurar el shader…";
+
 "Consoles" = "Consoles";
 
 "Consolidate Files…" = "Consolida els fitxers…";
@@ -422,7 +424,7 @@
 
 "Select Display Mode" = "Selecciona el mode de visualització";
 
-"Select Filter" = "Selecciona el filtre";
+"Select Shader" = "Selecciona el shader";
 
 "Select Scale" = "Selecciona l'escala";
 
@@ -587,7 +589,7 @@
 
 "Take screenshots in native size" = "Fes les captures de pantalla en la mida nativa";
 
-"Disable aspect ratio correction" = "Desactiva la correcció de la relació de l'aspecte";
+"Disable aspect ratio correction in screenshots" = "Desactiva la correcció de la relació de l'aspecte"; // TODO: specify "in screenshots"
 
 "Game View Background color" = "Color de fons de la vista del joc";
 
@@ -656,3 +658,9 @@
 "Threshold for analog controls bound to buttons" = "Llindar de la vinculació dels controls analògics amb els botons";
 
 "Range: %@ to %@" = "Interval: %@ a %@";  // Range indicator tooltip for numeric text boxes in the Debug Preferences
+
+"Default Value: %@" = "Default Value: %@";  // Default value tooltip format in the Debug Preferences // TODO
+
+"Checked" = "Checked";  // Default value tooltip for checkboxes: checked default // TODO
+
+"Unchecked" = "Unchecked";  // Default value tooltip for checkboxes: unchecked default // TODO

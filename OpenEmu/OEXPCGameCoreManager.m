@@ -31,13 +31,12 @@
 #import "OESystemPlugin.h"
 #import "OEThreadProxy.h"
 #import <OpenEmuXPCCommunicator/OpenEmuXPCCommunicator.h>
+#import "OEShaderParamValue.h"
 
 @interface OEXPCGameCoreManager ()
 {
     NSTask          *_backgroundProcessTask;
     NSString        *_processIdentifier;
-    NSPipe          *_standardOutputPipe;
-    NSPipe          *_standardErrorPipe;
 
     NSXPCConnection *_helperConnection;
     OEThreadProxy   *_gameCoreOwnerProxy;
@@ -110,10 +109,15 @@
 
          self->_gameCoreOwnerProxy = [OEThreadProxy threadProxyWithTarget:[self gameCoreOwner] thread:[NSThread mainThread]];
          self->_helperConnection = [[NSXPCConnection alloc] initWithListenerEndpoint:endpoint];
+        
          [self->_helperConnection setExportedInterface:[NSXPCInterface interfaceWithProtocol:@protocol(OEGameCoreOwner)]];
          [self->_helperConnection setExportedObject:self->_gameCoreOwnerProxy];
 
-         [self->_helperConnection setRemoteObjectInterface:[NSXPCInterface interfaceWithProtocol:@protocol(OEXPCGameCoreHelper)]];
+         NSXPCInterface *intf = [NSXPCInterface interfaceWithProtocol:@protocol(OEXPCGameCoreHelper)];
+         NSSet *set = [NSSet setWithObjects:OEShaderParamValue.class, NSArray.class, OEShaderParamGroupValue.class, nil];
+         [intf setClasses:set forSelector:@selector(shaderParamGroupsWithCompletionHandler:) argumentIndex:0 ofReply:YES];
+        
+         [self->_helperConnection setRemoteObjectInterface:intf];
          [self->_helperConnection resume];
 
          __block void *gameCoreHelperPointer;
@@ -172,20 +176,26 @@
     if (logCoreOutput) {
         NSLog(@"Will log core output for %@", _processIdentifier);
         
-        _standardOutputPipe = [NSPipe pipe];
-        int output_fildes = _standardOutputPipe.fileHandleForReading.fileDescriptor;
+        __block int fildes[2] = {0};
+        pipe(fildes);
+        NSFileHandle *writeFh = [[NSFileHandle alloc] initWithFileDescriptor:fildes[1] closeOnDealloc:YES];
+        [_backgroundProcessTask setStandardOutput:writeFh];
+        [_backgroundProcessTask setStandardError:writeFh];
         
-        [_backgroundProcessTask setStandardOutput:_standardOutputPipe];
-        dispatch_read(output_fildes, 72, dispatch_get_main_queue(), ^(dispatch_data_t data, int error){
-            [self _didReceiveData:(NSData*)data posixError:error fileDescriptor:output_fildes name:@"stdout"];
-        });
-
-        _standardErrorPipe = [NSPipe pipe];
-        int error_fildes = _standardErrorPipe.fileHandleForReading.fileDescriptor;
-        
-        [_backgroundProcessTask setStandardError:_standardErrorPipe];
-        dispatch_read(error_fildes, 72, dispatch_get_main_queue(), ^(dispatch_data_t data, int error) {
-            [self _didReceiveData:(NSData*)data posixError:error fileDescriptor:error_fildes name:@"stderr"];
+        int readFildes = fildes[0];
+        NSString *pidcopy = _processIdentifier;
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
+            FILE *fp = fdopen(readFildes, "r");
+            char *linep = NULL;
+            size_t linecap = 0;
+            ssize_t linelen = getline(&linep, &linecap, fp);
+            while (linelen > 0) {
+                fputs(linep, stdout);
+                linelen = getline(&linep, &linecap, fp);
+            }
+            free(linep);
+            fclose(fp);
+            NSLog(@"Helper app %@ has terminated", pidcopy);
         });
     } else {
         /* Do not even receive the core output if we're not doing anything with it
@@ -219,39 +229,10 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 
     _backgroundProcessTask = nil;
-    _standardOutputPipe    = nil;
-    _standardErrorPipe     = nil;
 
     DLog(@"Did stop background process.");
 
     [self selfRelease];
-}
-
-- (void)_didReceiveData:(NSData *)data posixError:(int)error fileDescriptor:(int)fildes name:(NSString *)name
-{
-    // If the length of the data is zero, then the task is basically over - there is nothing
-    // more to get from the handle so we may as well shut down.
-    if([data length] > 0 || error)
-    {
-        if (error) {
-            DLog(@"POSIX error while reading XPC helper %@: %d", name, error);
-            // POSIX file read errors are not always fatal
-        }
-        
-        // Send the data on to the controller; we can't just use +stringWithUTF8String: here
-        // because -[data bytes] is not necessarily a properly terminated string.
-        // -initWithData:encoding: on the other hand checks -[data length]
-        fprintf(stderr, "%s\n", [[NSString stringWithFormat:@"background process %@: %@: %@", name, [_processIdentifier substringToIndex:[_processIdentifier rangeOfString:@" # "].location], [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]] UTF8String]);
-
-        dispatch_read(fildes, 72, dispatch_get_main_queue(), ^(dispatch_data_t data, int error) {
-            [self _didReceiveData:(NSData*)data posixError:error fileDescriptor:fildes name:name];
-        });
-    }
-    else
-    {
-        // We're finished here
-        DLog(@"background process %@: %@ EOF", _processIdentifier, name);
-    }
 }
 
 

@@ -29,7 +29,6 @@
 #import "OEHUDWindow.h"
 #import "OEGameDocument.h"
 #import "OEGameViewController.h"
-#import "OEGameView.h"
 #import "OEGameControlsBar.h"
 #import "OEUtilities.h"
 
@@ -64,7 +63,7 @@ typedef enum
 
 @interface OEScreenshotWindow : NSWindow
 @property(nonatomic, unsafe_unretained) NSImageView *screenshotView;
-@property(nonatomic, unsafe_unretained) NSImage     *screenshot;
+- (void)setScreenshot:(NSImage *)screenshot;
 @end
 
 
@@ -285,7 +284,7 @@ typedef enum
     NSScreen *mainScreen                     = [[NSScreen screens] objectAtIndex:0];
     const NSRect screenFrame                 = [mainScreen frame];
     _screenshotWindow  = [[OEScreenshotWindow alloc] initWithContentRect:screenFrame
-                                                               styleMask:NSBorderlessWindowMask
+                                                               styleMask:NSWindowStyleMaskBorderless
                                                                  backing:NSBackingStoreBuffered
                                                                    defer:NO];
     [_screenshotWindow setBackgroundColor:[NSColor clearColor]];
@@ -452,7 +451,6 @@ typedef enum
 - (void)window:(NSWindow *)window startCustomAnimationToEnterFullScreenWithDuration:(NSTimeInterval)duration
 {
     OEGameViewController *gameViewController = [[self OE_gameDocument] gameViewController];
-    OEGameView *gameView                     = [gameViewController gameView];
     CALayer *layer                           = [[_screenshotWindow screenshotView] layer];
     NSView *contentView                      = [(OEHUDWindow *)window mainContentView];
     NSScreen *mainScreen                     = [[NSScreen screens] objectAtIndex:0];
@@ -463,8 +461,8 @@ typedef enum
     const NSRect screenshotWindowFrame       = [self OE_screenshotWindowFrameForOriginalFrame:contentFrame];
     const NSRect fullScreenWindowFrame       = [self OE_screenshotWindowFrameForOriginalFrame:screenFrame];
 
-
-    [_screenshotWindow setScreenshot:[gameView screenshot]];
+    // TODO: Get screenshots from the document.
+    [_screenshotWindow setScreenshot:[gameViewController screenshot]];
     [self OE_forceLayerReposition:layer toFrame:screenshotWindowFrame];
     [_screenshotWindow orderFront:self];
 
@@ -542,7 +540,6 @@ typedef enum
 - (void)window:(NSWindow *)window startCustomAnimationToExitFullScreenWithDuration:(NSTimeInterval)duration
 {
     OEGameViewController *gameViewController = [[self OE_gameDocument] gameViewController];
-    OEGameView *gameView                     = [gameViewController gameView];
     CALayer *layer                           = [[_screenshotWindow screenshotView] layer];
     NSView *contentView                      = [(OEHUDWindow *)window mainContentView];
     NSScreen *mainScreen                     = [[NSScreen screens] objectAtIndex:0];
@@ -551,7 +548,8 @@ typedef enum
     const NSTimeInterval showBorderDuration  = duration / 4;
     const NSTimeInterval resizeDuration      = duration - showBorderDuration;
 
-    [_screenshotWindow setScreenshot:[gameView screenshot]];
+    // TODO: Get screenshots from the document.
+    [_screenshotWindow setScreenshot:[gameViewController screenshot]];
     [self OE_forceLayerReposition:layer toFrame:fullScreenGameArea];
     [_screenshotWindow orderFront:self];
 

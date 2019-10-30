@@ -133,10 +133,6 @@
 }
 
 #pragma mark - Scroller Drawing
-- (void)drawArrow:(NSScrollerArrow)arrow highlight:(BOOL)flag
-{
-    return [super drawArrow:arrow highlight:flag];
-}
 
 - (void)drawKnobSlotInRect:(NSRect)slotRect highlight:(BOOL)flag
 {
@@ -146,7 +142,7 @@
     NSRect bounds = [self bounds];
     OEThemeState state = [self OE_currentState];
     NSImage *image = [[self trackImage] imageForState:state];
-    [image drawInRect:bounds fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:YES hints:nil];
+    [image drawInRect:bounds fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0 respectFlipped:YES hints:nil];
 }
 
 - (void)drawKnob
@@ -159,7 +155,7 @@
     OEThemeState state = [self OE_currentState];
     NSImage *knobImage = [[self knobImage] imageForState:state];
 
-    [knobImage drawInRect:targetRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:YES hints:nil];
+    [knobImage drawInRect:targetRect fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0 respectFlipped:YES hints:nil];
 }
 
 - (NSRect)rectForPart:(NSScrollerPart)aPart{    
